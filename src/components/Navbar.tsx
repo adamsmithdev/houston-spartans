@@ -86,32 +86,35 @@ export default function Navbar() {
 	return (
 		<nav className="navbar">
 			<div className="nav-container">
-				<div className="nav-logo">
+				<Link href="/" className="nav-logo">
 					<Image
 						src="/images/logo.png"
 						alt="Houston Spartans"
 						width={30}
 						height={30}
 					/>
-				</div>
+				</Link>
 				<div className="nav-menu" id="nav-menu">
-					<Link href="#home" className="nav-link">
+					<Link href="/" className="nav-link">
 						Home
 					</Link>
-					<Link href="#about" className="nav-link">
+					<Link href="/" className="nav-link">
 						About
 					</Link>
-					<Link href="#teams" className="nav-link">
-						Teams
-					</Link>
-					<Link href="#creators" className="nav-link">
-						Creators
-					</Link>
-					<Link href="#news" className="nav-link">
+					<Link href="/" className="nav-link">
 						News
 					</Link>
-					<Link href="#contact" className="nav-link">
+					<Link href="/" className="nav-link">
 						Contact
+					</Link>
+					<Link href="/" className="nav-link">
+						Teams
+					</Link>
+					<Link href="/" className="nav-link">
+						Creators
+					</Link>
+					<Link href="/" className="nav-link">
+						Partners
 					</Link>
 					<Link
 						href={HOUSTON_SPARTANS_STORE_URL}
