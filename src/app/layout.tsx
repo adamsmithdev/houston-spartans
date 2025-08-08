@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import './globals.css';
 import '@/styles/sections/index.css';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import BackToTop from '@/components/BackToTop';
 
 const montserrat = Montserrat({
 	variable: '--font-montserrat',
@@ -49,7 +52,12 @@ export default function RootLayout({
 					href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 				/>
 			</head>
-			<body className={`${montserrat.variable} antialiased`}>{children}</body>
+			<body className={`${montserrat.variable} antialiased`}>
+				<Navbar />
+				{children}
+				<Footer />
+				<BackToTop />
+			</body>
 		</html>
 	);
 }
