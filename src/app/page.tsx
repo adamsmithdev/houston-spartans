@@ -14,91 +14,96 @@ import Footer from '@/components/Footer';
 import BackToTop from '@/components/BackToTop';
 
 export default function Home() {
-  useEffect(() => {
-    // Mobile Navigation Toggle
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const navbar = document.querySelector('.navbar');
+	useEffect(() => {
+		// Mobile Navigation Toggle
+		const navToggle = document.getElementById('nav-toggle');
+		const navMenu = document.getElementById('nav-menu');
+		const navLinks = document.querySelectorAll('.nav-link');
+		const navbar = document.querySelector('.navbar');
 
-    // Navbar scroll effect
-    const handleScroll = () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      
-      if (scrollTop > 50) {
-        navbar?.classList.add('scrolled');
-      } else {
-        navbar?.classList.remove('scrolled');
-      }
-    };
+		// Navbar scroll effect
+		const handleScroll = () => {
+			const scrollTop =
+				window.pageYOffset || document.documentElement.scrollTop;
 
-    window.addEventListener('scroll', handleScroll);
+			if (scrollTop > 50) {
+				navbar?.classList.add('scrolled');
+			} else {
+				navbar?.classList.remove('scrolled');
+			}
+		};
 
-    // Toggle mobile menu
-    const handleNavToggle = () => {
-      navMenu?.classList.toggle('active');
-      
-      // Animate hamburger menu
-      const bars = navToggle?.querySelectorAll('.bar');
-      bars?.forEach((bar, index) => {
-        if (navMenu?.classList.contains('active')) {
-          if (index === 0) (bar as HTMLElement).style.transform = 'rotate(-45deg) translate(-5px, 6px)';
-          if (index === 1) (bar as HTMLElement).style.opacity = '0';
-          if (index === 2) (bar as HTMLElement).style.transform = 'rotate(45deg) translate(-5px, -6px)';
-        } else {
-          (bar as HTMLElement).style.transform = 'none';
-          (bar as HTMLElement).style.opacity = '1';
-        }
-      });
-    };
+		window.addEventListener('scroll', handleScroll);
 
-    navToggle?.addEventListener('click', handleNavToggle);
+		// Toggle mobile menu
+		const handleNavToggle = () => {
+			navMenu?.classList.toggle('active');
 
-    // Close mobile menu when clicking on a link
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu?.classList.remove('active');
-        const bars = navToggle?.querySelectorAll('.bar');
-        bars?.forEach(bar => {
-          (bar as HTMLElement).style.transform = 'none';
-          (bar as HTMLElement).style.opacity = '1';
-        });
-      });
-    });
+			// Animate hamburger menu
+			const bars = navToggle?.querySelectorAll('.bar');
+			bars?.forEach((bar, index) => {
+				if (navMenu?.classList.contains('active')) {
+					if (index === 0)
+						(bar as HTMLElement).style.transform =
+							'rotate(-45deg) translate(-5px, 6px)';
+					if (index === 1) (bar as HTMLElement).style.opacity = '0';
+					if (index === 2)
+						(bar as HTMLElement).style.transform =
+							'rotate(45deg) translate(-5px, -6px)';
+				} else {
+					(bar as HTMLElement).style.transform = 'none';
+					(bar as HTMLElement).style.opacity = '1';
+				}
+			});
+		};
 
-    // Back to top functionality
-    const backToTopButton = document.getElementById('back-to-top');
-    const handleBackToTopScroll = () => {
-      if (window.pageYOffset > 300) {
-        backToTopButton?.classList.add('visible');
-      } else {
-        backToTopButton?.classList.remove('visible');
-      }
-    };
+		navToggle?.addEventListener('click', handleNavToggle);
 
-    window.addEventListener('scroll', handleBackToTopScroll);
+		// Close mobile menu when clicking on a link
+		navLinks.forEach((link) => {
+			link.addEventListener('click', () => {
+				navMenu?.classList.remove('active');
+				const bars = navToggle?.querySelectorAll('.bar');
+				bars?.forEach((bar) => {
+					(bar as HTMLElement).style.transform = 'none';
+					(bar as HTMLElement).style.opacity = '1';
+				});
+			});
+		});
 
-    // Cleanup
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('scroll', handleBackToTopScroll);
-      navToggle?.removeEventListener('click', handleNavToggle);
-    };
-  }, []);
+		// Back to top functionality
+		const backToTopButton = document.getElementById('back-to-top');
+		const handleBackToTopScroll = () => {
+			if (window.pageYOffset > 300) {
+				backToTopButton?.classList.add('visible');
+			} else {
+				backToTopButton?.classList.remove('visible');
+			}
+		};
 
-  return (
-    <>
-      <Navbar />
-      <Hero />
-      <Mission />
-      <Partners />
-      <Community />
-      <Merch />
-      <Spartans />
-      <News />
-      <Contact />
-      <Footer />
-      <BackToTop />
-    </>
-  );
+		window.addEventListener('scroll', handleBackToTopScroll);
+
+		// Cleanup
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+			window.removeEventListener('scroll', handleBackToTopScroll);
+			navToggle?.removeEventListener('click', handleNavToggle);
+		};
+	}, []);
+
+	return (
+		<>
+			<Navbar />
+			<Hero />
+			<Mission />
+			<Partners />
+			<Community />
+			<Merch />
+			<Spartans />
+			<News />
+			<Contact />
+			<Footer />
+			<BackToTop />
+		</>
+	);
 }

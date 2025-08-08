@@ -156,8 +156,14 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: linear-gradient(135deg, rgba(17, 16, 16, 0.8) 0%, rgba(26, 26, 26, 0.6) 50%, rgba(17, 16, 16, 0.8) 100%), 
-	            url('/images/backdrops/backdrop-hero.png');
+	background:
+		linear-gradient(
+			135deg,
+			rgba(17, 16, 16, 0.8) 0%,
+			rgba(26, 26, 26, 0.6) 50%,
+			rgba(17, 16, 16, 0.8) 100%
+		),
+		url('/images/backdrops/backdrop-hero.png');
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
@@ -180,9 +186,22 @@ body {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background: radial-gradient(circle at 20% 50%, rgba(188, 22, 22, 0.15) 0%, transparent 50%),
-	            radial-gradient(circle at 80% 30%, rgba(131, 49, 49, 0.1) 0%, transparent 50%),
-	            radial-gradient(circle at 40% 80%, rgba(188, 22, 22, 0.08) 0%, transparent 50%);
+	background:
+		radial-gradient(
+			circle at 20% 50%,
+			rgba(188, 22, 22, 0.15) 0%,
+			transparent 50%
+		),
+		radial-gradient(
+			circle at 80% 30%,
+			rgba(131, 49, 49, 0.1) 0%,
+			transparent 50%
+		),
+		radial-gradient(
+			circle at 40% 80%,
+			rgba(188, 22, 22, 0.08) 0%,
+			transparent 50%
+		);
 	animation: float 20s ease-in-out infinite;
 }
 
@@ -192,11 +211,13 @@ body {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: linear-gradient(45deg, 
-	    rgba(188, 22, 22, 0.1) 0%, 
-	    transparent 25%, 
-	    transparent 75%, 
-	    rgba(131, 49, 49, 0.1) 100%);
+	background: linear-gradient(
+		45deg,
+		rgba(188, 22, 22, 0.1) 0%,
+		transparent 25%,
+		transparent 75%,
+		rgba(131, 49, 49, 0.1) 100%
+	);
 	animation: gradientShift 15s ease-in-out infinite;
 }
 
@@ -255,9 +276,15 @@ body {
 	animation-fill-mode: both;
 }
 
-.description-highlight:nth-child(1) { --delay: 0.2s; }
-.description-highlight:nth-child(2) { --delay: 0.4s; }
-.description-highlight:nth-child(3) { --delay: 0.6s; }
+.description-highlight:nth-child(1) {
+	--delay: 0.2s;
+}
+.description-highlight:nth-child(2) {
+	--delay: 0.4s;
+}
+.description-highlight:nth-child(3) {
+	--delay: 0.6s;
+}
 
 .hero-cta {
 	display: flex;
@@ -304,7 +331,12 @@ body {
 	left: -100%;
 	width: 100%;
 	height: 100%;
-	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+	background: linear-gradient(
+		90deg,
+		transparent,
+		rgba(255, 255, 255, 0.2),
+		transparent
+	);
 	transition: left 0.5s;
 }
 
@@ -641,43 +673,73 @@ body {
 		transform: translateX(0);
 	}
 	100% {
-		transform: translateX(-2400px); /* 10 logos × (200px width + 40px margins) = 2400px */
+		transform: translateX(
+			-2400px
+		); /* 10 logos × (200px width + 40px margins) = 2400px */
 	}
 }
 
 @keyframes titleGlow {
-	from { 
-		filter: brightness(1) drop-shadow(0 0 10px rgba(188, 22, 22, 0.3)); 
+	from {
+		filter: brightness(1) drop-shadow(0 0 10px rgba(188, 22, 22, 0.3));
 	}
-	to { 
-		filter: brightness(1.1) drop-shadow(0 0 20px rgba(188, 22, 22, 0.5)); 
+	to {
+		filter: brightness(1.1) drop-shadow(0 0 20px rgba(188, 22, 22, 0.5));
 	}
 }
 
 @keyframes float {
-	0%, 100% { transform: translateY(0px) rotate(0deg); }
-	33% { transform: translateY(-20px) rotate(1deg); }
-	66% { transform: translateY(10px) rotate(-1deg); }
+	0%,
+	100% {
+		transform: translateY(0px) rotate(0deg);
+	}
+	33% {
+		transform: translateY(-20px) rotate(1deg);
+	}
+	66% {
+		transform: translateY(10px) rotate(-1deg);
+	}
 }
 
 @keyframes gradientShift {
-	0%, 100% { opacity: 0.3; }
-	50% { opacity: 0.6; }
+	0%,
+	100% {
+		opacity: 0.3;
+	}
+	50% {
+		opacity: 0.6;
+	}
 }
 
 @keyframes slideInUp {
-	from { transform: translateY(30px); opacity: 0; }
-	to { transform: translateY(0); opacity: 1; }
+	from {
+		transform: translateY(30px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
 }
 
 @keyframes scrollBounce {
-	0%, 100% { transform: translateY(0px); }
-	50% { transform: translateY(-8px); }
+	0%,
+	100% {
+		transform: translateY(0px);
+	}
+	50% {
+		transform: translateY(-8px);
+	}
 }
 
 @keyframes chevronFloat {
-	0%, 100% { transform: translateY(0px); }
-	50% { transform: translateY(3px); }
+	0%,
+	100% {
+		transform: translateY(0px);
+	}
+	50% {
+		transform: translateY(3px);
+	}
 }
 
 /* Responsive Design */

@@ -1,68 +1,68 @@
 /* Card Base Styles */
 .card {
-  border-radius: 10px;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(188, 22, 22, 0.2);
+	border-radius: 10px;
+	transition: all 0.3s ease;
+	border: 1px solid rgba(188, 22, 22, 0.2);
 }
 
 .card.hover:hover {
-  transform: translateY(-10px);
+	transform: translateY(-10px);
 }
 
 /* Card Variants */
 .default {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 30px;
+	background: rgba(255, 255, 255, 0.05);
+	padding: 30px;
 }
 
 .default.hover:hover {
-  background: rgba(188, 22, 22, 0.1);
-  border-color: #bc1616;
+	background: rgba(188, 22, 22, 0.1);
+	border-color: #bc1616;
 }
 
 .mission {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 40px 30px;
-  text-align: center;
+	background: rgba(255, 255, 255, 0.05);
+	padding: 40px 30px;
+	text-align: center;
 }
 
 .mission.hover:hover {
-  background: rgba(188, 22, 22, 0.1);
-  border-color: #bc1616;
+	background: rgba(188, 22, 22, 0.1);
+	border-color: #bc1616;
 }
 
 .spartan {
-  background: rgba(17, 16, 16, 0.98);
-  padding: 30px;
-  text-align: center;
+	background: rgba(17, 16, 16, 0.98);
+	padding: 30px;
+	text-align: center;
 }
 
 .spartan.hover:hover {
-  background: rgba(188, 22, 22, 0.1);
-  border-color: #bc1616;
+	background: rgba(188, 22, 22, 0.1);
+	border-color: #bc1616;
 }
 
 .news {
-  background: rgba(255, 255, 255, 0.05);
-  overflow: hidden;
+	background: rgba(255, 255, 255, 0.05);
+	overflow: hidden;
 }
 
 .news.hover:hover {
-  background: rgba(188, 22, 22, 0.1);
-  border-color: #bc1616;
+	background: rgba(188, 22, 22, 0.1);
+	border-color: #bc1616;
 }
 
 .communityStep {
-  display: flex;
-  gap: 20px;
-  padding: 25px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
-  border-left: 4px solid #bc1616;
-  backdrop-filter: blur(10px);
+	display: flex;
+	gap: 20px;
+	padding: 25px;
+	background: rgba(255, 255, 255, 0.05);
+	border-radius: 15px;
+	border-left: 4px solid #bc1616;
+	backdrop-filter: blur(10px);
 }
 
 .communityStep.hover:hover {
-  background: rgba(188, 22, 22, 0.1);
-  transform: translateX(10px);
+	background: rgba(188, 22, 22, 0.1);
+	transform: translateX(10px);
 }
