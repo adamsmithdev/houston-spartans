@@ -98,22 +98,22 @@ export default function Navbar() {
 					<Link href="/" className="nav-link">
 						Home
 					</Link>
-					<Link href="/" className="nav-link">
+					<Link href="/about" className="nav-link">
 						About
 					</Link>
-					<Link href="/" className="nav-link">
+					<Link href="/news" className="nav-link">
 						News
 					</Link>
-					<Link href="/" className="nav-link">
+					<Link href="/contact" className="nav-link">
 						Contact
 					</Link>
-					<Link href="/" className="nav-link">
+					<Link href="/teams" className="nav-link">
 						Teams
 					</Link>
-					<Link href="/" className="nav-link">
+					<Link href="/creators" className="nav-link">
 						Creators
 					</Link>
-					<Link href="/" className="nav-link">
+					<Link href="/partners" className="nav-link">
 						Partners
 					</Link>
 					<Link

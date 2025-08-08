@@ -67,9 +67,116 @@ body {
 	}
 }
 
-@media (min-width: 1400px) {
-	.nav-container {
-		padding: 0 60px;
+/* Placeholder Pages */
+.placeholder-hero {
+	background:
+		linear-gradient(135deg, rgba(17, 16, 16, 0.9), rgba(188, 22, 22, 0.1)),
+		url('/images/backdrops/backdrop-red.png') center/cover;
+	padding: 120px 0 80px;
+	text-align: center;
+	min-height: 40vh;
+	display: flex;
+	align-items: center;
+}
+
+.placeholder-hero h1 {
+	font-size: 3.5rem;
+	font-weight: 700;
+	margin-bottom: 20px;
+	color: #ffffff;
+}
+
+.placeholder-hero .subtitle {
+	font-size: 1.2rem;
+	color: rgba(255, 255, 255, 0.8);
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.placeholder-content {
+	padding: 80px 0;
+	background: #0f0e0e;
+}
+
+.construction-notice {
+	text-align: center;
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 60px 40px;
+	background: rgba(17, 16, 16, 0.8);
+	border-radius: 20px;
+	border: 1px solid rgba(188, 22, 22, 0.2);
+}
+
+.construction-icon {
+	font-size: 4rem;
+	color: #bc1616;
+	margin-bottom: 30px;
+	animation: bounce 2s infinite;
+}
+
+.construction-notice h2 {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-bottom: 20px;
+	color: #ffffff;
+}
+
+.construction-notice p {
+	font-size: 1.1rem;
+	color: rgba(255, 255, 255, 0.8);
+	margin-bottom: 15px;
+	line-height: 1.6;
+}
+
+.discord-link {
+	color: #7289da;
+	text-decoration: none;
+	font-weight: 600;
+	transition: color 0.3s ease;
+}
+
+.discord-link:hover {
+	color: #5865f2;
+}
+
+.placeholder-contact-info {
+	margin-top: 30px !important;
+	font-size: 1rem !important;
+}
+
+@keyframes bounce {
+	0%,
+	20%,
+	50%,
+	80%,
+	100% {
+		transform: translateY(0);
+	}
+	40% {
+		transform: translateY(-10px);
+	}
+	60% {
+		transform: translateY(-5px);
+	}
+}
+
+@media (max-width: 768px) {
+	.placeholder-hero h1 {
+		font-size: 2.5rem;
+	}
+
+	.construction-notice {
+		padding: 40px 20px;
+		margin: 0 20px;
+	}
+
+	.construction-icon {
+		font-size: 3rem;
+	}
+
+	.construction-notice h2 {
+		font-size: 2rem;
 	}
 }
 
