@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { FacebookIcon, XIcon, InstagramIcon, LinktreeIcon } from './icons';
 
 export default function Footer() {
   return (
@@ -15,17 +16,17 @@ export default function Footer() {
           
           <div className="footer-section">
             <div className="social-media">
-              <Link href="#" aria-label="Follow us on Facebook">
-                <i className="fab fa-facebook"></i>
+              <Link href="https://www.facebook.com/TheHoustonSpartans" target='_blank' aria-label="Follow us on Facebook">
+                <FacebookIcon />
               </Link>
-              <Link href="#" aria-label="Follow us on X/Twitter">
-                <i className="fab fa-x-twitter"></i>
+              <Link href="https://x.com/HTownSpartansGG" target='_blank' aria-label="Follow us on X/Twitter">
+                <XIcon />
               </Link>
-              <Link href="#" aria-label="Follow us on Instagram">
-                <i className="fab fa-instagram"></i>
+              <Link href="https://www.instagram.com/htownspartansgg/" target='_blank' aria-label="Follow us on Instagram">
+                <InstagramIcon />
               </Link>
-              <Link href="#" aria-label="Visit our Linktree">
-                <i className="fas fa-link"></i>
+              <Link href="https://linktr.ee/HoustonSpartans" target='_blank' aria-label="Visit our Linktree">
+                <LinktreeIcon />
               </Link>
             </div>
           </div>
@@ -36,7 +37,7 @@ export default function Footer() {
             <Link href="#">Terms & Conditions</Link>
             <Link href="#">Privacy Policy</Link>
             <Link href="#">FAQs</Link>
-            <Link href="#">Home</Link>
+            <Link href="https://www.houstonspartans.com">Home</Link>
           </div>
           <p className="copyright">© 2025 Houston Spartans. All rights reserved.</p>
         </div>

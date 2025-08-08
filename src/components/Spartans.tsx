@@ -1,35 +1,43 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { KickIcon, XIcon, TwitchIcon, TikTokIcon, YouTubeIcon } from './icons';
 
 const spartans = [
   {
     id: 'ciscodisco',
     name: 'CISCODISCO',
+    realName: '',
     role: 'CONTENT CREATOR',
     image: '/images/headshots/profile-ciscodisco.png',
     social: [
-      { platform: 'twitter', url: '#', icon: 'fab fa-x-twitter' },
-      { platform: 'youtube', url: '#', icon: 'fab fa-youtube' }
+      { platform: 'twitter', url: 'https://x.com/ciscodisco1618', icon: <XIcon /> },
+      { platform: 'twitch', url: 'https://www.twitch.tv/ciscodisco1618', icon: <TwitchIcon /> },
+      { platform: 'kick', url: 'https://kick.com/ciscodisco1618', icon: <KickIcon /> },
+      { platform: 'tiktok', url: 'https://www.tiktok.com/@ciscodisco1618', icon: <TikTokIcon /> },
+      { platform: 'youtube', url: 'https://www.youtube.com/@CiscoDisco1618', icon: <YouTubeIcon /> },
     ]
   },
   {
     id: 'kevology',
     name: 'KEVOLOGY',
-    realName: 'KEVIN TUCKER',
+    realName: 'Kevin Tucker',
     role: 'ASSISTANT',
     image: '/images/headshots/profile-kevology.png',
     social: [
-      { platform: 'twitter', url: '#', icon: 'fab fa-x-twitter' }
+      { platform: 'twitter', url: 'https://x.com/xkevology', icon: <XIcon /> },
+      { platform: 'kick', url: 'https://kick.com/kevology', icon: <KickIcon /> },
+      { platform: 'tiktok', url: 'https://www.tiktok.com/@xkevologyx', icon: <TikTokIcon /> },
     ]
   },
   {
     id: 'apollo',
     name: 'APOLLO',
-    realName: 'TRAE PANCERELLA',
+    realName: 'Trae Pancerella',
     role: 'CALL OF DUTY DIRECTOR',
     image: '/images/headshots/profile-apollo.png',
     social: [
-      { platform: 'twitter', url: '#', icon: 'fab fa-x-twitter' }
+      { platform: 'twitter', url: 'https://x.com/ihyapollo', icon: <XIcon /> },
+      { platform: 'twitch', url: 'https://www.twitch.tv/ihy_apollo', icon: <TwitchIcon /> },
     ]
   }
 ];
@@ -49,12 +57,12 @@ export default function Spartans() {
               </div>
               <div className="spartan-info">
                 <h3>{spartan.name}</h3>
-                {spartan.realName && <p>{spartan.realName}</p>}
+                <p>{spartan.realName}</p>
                 <span className="role">{spartan.role}</span>
                 <div className="social-links">
                   {spartan.social.map((social) => (
-                    <Link key={`${spartan.id}-${social.platform}`} href={social.url} aria-label={`Follow ${spartan.name} on ${social.platform}`}>
-                      <i className={social.icon}></i>
+                    <Link key={`${spartan.id}-${social.platform}`} href={social.url} target='_blank' aria-label={`Follow ${spartan.name} on ${social.platform}`}>
+                      {social.icon}
                     </Link>
                   ))}
                 </div>

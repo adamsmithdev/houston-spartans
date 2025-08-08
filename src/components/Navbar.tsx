@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { DiscordIcon } from './icons';
 import { HOUSTON_SPARTANS_STORE_URL } from '@/constants';
 
 export default function Navbar() {
@@ -25,7 +26,7 @@ export default function Navbar() {
             target="_blank" 
             rel="noopener noreferrer"
           >
-            <i className="fab fa-discord"></i> Join Discord
+            <DiscordIcon /> Join Discord
           </Link>
         </div>
         <div className="nav-toggle" id="nav-toggle">

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Button, ButtonGroup } from '@/components/ui';
+import { DiscordIcon } from './icons';
 
 export default function Community() {
   return (
@@ -53,7 +54,7 @@ export default function Community() {
             </div>
             <div className="step">
               <div className="step-number">
-                <i className="fab fa-discord"></i>
+                <DiscordIcon />
               </div>
               <div className="step-content">
                 <h3>JOIN THE DISCORD SERVER</h3>

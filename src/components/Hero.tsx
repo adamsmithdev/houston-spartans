@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { DiscordIcon } from './icons';
 
 export default function Hero() {
   return (
@@ -19,7 +20,7 @@ export default function Hero() {
         </p>
         <div className="hero-cta">
           <a href="https://discord.gg/fP5Ek7Xv3A" target="_blank" rel="noopener noreferrer" className="cta-button primary">
-            <i className="fab fa-discord"></i>
+            <DiscordIcon />
             <span>JOIN THE SPARTANS</span>
             <div className="button-shine"></div>
           </a>
