@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { HOUSTON_SPARTANS_STORE_URL } from '@/constants';
 
 export default function Navbar() {
   return (
@@ -15,7 +16,7 @@ export default function Navbar() {
           <Link href="#creators" className="nav-link">Creators</Link>
           <Link href="#news" className="nav-link">News</Link>
           <Link href="#contact" className="nav-link">Contact</Link>
-          <Link href="https://store.houstonspartans.com" className="nav-link" target="_blank" rel="noopener noreferrer">
+          <Link href={HOUSTON_SPARTANS_STORE_URL} className="nav-link" target="_blank" rel="noopener noreferrer">
             Store
           </Link>
           <Link 

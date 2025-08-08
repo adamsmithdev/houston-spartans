@@ -1,4 +1,5 @@
 import { Container } from '@/components/ui';
+import { HOUSTON_SPARTANS_STORE_URL } from '@/constants';
 
 export default function Merch() {
   return (
@@ -9,7 +10,7 @@ export default function Merch() {
       <Container>
         <div className="merch-content">
           <h2>SPARTAN MERCH IS LIVE</h2>
-          <a href="https://store.houstonspartans.com" target="_blank" rel="noopener noreferrer" className="merch-cta-btn">
+          <a href={HOUSTON_SPARTANS_STORE_URL} target="_blank" rel="noopener noreferrer" className="merch-cta-btn">
             <i className="fas fa-shopping-cart"></i>
             <span>GET YOURS NOW</span>
             <i className="fas fa-arrow-right"></i>
