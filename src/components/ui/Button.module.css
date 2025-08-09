@@ -73,6 +73,7 @@
 	border-radius: 25px;
 	box-shadow: 0 10px 30px rgba(188, 22, 22, 0.3);
 	width: 100%;
+	justify-content: center;
 }
 
 .button-submit:hover:not(:disabled) {

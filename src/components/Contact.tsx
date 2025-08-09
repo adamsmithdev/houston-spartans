@@ -1,7 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { Container } from '@/components/ui';
+import Link from 'next/link';
+import { Container, Button } from '@/components/ui';
+import { DiscordIcon, XIcon, InstagramIcon, FacebookIcon } from './icons';
 import styles from './Contact.module.css';
 
 interface FormData {
@@ -129,11 +131,10 @@ export default function Contact() {
 									required
 								/>
 							</div>
-							<button type="submit" className={styles.submitBtn}>
+							<Button type="submit" variant="submit">
 								SUBMIT
-							</button>
+							</Button>
 						</form>
-						<p className={styles.contactText}>FEEL FREE TO CONTACT US</p>
 					</div>
 
 					<div className={styles.contactInfo}>
@@ -144,6 +145,44 @@ export default function Contact() {
 						<div className={styles.infoItem}>
 							<h3>EMAIL ADDRESS</h3>
 							<p>houstontxspartans@gmail.com</p>
+						</div>
+						<div className={styles.infoItem}>
+							<h3>JOIN OUR COMMUNITY</h3>
+							<p>Connect with us on social media and Discord!</p>
+							<div className={styles.socialLinks}>
+								<Link
+									href="https://discord.gg/fP5Ek7Xv3A"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Join our Discord"
+								>
+									<DiscordIcon />
+								</Link>
+								<Link
+									href="https://x.com/HTownSpartansGG"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Follow us on X/Twitter"
+								>
+									<XIcon />
+								</Link>
+								<Link
+									href="https://www.instagram.com/htownspartansgg/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Follow us on Instagram"
+								>
+									<InstagramIcon />
+								</Link>
+								<Link
+									href="https://www.facebook.com/TheHoustonSpartans"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Follow us on Facebook"
+								>
+									<FacebookIcon />
+								</Link>
+							</div>
 						</div>
 					</div>
 				</div>

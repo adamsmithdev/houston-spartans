@@ -1,0 +1,128 @@
+/* Contact Hero Section */
+.contactHero {
+	padding: 120px 0 80px;
+	background: linear-gradient(135deg, #111010 0%, #1a1a1a 100%);
+	position: relative;
+	overflow: hidden;
+}
+
+.contactHero::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-image: url('/images/backdrops/backdrop-red.png');
+	background-size: cover;
+	background-position: center;
+	opacity: 0.1;
+	z-index: 1;
+}
+
+.heroContent {
+	text-align: center;
+	position: relative;
+	z-index: 2;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.contactHero h1 {
+	font-size: 3.5rem;
+	font-weight: 700;
+	margin-bottom: 30px;
+	color: #ffffff;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+.heroDescription {
+	font-size: 1.3rem;
+	color: #b5a5a5;
+	margin-bottom: 50px;
+	line-height: 1.6;
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.contactMethods {
+	display: flex;
+	justify-content: center;
+	gap: 60px;
+	margin-top: 40px;
+}
+
+.method {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 15px;
+	padding: 30px 20px;
+	background: rgba(255, 255, 255, 0.05);
+	border-radius: 15px;
+	border: 1px solid rgba(188, 22, 22, 0.2);
+	transition: all 0.3s ease;
+	min-width: 150px;
+}
+
+.method:hover {
+	transform: translateY(-10px);
+	background: rgba(188, 22, 22, 0.1);
+	border-color: #bc1616;
+}
+
+.method i {
+	font-size: 2.5rem;
+	color: #bc1616;
+	transition: transform 0.3s ease;
+}
+
+.method:hover i {
+	transform: scale(1.2);
+}
+
+.method span {
+	color: #ffffff;
+	font-weight: 600;
+	font-size: 1.1rem;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.contactHero {
+		padding: 100px 0 60px;
+	}
+
+	.contactHero h1 {
+		font-size: 2.8rem;
+	}
+
+	.heroDescription {
+		font-size: 1.1rem;
+		margin-bottom: 40px;
+	}
+
+	.contactMethods {
+		flex-direction: column;
+		gap: 30px;
+		align-items: center;
+	}
+
+	.method {
+		min-width: 200px;
+	}
+}
+
+@media (max-width: 480px) {
+	.contactHero h1 {
+		font-size: 2.2rem;
+	}
+
+	.heroDescription {
+		font-size: 1rem;
+	}
+}

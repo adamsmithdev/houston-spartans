@@ -76,36 +76,6 @@
 	color: #b5a5a5;
 }
 
-.submitBtn {
-	width: 100%;
-	padding: 15px 30px;
-	background: linear-gradient(45deg, var(--primary-red), #ff6666);
-	color: white;
-	border: none;
-	border-radius: 5px;
-	font-size: 1.1rem;
-	font-weight: 600;
-	cursor: pointer;
-	transition: all 0.3s ease;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	margin-top: 20px;
-	z-index: 5;
-	position: relative;
-	pointer-events: auto;
-}
-
-.submitBtn:hover {
-	transform: translateY(-3px);
-	box-shadow: 0 15px 40px rgba(188, 22, 22, 0.4);
-}
-
-.contactText {
-	color: #ffffff;
-	margin-top: 20px;
-	font-size: 1.1rem;
-}
-
 .contactInfo {
 	display: flex;
 	flex-direction: column;
@@ -121,6 +91,38 @@
 .infoItem p {
 	color: #b5a5a5;
 	font-size: 1.1rem;
+}
+
+.socialLinks {
+	display: flex;
+	gap: 15px;
+	margin-top: 15px;
+}
+
+.socialLinks a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 45px;
+	height: 45px;
+	color: white;
+	transition: all 0.3s ease;
+	text-decoration: none;
+	border-radius: 8px;
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(188, 22, 22, 0.3);
+}
+
+.socialLinks a:hover {
+	color: #bc1616;
+	transform: translateY(-3px);
+	background: rgba(188, 22, 22, 0.1);
+	border-color: #bc1616;
+}
+
+.socialLinks svg {
+	width: 20px;
+	height: 20px;
 }
 
 .missionStatement {
@@ -148,5 +150,46 @@
 @media (max-width: 480px) {
 	.contact {
 		padding: 60px 0;
+	}
+}
+
+/* Notification Styles */
+.notification {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	padding: 15px 20px;
+	border-radius: 8px;
+	color: white;
+	font-weight: 600;
+	z-index: 1000;
+	min-width: 300px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+	animation: slideIn 0.3s ease-out;
+}
+
+.notificationSuccess {
+	background: linear-gradient(135deg, #22c55e, #16a34a);
+	border-left: 4px solid #15803d;
+}
+
+.notificationError {
+	background: linear-gradient(135deg, #ef4444, #dc2626);
+	border-left: 4px solid #b91c1c;
+}
+
+.notificationInfo {
+	background: linear-gradient(135deg, #3b82f6, #2563eb);
+	border-left: 4px solid #1d4ed8;
+}
+
+@keyframes slideIn {
+	from {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
 	}
 }
