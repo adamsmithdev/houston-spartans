@@ -1,0 +1,82 @@
+/* About Mission Section Styles */
+.missionSection {
+	padding: 80px 0;
+	background: #1a1a1a;
+}
+
+.missionContent {
+	margin-top: 60px;
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.missionText {
+	color: #cccccc;
+	line-height: 1.8;
+	margin-bottom: 24px;
+	font-size: 1.1rem;
+}
+
+.missionText:last-child {
+	margin-bottom: 0;
+}
+
+.readMoreContainer {
+	margin-top: 30px;
+	text-align: center;
+}
+
+.readMore {
+	color: #bc1616;
+	text-decoration: none;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	transition: color 0.3s ease;
+	border: 2px solid #bc1616;
+	padding: 12px 24px;
+	border-radius: 4px;
+	display: inline-block;
+}
+
+.readMore:hover {
+	color: white;
+	background-color: #bc1616;
+}
+
+.competitionSection {
+	margin-top: 60px;
+	display: flex;
+	justify-content: center;
+}
+
+.cardIcon {
+	margin-bottom: 20px;
+}
+
+.cardIcon i {
+	font-size: 3rem;
+	color: #bc1616;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.missionSection {
+		padding: 60px 0;
+	}
+
+	.missionContent {
+		margin-top: 40px;
+	}
+
+	.missionText {
+		font-size: 1rem;
+		margin-bottom: 20px;
+	}
+
+	.competitionSection {
+		margin-top: 40px;
+	}
+}

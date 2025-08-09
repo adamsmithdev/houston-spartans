@@ -1,0 +1,32 @@
+/* About Hero Section Styles */
+.aboutHero {
+	padding: 120px 0 80px;
+	background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+}
+
+.aboutHero::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: url('/images/backdrops/backdrop-secondary.png') center/cover;
+	opacity: 0.1;
+	z-index: 0;
+}
+
+.aboutHero > div {
+	position: relative;
+	z-index: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.aboutHero {
+		padding: 100px 0 60px;
+	}
+}

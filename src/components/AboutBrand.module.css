@@ -1,0 +1,143 @@
+/* About Brand Section Styles */
+.brandSection {
+	padding: 80px 0;
+	background: #1a1a1a;
+}
+
+.brandContent {
+	margin-top: 60px;
+}
+
+.mottoSection {
+	text-align: center;
+	margin-bottom: 80px;
+}
+
+.motto {
+	font-size: 2.5rem;
+	font-weight: 700;
+	color: #bc1616;
+	margin: 0 0 40px 0;
+	font-style: italic;
+	position: relative;
+}
+
+.motto::before,
+.motto::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	width: 60px;
+	height: 2px;
+	background: #bc1616;
+}
+
+.motto::before {
+	left: -80px;
+}
+
+.motto::after {
+	right: -80px;
+}
+
+.mottoDescription {
+	color: #cccccc;
+	line-height: 1.8;
+	font-size: 1.1rem;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.brandGuideSection {
+	display: flex;
+	justify-content: center;
+}
+
+.brandGuideCard {
+	max-width: 400px;
+	text-align: center;
+}
+
+.brandGuideLink {
+	display: block;
+	text-decoration: none;
+	color: #ffffff;
+	transition: transform 0.3s ease;
+}
+
+.brandGuideLink:hover {
+	transform: translateY(-5px);
+}
+
+.brandGuideImage {
+	margin-bottom: 20px;
+	border-radius: 8px;
+	overflow: hidden;
+	border: 2px solid #333333;
+	transition: border-color 0.3s ease;
+}
+
+.brandGuideLink:hover .brandGuideImage {
+	border-color: #bc1616;
+}
+
+.placeholderImage {
+	width: 100%;
+	height: 250px;
+	background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 4rem;
+	color: #bc1616;
+}
+
+.brandGuideCard h3 {
+	font-size: 1.2rem;
+	font-weight: 600;
+	line-height: 1.4;
+	color: #ffffff;
+	transition: color 0.3s ease;
+}
+
+.brandGuideLink:hover h3 {
+	color: #bc1616;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.brandSection {
+		padding: 60px 0;
+	}
+
+	.brandContent {
+		margin-top: 40px;
+	}
+
+	.mottoSection {
+		margin-bottom: 60px;
+	}
+
+	.motto {
+		font-size: 2rem;
+		margin-bottom: 30px;
+	}
+
+	.motto::before,
+	.motto::after {
+		display: none;
+	}
+
+	.mottoDescription {
+		font-size: 1rem;
+	}
+
+	.placeholderImage {
+		height: 200px;
+		font-size: 3rem;
+	}
+
+	.brandGuideCard h3 {
+		font-size: 1.1rem;
+	}
+}

@@ -82,7 +82,7 @@ export default function Partners() {
 				</div>
 
 				<ButtonGroup>
-					<Button variant="view-all">
+					<Button href="/partners" variant="view-all">
 						ALL PARTNERS <i className="fas fa-arrow-right"></i>
 					</Button>
 				</ButtonGroup>
