@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { Container, SectionHeading } from '@/components/ui';
 import styles from './AboutBrand.module.css';
 import globalStyles from '@/styles/globals.module.css';
@@ -31,24 +30,6 @@ export default function AboutBrand() {
 							brand.
 						</p>
 					</div>
-
-					{/* <div className={styles.brandGuideSection}>
-						<div className={styles.brandGuideCard}>
-							<Link
-								href="/documents/branding-guide.pdf"
-								target="_blank"
-								rel="noopener noreferrer"
-								className={styles.brandGuideLink}
-							>
-								<div className={styles.brandGuideImage}>
-									<div className={styles.placeholderImage}>
-										<i className="fas fa-file-pdf"></i>
-									</div>
-								</div>
-								<h3>CLICK THIS PHOTO TO VIEW BRANDING AND STYLE GUIDE</h3>
-							</Link>
-						</div>
-					</div> */}
 				</div>
 			</Container>
 		</section>
