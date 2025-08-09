@@ -1,6 +1,5 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import { Container, SectionHeading } from '@/components/ui';
+import SpartanCard from './SpartanCard';
 import { KickIcon, XIcon, TwitchIcon, TikTokIcon, YouTubeIcon } from './icons';
 import styles from './Spartans.module.css';
 import globalStyles from '@/styles/globals.module.css';
@@ -8,11 +7,11 @@ import globalStyles from '@/styles/globals.module.css';
 const spartans = [
 	{
 		id: 'ciscodisco',
-		name: 'CISCODISCO',
-		realName: '',
-		role: 'CONTENT CREATOR',
-		image: '/images/headshots/profile-ciscodisco.png',
-		social: [
+		fullName: '',
+		gamertag: 'CISCODISCO',
+		orgRole: 'CONTENT CREATOR',
+		picture: '/images/headshots/profile-ciscodisco.png',
+		socialLinks: [
 			{
 				platform: 'twitter',
 				url: 'https://x.com/ciscodisco1618',
@@ -42,11 +41,11 @@ const spartans = [
 	},
 	{
 		id: 'kevology',
-		name: 'KEVOLOGY',
-		realName: 'Kevin Tucker',
-		role: 'ASSISTANT',
-		image: '/images/headshots/profile-kevology.png',
-		social: [
+		fullName: 'Kevin Tucker',
+		gamertag: 'KEVOLOGY',
+		orgRole: 'ASSISTANT',
+		picture: '/images/headshots/profile-kevology.png',
+		socialLinks: [
 			{ platform: 'twitter', url: 'https://x.com/xkevology', icon: <XIcon /> },
 			{
 				platform: 'kick',
@@ -62,11 +61,11 @@ const spartans = [
 	},
 	{
 		id: 'apollo',
-		name: 'APOLLO',
-		realName: 'Trae Pancerella',
-		role: 'CALL OF DUTY DIRECTOR',
-		image: '/images/headshots/profile-apollo.png',
-		social: [
+		fullName: 'Trae Pancerella',
+		gamertag: 'APOLLO',
+		orgRole: 'CALL OF DUTY DIRECTOR',
+		picture: '/images/headshots/profile-apollo.png',
+		socialLinks: [
 			{ platform: 'twitter', url: 'https://x.com/ihyapollo', icon: <XIcon /> },
 			{
 				platform: 'twitch',
@@ -87,33 +86,15 @@ export default function Spartans() {
 
 				<div className={styles.spartansGrid}>
 					{spartans.map((spartan) => (
-						<div key={spartan.id} className={styles.spartanCard}>
-							<div className={styles.spartanImage}>
-								<Image
-									src={spartan.image}
-									alt={spartan.name}
-									width={120}
-									height={120}
-								/>
-							</div>
-							<div className={styles.spartanInfo}>
-								<h3>{spartan.name}</h3>
-								<p>{spartan.realName}</p>
-								<span className={styles.role}>{spartan.role}</span>
-								<div className={styles.socialLinks}>
-									{spartan.social.map((social) => (
-										<Link
-											key={`${spartan.id}-${social.platform}`}
-											href={social.url}
-											target="_blank"
-											aria-label={`Follow ${spartan.name} on ${social.platform}`}
-										>
-											{social.icon}
-										</Link>
-									))}
-								</div>
-							</div>
-						</div>
+						<SpartanCard
+							key={spartan.id}
+							id={spartan.id}
+							fullName={spartan.fullName}
+							gamertag={spartan.gamertag}
+							orgRole={spartan.orgRole}
+							picture={spartan.picture}
+							socialLinks={spartan.socialLinks}
+						/>
 					))}
 				</div>
 
