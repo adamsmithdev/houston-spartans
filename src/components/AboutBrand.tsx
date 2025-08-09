@@ -35,7 +35,7 @@ export default function AboutBrand() {
 					<div className={styles.brandGuideSection}>
 						<div className={styles.brandGuideCard}>
 							<Link
-								href="https://houstonspartans.com/wp-content/uploads/2024/09/BrandingGuide_Fall2024SpartansFinal.pdf"
+								href="/documents/branding-guide.pdf"
 								target="_blank"
 								rel="noopener noreferrer"
 								className={styles.brandGuideLink}

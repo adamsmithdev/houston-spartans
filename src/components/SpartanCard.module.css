@@ -1,0 +1,148 @@
+/* Spartan Card Component Styles */
+.spartanCard {
+	text-align: center;
+	padding: 40px 20px;
+	background: #1a1a1a;
+	border-radius: 8px;
+	border: 1px solid rgba(188, 22, 22, 0.2);
+	transition:
+		transform 0.3s ease,
+		box-shadow 0.3s ease;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.spartanCard:hover {
+	transform: translateY(-10px);
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.imageContainer {
+	margin-bottom: 30px;
+}
+
+.profileImage {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	border: 4px solid #bc1616;
+	object-fit: cover;
+}
+
+.initialsAvatar {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	border: 4px solid #bc1616;
+	background: linear-gradient(135deg, #bc1616 0%, #ff6666 100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2.5rem;
+	font-weight: 700;
+	color: white;
+	margin: 0 auto;
+	transition: transform 0.3s ease;
+}
+
+.placeholderAvatar {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	border: 4px solid #bc1616;
+	background: rgba(188, 22, 22, 0.2);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2.5rem;
+	color: #bc1616;
+	margin: 0 auto;
+}
+
+.spartanCard:hover .initialsAvatar {
+	transform: scale(1.05);
+}
+
+.spartanInfo {
+	color: #ffffff;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.spartanName {
+	font-size: 1.5rem;
+	font-weight: 700;
+	margin-bottom: 8px;
+	color: #ffffff;
+}
+
+.spartanGamertag {
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: #bc1616;
+	margin-bottom: 8px;
+}
+
+.spartanRole {
+	font-size: 0.9rem;
+	color: #cccccc;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin-bottom: 20px;
+}
+
+.socialLinks {
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+	margin-top: auto;
+}
+
+.socialLink {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	color: white;
+	transition: all 0.3s ease;
+	text-decoration: none;
+}
+
+.socialLink:hover {
+	color: #bc1616;
+	transform: translateY(-2px);
+}
+
+.socialLink svg {
+	width: 18px;
+	height: 18px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.spartanCard {
+		padding: 30px 15px;
+	}
+
+	.profileImage,
+	.initialsAvatar,
+	.placeholderAvatar {
+		width: 120px;
+		height: 120px;
+	}
+
+	.initialsAvatar {
+		font-size: 2rem;
+	}
+
+	.placeholderAvatar {
+		font-size: 2rem;
+	}
+
+	.spartanName {
+		font-size: 1.3rem;
+	}
+}

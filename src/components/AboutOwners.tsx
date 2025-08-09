@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import { Container, SectionHeading } from '@/components/ui';
+import SpartanCard from '@/components/SpartanCard';
 import { XIcon } from '@/components/icons';
 import styles from './AboutOwners.module.css';
 import globalStyles from '@/styles/globals.module.css';
@@ -7,23 +7,31 @@ import globalStyles from '@/styles/globals.module.css';
 const owners = [
 	{
 		id: 'papa-spart',
-		name: 'CHRIS CERVANTEZ',
-		nickname: 'PAPA SPART',
-		role: 'OWNER',
-		initials: 'CC',
-		social: {
-			twitter: 'https://x.com/PapaSpart78',
-		},
+		fullName: 'CHRIS CERVANTEZ',
+		gamertag: 'PAPA SPART',
+		orgRole: 'OWNER',
+		picture: '/images/headshots/profile-papaspart.png',
+		socialLinks: [
+			{
+				platform: 'twitter',
+				url: 'https://x.com/PapaSpart78',
+				icon: <XIcon />,
+			},
+		],
 	},
 	{
 		id: 'mama-spart',
-		name: 'ANITA CERVANTEZ',
-		nickname: 'MAMA SPART',
-		role: 'OWNER',
-		initials: 'AC',
-		social: {
-			twitter: 'https://x.com/MamaSpart',
-		},
+		fullName: 'ANITA CERVANTEZ',
+		gamertag: 'MAMA SPART',
+		orgRole: 'OWNER',
+		picture: '/images/headshots/profile-mamaspart.png',
+		socialLinks: [
+			{
+				platform: 'twitter',
+				url: 'https://x.com/MamaSpart',
+				icon: <XIcon />,
+			},
+		],
 	},
 ];
 
@@ -31,38 +39,24 @@ export default function AboutOwners() {
 	return (
 		<section className={styles.ownersSection}>
 			<Container>
-				<SectionHeading level={2}>
+				<SectionHeading
+					level={2}
+					description="Get to know the owners of the Houston Spartans"
+				>
 					OUR <span className={globalStyles.headingHighlight}>OWNERS</span>
 				</SectionHeading>
 
-				<p className={styles.subtitle}>
-					Get to know a few of our Houston Spartans
-				</p>
-
 				<div className={styles.ownersGrid}>
 					{owners.map((owner) => (
-						<div key={owner.id} className={styles.ownerCard}>
-							<div className={styles.imageContainer}>
-								<div className={styles.ownerInitials}>{owner.initials}</div>
-							</div>
-
-							<div className={styles.ownerInfo}>
-								<h3 className={styles.ownerName}>{owner.name}</h3>
-								<p className={styles.ownerNickname}>{owner.nickname}</p>
-								<p className={styles.ownerRole}>{owner.role}</p>
-
-								<div className={styles.socialLinks}>
-									<Link
-										href={owner.social.twitter}
-										target="_blank"
-										rel="noopener noreferrer"
-										className={styles.socialLink}
-									>
-										<XIcon />
-									</Link>
-								</div>
-							</div>
-						</div>
+						<SpartanCard
+							key={owner.id}
+							id={owner.id}
+							fullName={owner.fullName}
+							gamertag={owner.gamertag}
+							orgRole={owner.orgRole}
+							picture={owner.picture}
+							socialLinks={owner.socialLinks}
+						/>
 					))}
 				</div>
 			</Container>

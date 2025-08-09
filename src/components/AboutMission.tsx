@@ -1,5 +1,9 @@
-import Link from 'next/link';
-import { Container, SectionHeading, Card } from '@/components/ui';
+import {
+	Container,
+	SectionHeading,
+	Button,
+	ButtonGroup,
+} from '@/components/ui';
 import styles from './AboutMission.module.css';
 import globalStyles from '@/styles/globals.module.css';
 
@@ -29,13 +33,15 @@ export default function AboutMission() {
 					</p>
 
 					<div className={styles.readMoreContainer}>
-						<Link href="/teams" className={styles.readMore}>
-							READ MORE
-						</Link>
+						<ButtonGroup>
+							<Button href="/teams" variant="view-all">
+								OUR TEAMS <i className="fas fa-arrow-right"></i>
+							</Button>
+						</ButtonGroup>
 					</div>
 				</div>
 
-				<div className={styles.competitionSection}>
+				{/* <div className={styles.competitionSection}>
 					<Card variant="mission">
 						<div className={styles.cardIcon}>
 							<i className="fas fa-trophy"></i>
@@ -43,7 +49,7 @@ export default function AboutMission() {
 						<h3>COMPETITION</h3>
 						<p>Competing for the main event</p>
 					</Card>
-				</div>
+				</div> */}
 			</Container>
 		</section>
 	);
