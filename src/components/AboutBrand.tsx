@@ -32,7 +32,7 @@ export default function AboutBrand() {
 						</p>
 					</div>
 
-					<div className={styles.brandGuideSection}>
+					{/* <div className={styles.brandGuideSection}>
 						<div className={styles.brandGuideCard}>
 							<Link
 								href="/documents/branding-guide.pdf"
@@ -48,7 +48,7 @@ export default function AboutBrand() {
 								<h3>CLICK THIS PHOTO TO VIEW BRANDING AND STYLE GUIDE</h3>
 							</Link>
 						</div>
-					</div>
+					</div> */}
 				</div>
 			</Container>
 		</section>
