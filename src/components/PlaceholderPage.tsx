@@ -1,3 +1,6 @@
+import { Container } from '@/components/ui';
+import styles from '@/styles/globals.module.css';
+
 interface PlaceholderPageProps {
 	readonly title: string;
 	readonly description: string;
@@ -11,34 +14,34 @@ export default function PlaceholderPage({
 }: PlaceholderPageProps) {
 	return (
 		<main>
-			<section className="placeholder-hero">
-				<div className="container">
+			<section className={styles.placeholderHero}>
+				<Container>
 					<h1>{title}</h1>
-					<p className="subtitle">{description}</p>
-				</div>
+					<p className={styles.subtitle}>{description}</p>
+				</Container>
 			</section>
 
-			<section className="placeholder-content">
-				<div className="container">
-					<div className="construction-notice">
-						<div className="construction-icon">
+			<section className={styles.placeholderContent}>
+				<Container>
+					<div className={styles.constructionNotice}>
+						<div className={styles.constructionIcon}>
 							<i className="fas fa-hammer"></i>
 						</div>
 						<h2>Under Construction</h2>
 						<p>{comingSoonText}</p>
-						<p className="placeholder-contact-info">
+						<p className={styles.placeholderContactInfo}>
 							Have questions? Reach out to us on{' '}
 							<a
 								href="https://discord.gg/fP5Ek7Xv3A"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="discord-link"
+								className={styles.discordLink}
 							>
 								Discord
 							</a>
 						</p>
 					</div>
-				</div>
+				</Container>
 			</section>
 		</main>
 	);

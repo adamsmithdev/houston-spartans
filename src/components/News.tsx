@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import { Container, SectionHeading } from '@/components/ui';
+import styles from './News.module.css';
 
 const newsArticles = [
 	{
@@ -33,19 +35,16 @@ const newsArticles = [
 
 export default function News() {
 	return (
-		<section id="news" className="news">
-			<div className="container">
-				<h2>LATEST NEWS POSTS</h2>
-				<p>
-					Find Out What&apos;s Happening in Spartan Nation: Stay Updated with
-					the Latest News, Events, and Highlights from the Houston Spartans
-					Esports Community!
-				</p>
+		<section id="news" className={styles.news}>
+			<Container>
+				<SectionHeading description="Find Out What's Happening in Spartan Nation: Stay Updated with the Latest News, Events, and Highlights from the Houston Spartans Esports Community!">
+					LATEST NEWS POSTS
+				</SectionHeading>
 
-				<div className="news-grid">
+				<div className={styles.newsGrid}>
 					{newsArticles.map((article) => (
-						<article key={article.id} className="news-card">
-							<div className="news-image">
+						<article key={article.id} className={styles.newsCard}>
+							<div className={styles.newsImage}>
 								<Image
 									src={article.image}
 									alt={article.title}
@@ -53,19 +52,19 @@ export default function News() {
 									height={200}
 								/>
 							</div>
-							<div className="news-content">
-								<span className="news-category">{article.category}</span>
+							<div className={styles.newsContent}>
+								<span className={styles.newsCategory}>{article.category}</span>
 								<h3>{article.title}</h3>
 								<p>{article.excerpt}</p>
-								<div className="news-meta">
-									<span className="author">By {article.author}</span>
-									<span className="date">{article.date}</span>
+								<div className={styles.newsMeta}>
+									<span className={styles.author}>By {article.author}</span>
+									<span className={styles.date}>{article.date}</span>
 								</div>
 							</div>
 						</article>
 					))}
 				</div>
-			</div>
+			</Container>
 		</section>
 	);
 }

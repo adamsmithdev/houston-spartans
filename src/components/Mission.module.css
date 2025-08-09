@@ -4,36 +4,36 @@
 	background: #111010;
 }
 
-.mission-cards {
+.missionCards {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	gap: 40px;
 	margin-top: 60px;
 }
 
-.card-icon {
+.cardIcon {
 	margin-bottom: 20px;
 }
 
-.card-icon i {
+.cardIcon i {
 	font-size: 3rem;
 	color: #bc1616;
 }
 
-.mission-card h3 {
+.missionCard h3 {
 	font-size: 1.5rem;
 	margin-bottom: 15px;
 	color: #ffffff;
 	font-weight: 600;
 }
 
-.mission-card p {
+.missionCard p {
 	color: #b5a5a5;
 	margin-bottom: 20px;
 	text-align: center;
 }
 
-.learn-more {
+.learnMore {
 	color: #bc1616;
 	text-decoration: none;
 	font-weight: 600;
@@ -42,6 +42,23 @@
 	transition: color 0.3s ease;
 }
 
-.learn-more:hover {
+.learnMore:hover {
 	color: #833131;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.mission h2 {
+		font-size: 2rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.missionCards {
+		grid-template-columns: 1fr;
+	}
+
+	.mission {
+		padding: 60px 0;
+	}
 }

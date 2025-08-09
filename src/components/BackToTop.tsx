@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import styles from './BackToTop.module.css';
 
 export default function BackToTop() {
 	const [isVisible, setIsVisible] = useState(false);
@@ -28,7 +29,7 @@ export default function BackToTop() {
 	return (
 		<button
 			id="back-to-top"
-			className={`back-to-top ${isVisible ? 'visible' : ''}`}
+			className={`${styles.backToTop} ${isVisible ? styles.visible : ''}`}
 			onClick={scrollToTop}
 			aria-label="Back to top"
 		>

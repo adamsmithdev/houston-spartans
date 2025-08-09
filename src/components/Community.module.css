@@ -1,0 +1,186 @@
+/* Community Section */
+.community {
+	padding: 80px 0;
+}
+
+.community h2 {
+	text-align: center;
+	font-size: 2.5rem;
+	margin-bottom: 20px;
+	color: #ffffff;
+}
+
+.communityDescription {
+	text-align: center;
+	font-size: 1.2rem;
+	color: #b5a5a5;
+	margin-bottom: 60px;
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.communityShowcase {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 60px;
+	margin-bottom: 60px;
+	align-items: start;
+}
+
+.communityImages {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+}
+
+.communityImageCard {
+	position: relative;
+	border-radius: 15px;
+	overflow: hidden;
+	aspect-ratio: 1;
+	transition: all 0.3s ease;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.communityImageCard:first-child {
+	grid-column: 1 / -1;
+	aspect-ratio: 2/1;
+}
+
+.communityImageCard img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.3s ease;
+}
+
+.communityImageCard:hover {
+	transform: translateY(-10px);
+	box-shadow: 0 20px 40px rgba(188, 22, 22, 0.3);
+}
+
+.communityImageCard:hover img {
+	transform: scale(1.05);
+}
+
+.imageOverlay {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+	padding: 30px 20px 20px;
+	transform: translateY(100%);
+	transition: transform 0.3s ease;
+}
+
+.communityImageCard:hover .imageOverlay {
+	transform: translateY(0);
+}
+
+.overlayContent {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	color: #ffffff;
+	font-weight: 600;
+}
+
+.overlayContent i {
+	font-size: 1.2rem;
+	color: #bc1616;
+}
+
+.communitySteps {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.step {
+	display: flex;
+	gap: 20px;
+	padding: 25px;
+	background: rgba(255, 255, 255, 0.05);
+	border-radius: 15px;
+	border-left: 4px solid #bc1616;
+	transition: all 0.3s ease;
+	backdrop-filter: blur(10px);
+}
+
+.step:hover {
+	background: rgba(188, 22, 22, 0.1);
+	transform: translateX(10px);
+}
+
+.stepNumber {
+	width: 50px;
+	height: 50px;
+	background: linear-gradient(45deg, #bc1616, #833131);
+	color: #ffffff;
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.4rem;
+	font-weight: 400;
+	flex-shrink: 0;
+	box-shadow: 0 5px 15px rgba(188, 22, 22, 0.3);
+}
+
+.stepNumber i {
+	font-size: 1.4rem;
+	color: #ffffff;
+}
+
+.stepContent {
+	flex: 1;
+}
+
+.step h3 {
+	font-size: 1.2rem;
+	margin-bottom: 10px;
+	color: #ffffff;
+	font-weight: 600;
+}
+
+.step p {
+	color: #b5a5a5;
+	font-size: 0.95rem;
+	line-height: 1.6;
+	margin-bottom: 15px;
+}
+
+.stepIcons {
+	display: flex;
+	gap: 15px;
+}
+
+.stepIcons i {
+	font-size: 1.1rem;
+	color: #bc1616;
+	transition: color 0.3s ease;
+}
+
+.stepIcons i:hover {
+	color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.community h2 {
+		font-size: 2rem;
+	}
+
+	.communityShowcase {
+		grid-template-columns: 1fr;
+		gap: 40px;
+	}
+}
+
+@media (max-width: 480px) {
+	.community {
+		padding: 60px 0;
+	}
+}

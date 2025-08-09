@@ -1,0 +1,266 @@
+/* Hero Section */
+.hero {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background:
+		linear-gradient(
+			135deg,
+			rgba(17, 16, 16, 0.8) 0%,
+			rgba(26, 26, 26, 0.6) 50%,
+			rgba(17, 16, 16, 0.8) 100%
+		),
+		url('/images/backdrops/backdrop-hero.png');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	position: relative;
+	overflow: hidden;
+	padding: 0 20px;
+	text-align: center;
+}
+
+.heroBackground {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+}
+
+.heroParticles {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background:
+		radial-gradient(
+			circle at 20% 50%,
+			rgba(188, 22, 22, 0.15) 0%,
+			transparent 50%
+		),
+		radial-gradient(
+			circle at 80% 30%,
+			rgba(131, 49, 49, 0.1) 0%,
+			transparent 50%
+		),
+		radial-gradient(
+			circle at 40% 80%,
+			rgba(188, 22, 22, 0.08) 0%,
+			transparent 50%
+		);
+	animation: float 20s ease-in-out infinite;
+}
+
+.heroGradient {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+		45deg,
+		rgba(188, 22, 22, 0.1) 0%,
+		transparent 25%,
+		transparent 75%,
+		rgba(131, 49, 49, 0.1) 100%
+	);
+	animation: gradientShift 15s ease-in-out infinite;
+}
+
+.heroContent {
+	max-width: 800px;
+	z-index: 3;
+	position: relative;
+	padding: 100px 0 40px;
+}
+
+.heroTitle {
+	margin-bottom: 30px;
+	line-height: 1.1;
+}
+
+.titleLine {
+	display: block;
+	font-size: 2.2rem;
+	font-weight: 300;
+	color: #ffffff;
+	letter-spacing: 3px;
+	opacity: 0.9;
+	margin-bottom: 10px;
+}
+
+.titleMain {
+	display: block;
+	font-size: 5rem;
+	font-weight: 900;
+	background: linear-gradient(135deg, #bc1616 0%, #ff3333 50%, #bc1616 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	letter-spacing: 4px;
+	text-shadow: 0 0 30px rgba(188, 22, 22, 0.3);
+	animation: titleGlow 3s ease-in-out infinite alternate;
+	margin-bottom: 20px;
+}
+
+.heroDescription {
+	font-size: 2rem;
+	color: #ffffff;
+	margin-bottom: 50px;
+	font-weight: 400;
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.descriptionHighlight {
+	font-weight: 700;
+	position: relative;
+	animation: slideInUp 0.8s ease-out;
+	animation-delay: var(--delay, 0s);
+	animation-fill-mode: both;
+}
+
+.descriptionHighlight:nth-child(1) {
+	--delay: 0.2s;
+}
+.descriptionHighlight:nth-child(2) {
+	--delay: 0.4s;
+}
+.descriptionHighlight:nth-child(3) {
+	--delay: 0.6s;
+}
+
+.heroCta {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	align-items: center;
+	justify-content: center;
+}
+
+.ctaButton {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	text-decoration: none;
+	border-radius: 8px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	position: relative;
+	overflow: hidden;
+	border: none;
+	cursor: pointer;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.ctaButton.primary {
+	background: linear-gradient(135deg, #bc1616 0%, #ff3333 50%, #bc1616 100%);
+	color: #ffffff;
+	padding: 20px 40px;
+	font-size: 1.2rem;
+	box-shadow: 0 8px 25px rgba(188, 22, 22, 0.3);
+}
+
+.ctaButton.primary:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 15px 35px rgba(188, 22, 22, 0.4);
+	background: linear-gradient(135deg, #ff3333 0%, #bc1616 50%, #ff3333 100%);
+}
+
+.buttonShine {
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+		90deg,
+		transparent,
+		rgba(255, 255, 255, 0.2),
+		transparent
+	);
+	transition: left 0.5s;
+}
+
+.ctaButton.primary:hover .buttonShine {
+	left: 100%;
+}
+
+.scrollIndicator {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	color: rgba(255, 255, 255, 0.6);
+	backdrop-filter: blur(10px);
+	animation: scrollBounce 2s ease-in-out infinite;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.scrollIndicator:hover {
+	background: rgba(188, 22, 22, 0.1);
+	border-color: rgba(188, 22, 22, 0.3);
+	color: #bc1616;
+	transform: translateY(-2px);
+}
+
+.scrollIndicator i {
+	font-size: 1.2rem;
+	animation: chevronFloat 1.5s ease-in-out infinite;
+}
+
+.heroLogo {
+	display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.titleMain {
+		font-size: 2.5rem;
+	}
+
+	.titleLine {
+		font-size: 1.2rem;
+	}
+
+	.heroDescription {
+		font-size: 1.2rem;
+	}
+
+	.heroLogo {
+		position: static;
+		margin-top: 40px;
+		text-align: center;
+	}
+
+	.hero {
+		padding: 80px 0 30px;
+	}
+}
+
+@media (max-width: 480px) {
+	.titleMain {
+		font-size: 2rem;
+	}
+}
+
+/* Keyframes for glowing animation */
+@keyframes titleGlow {
+	from {
+		filter: brightness(1) drop-shadow(0 0 10px rgba(188, 22, 22, 0.3));
+	}
+	to {
+		filter: brightness(1.1) drop-shadow(0 0 20px rgba(188, 22, 22, 0.5));
+	}
+}

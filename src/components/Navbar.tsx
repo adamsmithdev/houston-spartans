@@ -5,18 +5,19 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { DiscordIcon } from './icons';
 import { HOUSTON_SPARTANS_STORE_URL } from '@/constants';
+import styles from './Navbar.module.css';
 
 export default function Navbar() {
 	useEffect(() => {
 		// Mobile Navigation Toggle
 		const navToggle = document.getElementById('nav-toggle');
 		const navMenu = document.getElementById('nav-menu');
-		const navLinks = document.querySelectorAll('.nav-link');
-		const navbar = document.querySelector('.navbar');
+		const navLinks = document.querySelectorAll(`.${styles.navLink}`);
+		const navbar = document.querySelector(`.${styles.navbar}`);
 
 		// Helper function to activate hamburger menu
 		const activateHamburgerMenu = () => {
-			const bars = navToggle?.querySelectorAll('.bar');
+			const bars = navToggle?.querySelectorAll(`.${styles.bar}`);
 			bars?.forEach((bar, index) => {
 				if (index === 0)
 					(bar as HTMLElement).style.transform =
@@ -30,7 +31,7 @@ export default function Navbar() {
 
 		// Helper function to reset hamburger menu
 		const resetHamburgerMenu = () => {
-			const bars = navToggle?.querySelectorAll('.bar');
+			const bars = navToggle?.querySelectorAll(`.${styles.bar}`);
 			bars?.forEach((bar) => {
 				(bar as HTMLElement).style.transform = '';
 				(bar as HTMLElement).style.opacity = '1';
@@ -43,9 +44,9 @@ export default function Navbar() {
 				window.pageYOffset || document.documentElement.scrollTop;
 
 			if (scrollTop > 50) {
-				navbar?.classList.add('scrolled');
+				navbar?.classList.add(styles.scrolled);
 			} else {
-				navbar?.classList.remove('scrolled');
+				navbar?.classList.remove(styles.scrolled);
 			}
 		};
 
@@ -84,9 +85,9 @@ export default function Navbar() {
 	}, []);
 
 	return (
-		<nav className="navbar">
-			<div className="nav-container">
-				<Link href="/" className="nav-logo">
+		<nav className={styles.navbar}>
+			<div className={styles.navContainer}>
+				<Link href="/" className={styles.navLogo}>
 					<Image
 						src="/images/logo.png"
 						alt="Houston Spartans"
@@ -94,31 +95,31 @@ export default function Navbar() {
 						height={30}
 					/>
 				</Link>
-				<div className="nav-menu" id="nav-menu">
-					<Link href="/" className="nav-link">
+				<div className={`${styles.navMenu}`} id="nav-menu">
+					<Link href="/" className={styles.navLink}>
 						Home
 					</Link>
-					<Link href="/about" className="nav-link">
+					<Link href="/about" className={styles.navLink}>
 						About
 					</Link>
-					<Link href="/news" className="nav-link">
+					<Link href="/news" className={styles.navLink}>
 						News
 					</Link>
-					<Link href="/contact" className="nav-link">
+					<Link href="/contact" className={styles.navLink}>
 						Contact
 					</Link>
-					<Link href="/teams" className="nav-link">
+					<Link href="/teams" className={styles.navLink}>
 						Teams
 					</Link>
-					<Link href="/creators" className="nav-link">
+					<Link href="/creators" className={styles.navLink}>
 						Creators
 					</Link>
-					<Link href="/partners" className="nav-link">
+					<Link href="/partners" className={styles.navLink}>
 						Partners
 					</Link>
 					<Link
 						href={HOUSTON_SPARTANS_STORE_URL}
-						className="nav-link"
+						className={styles.navLink}
 						target="_blank"
 						rel="noopener noreferrer"
 					>
@@ -126,17 +127,17 @@ export default function Navbar() {
 					</Link>
 					<Link
 						href="https://discord.gg/fP5Ek7Xv3A"
-						className="nav-link discord-btn"
+						className={`${styles.navLink} ${styles.discordBtn}`}
 						target="_blank"
 						rel="noopener noreferrer"
 					>
 						<DiscordIcon /> Join Discord
 					</Link>
 				</div>
-				<div className="nav-toggle" id="nav-toggle">
-					<span className="bar"></span>
-					<span className="bar"></span>
-					<span className="bar"></span>
+				<div className={styles.navToggle} id="nav-toggle">
+					<span className={styles.bar}></span>
+					<span className={styles.bar}></span>
+					<span className={styles.bar}></span>
 				</div>
 			</div>
 		</nav>

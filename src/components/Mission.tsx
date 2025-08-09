@@ -1,23 +1,24 @@
 import { Container, SectionHeading, Card } from '@/components/ui';
+import styles from './Mission.module.css';
 
 export default function Mission() {
 	return (
-		<section id="mission" className="mission">
+		<section id="mission" className={styles.mission}>
 			<Container>
 				<SectionHeading description="At the Houston Spartans, our mission is to empower every player to achieve their goals and unlock their full potential at the highest level.">
 					WELCOME & JOIN OUR SPARTAN JOURNEY
 				</SectionHeading>
 
-				<div className="mission-cards">
+				<div className={styles.missionCards}>
 					<Card variant="mission">
-						<div className="card-icon">
+						<div className={styles.cardIcon}>
 							<i className="fas fa-trophy"></i>
 						</div>
 						<h3>COMPETITION</h3>
 						<p>&quot;Rise. Compete. Conquer.&quot;</p>
 					</Card>
 					<Card variant="mission">
-						<div className="card-icon">
+						<div className={styles.cardIcon}>
 							<i className="fas fa-users"></i>
 						</div>
 						<h3>COMMUNITY</h3>
@@ -27,7 +28,7 @@ export default function Mission() {
 						</p>
 					</Card>
 					<Card variant="mission">
-						<div className="card-icon">
+						<div className={styles.cardIcon}>
 							<i className="fas fa-video"></i>
 						</div>
 						<h3>CONTENT</h3>

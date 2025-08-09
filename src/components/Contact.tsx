@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import { Container } from '@/components/ui';
+import styles from './Contact.module.css';
 
 interface FormData {
 	name: string;
@@ -69,14 +71,25 @@ export default function Contact() {
 		setFormData((prev) => ({ ...prev, [name]: value }));
 	};
 
+	const getNotificationClass = (type: 'success' | 'error' | 'info') => {
+		switch (type) {
+			case 'success':
+				return styles.notificationSuccess;
+			case 'error':
+				return styles.notificationError;
+			default:
+				return styles.notificationInfo;
+		}
+	};
+
 	return (
-		<section id="contact" className="contact">
-			<div className="container">
-				<div className="contact-grid">
-					<div className="contact-form">
+		<section id="contact" className={styles.contact}>
+			<Container>
+				<div className={styles.contactGrid}>
+					<div className={styles.contactForm}>
 						<h2>CONTACT INFORMATION</h2>
 						<form onSubmit={handleSubmit}>
-							<div className="form-group">
+							<div className={styles.formGroup}>
 								<input
 									type="text"
 									name="name"
@@ -86,7 +99,7 @@ export default function Contact() {
 									required
 								/>
 							</div>
-							<div className="form-group">
+							<div className={styles.formGroup}>
 								<input
 									type="email"
 									name="email"
@@ -96,7 +109,7 @@ export default function Contact() {
 									required
 								/>
 							</div>
-							<div className="form-group">
+							<div className={styles.formGroup}>
 								<input
 									type="text"
 									name="subject"
@@ -106,7 +119,7 @@ export default function Contact() {
 									required
 								/>
 							</div>
-							<div className="form-group">
+							<div className={styles.formGroup}>
 								<textarea
 									name="message"
 									value={formData.message}
@@ -116,26 +129,26 @@ export default function Contact() {
 									required
 								/>
 							</div>
-							<button type="submit" className="submit-btn">
+							<button type="submit" className={styles.submitBtn}>
 								SUBMIT
 							</button>
 						</form>
-						<p className="contact-text">FEEL FREE TO CONTACT US</p>
+						<p className={styles.contactText}>FEEL FREE TO CONTACT US</p>
 					</div>
 
-					<div className="contact-info">
-						<div className="info-item">
+					<div className={styles.contactInfo}>
+						<div className={styles.infoItem}>
 							<h3>OUR LOCATION</h3>
 							<p>Houston, Texas</p>
 						</div>
-						<div className="info-item">
+						<div className={styles.infoItem}>
 							<h3>EMAIL ADDRESS</h3>
 							<p>houstontxspartans@gmail.com</p>
 						</div>
 					</div>
 				</div>
 
-				<div className="mission-statement">
+				<div className={styles.missionStatement}>
 					<p>
 						At the Houston Spartans, our mission is to empower every player to
 						achieve their goals and unlock their full potential at the highest
@@ -144,10 +157,12 @@ export default function Contact() {
 						scholarships, and paving the way for professional aspirations.
 					</p>
 				</div>
-			</div>
+			</Container>
 
 			{notification && (
-				<div className={`notification notification-${notification.type}`}>
+				<div
+					className={`${styles.notification} ${getNotificationClass(notification.type)}`}
+				>
 					{notification.message}
 				</div>
 			)}

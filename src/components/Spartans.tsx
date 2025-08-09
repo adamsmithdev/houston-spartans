@@ -1,6 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { Container, SectionHeading } from '@/components/ui';
 import { KickIcon, XIcon, TwitchIcon, TikTokIcon, YouTubeIcon } from './icons';
+import styles from './Spartans.module.css';
+import globalStyles from '@/styles/globals.module.css';
 
 const spartans = [
 	{
@@ -76,17 +79,16 @@ const spartans = [
 
 export default function Spartans() {
 	return (
-		<section id="spartans" className="spartans">
-			<div className="container">
-				<h2>
-					OUR <span className="heading-highlight">SPARTANS</span>
-				</h2>
-				<p>Get to know a few of our featured Houston Spartans</p>
+		<section id="spartans" className={styles.spartans}>
+			<Container>
+				<SectionHeading description="Get to know a few of our featured Houston Spartans">
+					OUR <span className={globalStyles.headingHighlight}>SPARTANS</span>
+				</SectionHeading>
 
-				<div className="spartans-grid">
+				<div className={styles.spartansGrid}>
 					{spartans.map((spartan) => (
-						<div key={spartan.id} className="spartan-card">
-							<div className="spartan-image">
+						<div key={spartan.id} className={styles.spartanCard}>
+							<div className={styles.spartanImage}>
 								<Image
 									src={spartan.image}
 									alt={spartan.name}
@@ -94,11 +96,11 @@ export default function Spartans() {
 									height={120}
 								/>
 							</div>
-							<div className="spartan-info">
+							<div className={styles.spartanInfo}>
 								<h3>{spartan.name}</h3>
 								<p>{spartan.realName}</p>
-								<span className="role">{spartan.role}</span>
-								<div className="social-links">
+								<span className={styles.role}>{spartan.role}</span>
+								<div className={styles.socialLinks}>
 									{spartan.social.map((social) => (
 										<Link
 											key={`${spartan.id}-${social.platform}`}
@@ -115,12 +117,12 @@ export default function Spartans() {
 					))}
 				</div>
 
-				<div className="champion-section">
+				<div className={styles.championSection}>
 					<h3>EXPERIENCE TO BE A CHAMPION?</h3>
 					<p>
 						Learn from Call of Duty League Professional and Co-Founder, Spart
 					</p>
-					<div className="champion-video">
+					<div className={styles.championVideo}>
 						<iframe
 							src="https://www.youtube.com/embed/3v32FmKoEWI"
 							title="Experience to be a Champion - Houston Spartans"
@@ -129,7 +131,7 @@ export default function Spartans() {
 						/>
 					</div>
 				</div>
-			</div>
+			</Container>
 		</section>
 	);
 }

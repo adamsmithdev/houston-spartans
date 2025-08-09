@@ -1,10 +1,12 @@
 import Image from 'next/image';
 import {
-	Container,
-	SectionHeading,
 	Button,
 	ButtonGroup,
+	SectionHeading,
+	Container,
 } from '@/components/ui';
+import styles from './Partners.module.css';
+import globalStyles from '@/styles/globals.module.css';
 
 const partnerLogos = [
 	{
@@ -57,22 +59,22 @@ const partnerLogos = [
 
 export default function Partners() {
 	return (
-		<section className="partners">
+		<section className={styles.partners}>
 			<Container>
 				<SectionHeading>
-					OUR <span className="heading-highlight">PARTNERS</span>
+					OUR <span className={globalStyles.headingHighlight}>PARTNERS</span>
 				</SectionHeading>
-				<div className="carousel-container">
-					<div className="partners-carousel">
+				<div className={styles.carouselContainer}>
+					<div className={styles.partnersCarousel}>
 						{/* First set of logos */}
 						{partnerLogos.map((logo) => (
-							<div key={logo.id} className="partner-logo">
+							<div key={logo.id} className={styles.partnerLogo}>
 								<Image src={logo.src} alt={logo.alt} width={150} height={80} />
 							</div>
 						))}
 						{/* Duplicate logos for seamless loop */}
 						{partnerLogos.map((logo) => (
-							<div key={`duplicate-${logo.id}`} className="partner-logo">
+							<div key={`duplicate-${logo.id}`} className={styles.partnerLogo}>
 								<Image src={logo.src} alt={logo.alt} width={150} height={80} />
 							</div>
 						))}

@@ -1,24 +1,26 @@
 import Image from 'next/image';
-import { Button, ButtonGroup } from '@/components/ui';
+import { Button, ButtonGroup, Container } from '@/components/ui';
 import { DiscordIcon } from './icons';
+import styles from './Community.module.css';
+import globalStyles from '@/styles/globals.module.css';
 
 export default function Community() {
 	return (
-		<section id="community" className="community">
-			<div className="container">
+		<section id="community" className={styles.community}>
+			<Container>
 				<h2>
-					OUR <span className="heading-highlight">COMMUNITY</span>
+					OUR <span className={globalStyles.headingHighlight}>COMMUNITY</span>
 				</h2>
-				<p className="community-description">
+				<p className={styles.communityDescription}>
 					The Houston Spartans community is a vibrant and inclusive group of
 					passionate gamers, dedicated to supporting each other, building
 					relationships, celebrating achievements, and fostering a positive
 					esports culture.
 				</p>
 
-				<div className="community-showcase">
-					<div className="community-images">
-						<div className="community-image-card">
+				<div className={styles.communityShowcase}>
+					<div className={styles.communityImages}>
+						<div className={styles.communityImageCard}>
 							<Image
 								src="/images/community/community-1.png"
 								alt="Houston Spartans Community Event"
@@ -26,14 +28,14 @@ export default function Community() {
 								height={200}
 								loading="lazy"
 							/>
-							<div className="image-overlay">
-								<div className="overlay-content">
+							<div className={styles.imageOverlay}>
+								<div className={styles.overlayContent}>
 									<i className="fas fa-trophy"></i>
 									<span>Tournaments</span>
 								</div>
 							</div>
 						</div>
-						<div className="community-image-card">
+						<div className={styles.communityImageCard}>
 							<Image
 								src="/images/community/community-2.png"
 								alt="Houston Spartans Gaming Session"
@@ -41,14 +43,14 @@ export default function Community() {
 								height={200}
 								loading="lazy"
 							/>
-							<div className="image-overlay">
-								<div className="overlay-content">
+							<div className={styles.imageOverlay}>
+								<div className={styles.overlayContent}>
 									<i className="fas fa-users"></i>
 									<span>Community Events</span>
 								</div>
 							</div>
 						</div>
-						<div className="community-image-card">
+						<div className={styles.communityImageCard}>
 							<Image
 								src="/images/community/community-3.png"
 								alt="Houston Spartans Tournament"
@@ -56,8 +58,8 @@ export default function Community() {
 								height={200}
 								loading="lazy"
 							/>
-							<div className="image-overlay">
-								<div className="overlay-content">
+							<div className={styles.imageOverlay}>
+								<div className={styles.overlayContent}>
 									<i className="fas fa-gamepad"></i>
 									<span>Gaming Sessions</span>
 								</div>
@@ -65,12 +67,12 @@ export default function Community() {
 						</div>
 					</div>
 
-					<div className="community-steps">
-						<div className="step">
-							<div className="step-number">
+					<div className={styles.communitySteps}>
+						<div className={styles.step}>
+							<div className={styles.stepNumber}>
 								<i className="fas fa-comments"></i>
 							</div>
-							<div className="step-content">
+							<div className={styles.stepContent}>
 								<h3>JOIN THE CONVERSATION</h3>
 								<p>
 									Connect with the Houston Spartans community by joining our
@@ -78,11 +80,11 @@ export default function Community() {
 								</p>
 							</div>
 						</div>
-						<div className="step">
-							<div className="step-number">
+						<div className={styles.step}>
+							<div className={styles.stepNumber}>
 								<DiscordIcon />
 							</div>
-							<div className="step-content">
+							<div className={styles.stepContent}>
 								<h3>JOIN THE DISCORD SERVER</h3>
 								<p>
 									Dive deeper by joining the Houston Spartans&apos; Discord
@@ -91,11 +93,11 @@ export default function Community() {
 								</p>
 							</div>
 						</div>
-						<div className="step">
-							<div className="step-number">
+						<div className={styles.step}>
+							<div className={styles.stepNumber}>
 								<i className="fas fa-calendar-alt"></i>
 							</div>
-							<div className="step-content">
+							<div className={styles.stepContent}>
 								<h3>ATTEND EVENTS AND TOURNAMENTS</h3>
 								<p>
 									Experience the community in action by attending events,
@@ -112,7 +114,7 @@ export default function Community() {
 						JOIN OUR COMMUNITY <i className="fas fa-arrow-right"></i>
 					</Button>
 				</ButtonGroup>
-			</div>
+			</Container>
 		</section>
 	);
 }
