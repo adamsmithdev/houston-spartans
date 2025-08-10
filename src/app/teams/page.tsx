@@ -1,11 +1,22 @@
-import PlaceholderPage from '@/components/PlaceholderPage';
+import { Metadata } from 'next';
+import PageHero from '@/components/PageHero';
+import Teams from '@/components/Teams';
+
+export const metadata: Metadata = {
+	title: 'Our Spartans | Houston Spartans',
+	description:
+		'Meet the Houston Spartans Management Team - a dedicated group of managers and staff committed to supporting the Spartans community in Houston, Texas and around the world.',
+};
 
 export default function TeamsPage() {
 	return (
-		<PlaceholderPage
-			title="Our Teams"
-			description="Meet the competitive rosters representing Houston Spartans across multiple game titles."
-			comingSoonText="We're preparing detailed team profiles, player stats, and competitive schedules. Our teams are actively competing - join Discord to follow their matches!"
-		/>
+		<>
+			<PageHero
+				title="OUR SPARTANS"
+				highlightedWord="SPARTANS"
+				description="Meet the Houston Spartans Management Team - a dedicated group of managers and staff committed to supporting the Spartans community in Houston, Texas and around the world."
+			/>
+			<Teams />
+		</>
 	);
 }

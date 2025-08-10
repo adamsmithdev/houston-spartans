@@ -1,0 +1,98 @@
+/* Teams Section Styles */
+.teamsSection {
+	padding: 100px 0;
+	background: #0a0a0a;
+	color: #ffffff;
+}
+
+.teamsContent {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.sectionHeader {
+	text-align: center;
+	margin-bottom: 80px;
+}
+
+.sectionHeader h2 {
+	font-size: 2.5rem;
+	font-weight: 700;
+	color: #ffffff;
+	margin-bottom: 30px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+.teamDescription {
+	font-size: 1.1rem;
+	line-height: 1.8;
+	color: #cccccc;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.teamGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 40px;
+	align-items: start;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+	.teamsSection {
+		padding: 80px 0;
+	}
+
+	.sectionHeader {
+		margin-bottom: 60px;
+	}
+
+	.sectionHeader h2 {
+		font-size: 2.2rem;
+	}
+
+	.teamGrid {
+		gap: 30px;
+	}
+}
+
+@media (max-width: 768px) {
+	.teamsSection {
+		padding: 60px 0;
+	}
+
+	.sectionHeader {
+		margin-bottom: 40px;
+	}
+
+	.sectionHeader h2 {
+		font-size: 1.8rem;
+		margin-bottom: 20px;
+	}
+
+	.teamDescription {
+		font-size: 1rem;
+		padding: 0 20px;
+	}
+
+	.teamGrid {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+}
+
+@media (max-width: 480px) {
+	.teamsSection {
+		padding: 40px 0;
+	}
+
+	.sectionHeader h2 {
+		font-size: 1.6rem;
+	}
+
+	.teamDescription {
+		font-size: 0.9rem;
+	}
+}
