@@ -5,6 +5,7 @@ import {
 	YouTubeIcon,
 	TikTokIcon,
 	InstagramIcon,
+	KickIcon,
 } from '@/components/icons';
 
 // LinkedIn icon component since it's not in the existing icons
@@ -40,6 +41,8 @@ export const getSocialIcon = (platform: string) => {
 			return <TikTokIcon />;
 		case 'instagram':
 			return <InstagramIcon />;
+		case 'kick':
+			return <KickIcon />;
 		default:
 			return null;
 	}

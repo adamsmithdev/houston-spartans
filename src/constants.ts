@@ -157,17 +157,135 @@ export const CREATOR_PROGRAM_TIERS = [
 export const CONTENT_CREATORS = [
 	// Add content creators here when data is available
 	// Example structure:
-	// {
-	//   id: 'creator-1',
-	//   fullName: 'Creator Name',
-	//   gamertag: 'CreatorTag',
-	//   creatorTier: 'Spartan Recruit',
-	//   picture: '/images/headshots/profile-creator.png',
-	//   socialLinks: [
-	//     { platform: 'twitch', url: 'https://twitch.tv/creator' },
-	//     { platform: 'youtube', url: 'https://youtube.com/@creator' }
-	//   ]
-	// }
+	{
+		id: 'arrow',
+		fullName: 'Jaia Burkhalter',
+		gamertag: 'Arrow',
+		creatorTier: 'Spartan Recruit',
+		picture: '',
+		socialLinks: [
+			{ platform: 'instagram', url: 'http://instagram.com/bestintown7549_' },
+			{ platform: 'twitch', url: 'https://twitch.tv/bestintown7549' },
+			{
+				platform: 'youtube',
+				url: 'https://www.youtube.com/@HTXBestInTown7549',
+			},
+		],
+	},
+	{
+		id: 'ciscodisco',
+		fullName: '',
+		gamertag: 'Cisco Disco',
+		creatorTier: 'Spartan Recruit',
+		picture: '/images/headshots/profile-ciscodisco.png',
+		socialLinks: [
+			{ platform: 'kick', url: 'https://kick.com/ciscodisco1618' },
+			{ platform: 'tiktok', url: 'https://www.tiktok.com/@ciscodisco1618' },
+			{ platform: 'twitch', url: 'https://www.twitch.tv/ciscodisco1618' },
+			{ platform: 'x', url: 'https://x.com/ciscodisco1618' },
+			{ platform: 'youtube', url: 'https://www.youtube.com/@CiscoDisco1618' },
+		],
+	},
+	{
+		id: 'Col3Train',
+		fullName: '',
+		gamertag: 'Col3Train',
+		creatorTier: 'Spartan Recruit',
+		picture: '/images/headshots/profile-col3train.png',
+		socialLinks: [
+			{ platform: 'kick', url: 'https://kick.com/col3train' },
+			{ platform: 'x', url: 'https://x.com/Col3TrainFBGG' },
+		],
+	},
+	{
+		id: 'dblduty',
+		fullName: '',
+		gamertag: 'DBLduty',
+		creatorTier: 'Spartan Recruit',
+		picture: '/images/headshots/profile-dblduty.png',
+		socialLinks: [
+			{ platform: 'kick', url: 'https://kick.com/dblduty' },
+			{ platform: 'x', url: 'https://x.com/dbldtydadx13' },
+		],
+	},
+	{
+		id: 'hawntingly',
+		fullName: '',
+		gamertag: 'Hawntingly',
+		creatorTier: 'Spartan Recruit',
+		picture: '/images/headshots/profile-hawntingly.png',
+		socialLinks: [
+			{ platform: 'tiktok', url: 'https://www.tiktok.com/@hawntingly' },
+			{ platform: 'twitch', url: 'https://www.twitch.tv/hawntingly' },
+			{ platform: 'x', url: 'https://x.com/hawntingly' },
+		],
+	},
+	{
+		id: 'kevology',
+		fullName: '',
+		gamertag: 'Kevology',
+		creatorTier: 'Spartan Recruit',
+		picture: '/images/headshots/profile-kevology.png',
+		socialLinks: [
+			{ platform: 'kick', url: 'https://kick.com/kevology' },
+			{ platform: 'tiktok', url: 'https://www.tiktok.com/@xkevologyx' },
+			{ platform: 'x', url: 'https://x.com/xkevology' },
+			{ platform: 'youtube', url: 'https://www.youtube.com/@xkevologyx' },
+		],
+	},
+	{
+		id: 'massacre',
+		fullName: '',
+		gamertag: 'Massacre',
+		creatorTier: 'Spartan Recruit',
+		picture: '/images/headshots/profile-massacre.png',
+		socialLinks: [
+			{ platform: 'x', url: 'https://x.com/massacre_nl' },
+			{ platform: 'youtube', url: 'https://www.youtube.com/@massacre_nl' },
+		],
+	},
+	{
+		id: 'mysteryy',
+		fullName: '',
+		gamertag: 'Mysteryy',
+		creatorTier: 'Spartan Recruit',
+		picture: '/images/headshots/profile-mysteryy.png',
+		socialLinks: [
+			{
+				platform: 'instagram',
+				url: 'https://www.instagram.com/weluvumysteryy',
+			},
+			{ platform: 'tiktok', url: 'https://www.tiktok.com/@whosthatmysteryy' },
+			{ platform: 'twitch', url: 'https://www.twitch.tv/issamysteryy' },
+			{ platform: 'x', url: 'https://x.com/whosthatmystery' },
+		],
+	},
+	{
+		id: 'rhino',
+		fullName: 'Griffin Wells',
+		gamertag: 'Rhino',
+		creatorTier: 'Spartan Recruit',
+		picture: '/images/headshots/profile-rhino.png',
+		socialLinks: [
+			{ platform: 'tiktok', url: 'https://www.tiktok.com/@griffinwells1' },
+			{ platform: 'twitch', url: 'https://www.twitch.tv/issamysteryy' },
+			{ platform: 'x', url: 'https://x.com/rhino_vizualz' },
+			{ platform: 'youtube', url: 'https://www.youtube.com/@massacre_nl' },
+		],
+	},
+	{
+		id: 'sofrito',
+		fullName: 'Carlos Carvalho',
+		gamertag: 'SoFrito',
+		creatorTier: 'Spartan Recruit',
+		picture: '/images/headshots/profile-sofrito.png',
+		socialLinks: [
+			{ platform: 'tiktok', url: 'https://www.tiktok.com/@sofritogaming' },
+			{ platform: 'twitch', url: 'https://www.twitch.tv/sofritogaming' },
+			{ platform: 'x', url: 'https://x.com/sofritogaming' },
+			{ platform: 'youtube', url: 'https://www.youtube.com/@sofritogaming' },
+		],
+	},
 ] as const;
 
 export type ContentCreator = {
