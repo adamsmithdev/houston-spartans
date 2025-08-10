@@ -111,3 +111,73 @@ export const TEAM_MEMBERS = [
 		socialLinks: [],
 	},
 ] as const;
+
+// Content Creator Program Tiers
+export const CREATOR_PROGRAM_TIERS = [
+	{
+		id: 'spartan-recruit',
+		name: 'SPARTAN RECRUIT',
+		requirements: [
+			'500+ followers/subscribers on a primary platform',
+			'Must be monetized on at least one platform',
+		],
+		incentives: ['Team merch and social shoutouts'],
+		color: '#bc1616',
+	},
+	{
+		id: 'spartan-elite',
+		name: 'SPARTAN ELITE',
+		requirements: [
+			'2,500+ followers/subscribers and regular engagement',
+			'Must be monetized on at least two platforms',
+		],
+		incentives: [
+			'Higher commissions',
+			'Co-streaming opportunities',
+			'Event invitations',
+		],
+		color: '#ff6666',
+	},
+	{
+		id: 'spartan-champion',
+		name: 'SPARTAN CHAMPION',
+		requirements: [
+			'10,000+ followers/subscribers or exceptional engagement metrics',
+		],
+		incentives: [
+			'Paid sponsorships',
+			'Full merch kits',
+			'Access to exclusive collaborations with Spartan players and sponsors',
+		],
+		color: '#ffaa66',
+	},
+] as const;
+
+// Content Creators Data (placeholder for now)
+export const CONTENT_CREATORS = [
+	// Add content creators here when data is available
+	// Example structure:
+	// {
+	//   id: 'creator-1',
+	//   fullName: 'Creator Name',
+	//   gamertag: 'CreatorTag',
+	//   creatorTier: 'Spartan Recruit',
+	//   picture: '/images/headshots/profile-creator.png',
+	//   socialLinks: [
+	//     { platform: 'twitch', url: 'https://twitch.tv/creator' },
+	//     { platform: 'youtube', url: 'https://youtube.com/@creator' }
+	//   ]
+	// }
+] as const;
+
+export type ContentCreator = {
+	readonly id: string;
+	readonly fullName: string;
+	readonly gamertag: string;
+	readonly creatorTier: string;
+	readonly picture?: string;
+	readonly socialLinks: ReadonlyArray<{
+		readonly platform: string;
+		readonly url: string;
+	}>;
+};

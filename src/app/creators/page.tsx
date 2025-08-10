@@ -1,11 +1,24 @@
-import PlaceholderPage from '@/components/PlaceholderPage';
+import { Metadata } from 'next';
+import PageHero from '@/components/PageHero';
+import ContentCreators from '@/components/ContentCreators';
+import ContentCreatorProgram from '@/components/ContentCreatorProgram';
+
+export const metadata: Metadata = {
+	title: 'Content Creators | Houston Spartans',
+	description:
+		'Discover the talented streamers and content creators representing Houston Spartans. Learn about our Content Creator Program and how to join our team.',
+};
 
 export default function CreatorsPage() {
 	return (
-		<PlaceholderPage
-			title="Our Creators"
-			description="Discover the talented streamers and content creators representing Houston Spartans."
-			comingSoonText="We're showcasing our amazing content creators with their streams, highlights, and social channels. Check out our current creators on the homepage!"
-		/>
+		<>
+			<PageHero
+				title="CONTENT CREATORS"
+				highlightedWord="CREATORS"
+				description="Discover the talented streamers and content creators representing Houston Spartans. Join our Content Creator Program to become part of our growing community."
+			/>
+			<ContentCreators />
+			<ContentCreatorProgram />
+		</>
 	);
 }

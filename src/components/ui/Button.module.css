@@ -34,6 +34,7 @@
 	transform: translateY(-3px);
 	box-shadow: 0 15px 35px rgba(188, 22, 22, 0.4);
 	background: linear-gradient(135deg, #ff3333 0%, #bc1616 50%, #ff3333 100%);
+	color: #ffffff;
 }
 
 .button-secondary {
@@ -79,6 +80,7 @@
 .button-submit:hover:not(:disabled) {
 	transform: translateY(-3px);
 	box-shadow: 0 15px 40px rgba(188, 22, 22, 0.4);
+	color: #ffffff;
 }
 
 .button-merch {

@@ -1,0 +1,257 @@
+/* Content Creator Program Section Styles */
+.programSection {
+	padding: 100px 0;
+	background: #0a0a0a;
+	color: #ffffff;
+}
+
+.programIntro {
+	text-align: center;
+	margin-bottom: 80px;
+}
+
+.introText {
+	font-size: 1.1rem;
+	line-height: 1.8;
+	color: #cccccc;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.tiersGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	gap: 40px;
+	margin-bottom: 80px;
+}
+
+.tierCard {
+	background: #1a1a1a;
+	border-radius: 12px;
+	border: 2px solid rgba(188, 22, 22, 0.2);
+	overflow: hidden;
+	transition: all 0.3s ease;
+}
+
+.tierCard:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+	border-color: rgba(188, 22, 22, 0.5);
+}
+
+.tierHeader {
+	background: linear-gradient(135deg, #bc1616 0%, #ff6666 100%);
+	padding: 25px;
+	text-align: center;
+}
+
+.tierName {
+	font-size: 1.4rem;
+	font-weight: 700;
+	color: #ffffff;
+	margin: 0;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.tierContent {
+	padding: 30px;
+}
+
+.requirementsSection,
+.incentivesSection {
+	margin-bottom: 25px;
+}
+
+.requirementsSection h4,
+.incentivesSection h4 {
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: #bc1616;
+	margin-bottom: 15px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.requirementsList,
+.incentivesList {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.requirementsList li,
+.incentivesList li {
+	padding: 8px 0;
+	padding-left: 20px;
+	position: relative;
+	color: #cccccc;
+	line-height: 1.5;
+}
+
+.requirementsList li::before,
+.incentivesList li::before {
+	content: '•';
+	color: #bc1616;
+	font-weight: bold;
+	position: absolute;
+	left: 0;
+}
+
+.applicationSection {
+	background: #111111;
+	border-radius: 12px;
+	padding: 60px 40px;
+	border: 1px solid rgba(188, 22, 22, 0.2);
+}
+
+.applicationTitle {
+	font-size: 2rem;
+	font-weight: 700;
+	color: #ffffff;
+	text-align: center;
+	margin-bottom: 50px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+.applicationSteps {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 40px;
+	margin-bottom: 50px;
+}
+
+.step {
+	display: flex;
+	align-items: flex-start;
+	gap: 20px;
+}
+
+.stepNumber {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: linear-gradient(135deg, #bc1616 0%, #ff6666 100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: #ffffff;
+	flex-shrink: 0;
+}
+
+.stepContent h4 {
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: #ffffff;
+	margin-bottom: 10px;
+}
+
+.stepContent p {
+	color: #cccccc;
+	line-height: 1.6;
+}
+
+.nextSteps {
+	background: rgba(188, 22, 22, 0.1);
+	border: 1px solid rgba(188, 22, 22, 0.2);
+	border-radius: 8px;
+	padding: 30px;
+	margin-bottom: 40px;
+}
+
+.nextSteps h4 {
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: #bc1616;
+	margin-bottom: 15px;
+}
+
+.nextSteps p {
+	color: #cccccc;
+	line-height: 1.6;
+	margin: 0;
+}
+
+.applyButton {
+	text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+	.programSection {
+		padding: 80px 0;
+	}
+
+	.programIntro {
+		margin-bottom: 60px;
+	}
+
+	.tiersGrid {
+		gap: 30px;
+		margin-bottom: 60px;
+	}
+
+	.applicationSection {
+		padding: 40px 30px;
+	}
+}
+
+@media (max-width: 768px) {
+	.programSection {
+		padding: 60px 0;
+	}
+
+	.introText {
+		font-size: 1rem;
+		padding: 0 20px;
+	}
+
+	.tiersGrid {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+
+	.tierContent {
+		padding: 20px;
+	}
+
+	.applicationSection {
+		padding: 30px 20px;
+	}
+
+	.applicationTitle {
+		font-size: 1.6rem;
+		margin-bottom: 30px;
+	}
+
+	.applicationSteps {
+		grid-template-columns: 1fr;
+		gap: 30px;
+	}
+
+	.step {
+		flex-direction: column;
+		text-align: center;
+	}
+}
+
+@media (max-width: 480px) {
+	.programSection {
+		padding: 40px 0;
+	}
+
+	.tierHeader {
+		padding: 20px;
+	}
+
+	.tierName {
+		font-size: 1.2rem;
+	}
+
+	.applicationTitle {
+		font-size: 1.4rem;
+	}
+}
