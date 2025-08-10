@@ -1,0 +1,244 @@
+/* Partners Section */
+.partnersSection {
+	padding: 80px 0;
+	background: rgba(255, 255, 255, 0.05);
+}
+
+.showcaseGrid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 60px;
+	align-items: start;
+	margin-top: 60px;
+}
+
+/* Logo Grid */
+.logoGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	gap: 20px;
+}
+
+.logoButton {
+	background: rgba(17, 16, 16, 0.98);
+	border: 2px solid rgba(255, 255, 255, 0.1);
+	border-radius: 15px;
+	padding: 30px 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 120px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	position: relative;
+	overflow: hidden;
+}
+
+.logoButton::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+		90deg,
+		transparent,
+		rgba(188, 22, 22, 0.1),
+		transparent
+	);
+	transition: left 0.5s ease;
+}
+
+.logoButton:hover::before {
+	left: 100%;
+}
+
+.logoButton:hover {
+	transform: translateY(-5px);
+	border-color: rgba(188, 22, 22, 0.6);
+	background: rgba(188, 22, 22, 0.05);
+	box-shadow: 0 10px 30px rgba(188, 22, 22, 0.2);
+}
+
+.logoButton.active {
+	border-color: #bc1616;
+	background: rgba(188, 22, 22, 0.1);
+	transform: translateY(-5px);
+	box-shadow: 0 15px 35px rgba(188, 22, 22, 0.3);
+}
+
+.logoButton img {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
+	filter: grayscale(50%);
+	transition: filter 0.3s ease;
+	z-index: 1;
+	position: relative;
+}
+
+.logoButton:hover img,
+.logoButton.active img {
+	filter: grayscale(0%);
+}
+
+/* Selected Content */
+.selectedContent {
+	position: sticky;
+	top: 100px;
+}
+
+.selectedCard {
+	background: rgba(17, 16, 16, 0.98);
+	border: 1px solid rgba(188, 22, 22, 0.2);
+	border-radius: 20px;
+	padding: 40px;
+	transition: all 0.3s ease;
+	min-height: 400px;
+	display: flex;
+	flex-direction: column;
+}
+
+.selectedCard:hover {
+	border-color: rgba(188, 22, 22, 0.4);
+	box-shadow: 0 20px 40px rgba(188, 22, 22, 0.15);
+}
+
+.selectedLogo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 25px;
+	padding: 20px;
+	border-radius: 15px;
+	height: 120px;
+}
+
+.selectedLogo img {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
+}
+
+.selectedInfo {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.selectedCategory {
+	display: inline-block;
+	color: #bc1616;
+	font-size: 0.8rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin-bottom: 8px;
+	padding: 4px 12px;
+	background: rgba(188, 22, 22, 0.1);
+	border-radius: 15px;
+	border: 1px solid rgba(188, 22, 22, 0.3);
+	align-self: flex-start;
+}
+
+.selectedName {
+	font-size: 1.4rem;
+	font-weight: 700;
+	color: #ffffff;
+	margin: 0 0 15px 0;
+	line-height: 1.3;
+}
+
+.selectedDescription {
+	color: #b5a5a5;
+	font-size: 1rem;
+	line-height: 1.6;
+	margin-bottom: 30px;
+	flex-grow: 1;
+}
+
+.visitButton {
+	margin-top: auto;
+	align-self: flex-start;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+	.showcaseGrid {
+		gap: 40px;
+	}
+
+	.logoGrid {
+		grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+	}
+
+	.logoButton {
+		height: 100px;
+		padding: 20px 15px;
+	}
+}
+
+@media (max-width: 968px) {
+	.showcaseGrid {
+		grid-template-columns: 1fr;
+		gap: 50px;
+	}
+
+	.selectedContent {
+		position: static;
+	}
+
+	.logoGrid {
+		grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+		gap: 15px;
+	}
+
+	.logoButton {
+		height: 90px;
+		padding: 15px 10px;
+	}
+}
+
+@media (max-width: 768px) {
+	.partnersSection {
+		padding: 60px 0;
+	}
+
+	.logoGrid {
+		grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+		gap: 12px;
+	}
+
+	.logoButton {
+		height: 80px;
+		padding: 12px 8px;
+	}
+
+	.selectedCard {
+		padding: 30px;
+	}
+
+	.selectedName {
+		font-size: 1.2rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.partnersSection {
+		padding: 40px 0;
+	}
+
+	.logoGrid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.logoButton {
+		height: 70px;
+		padding: 10px;
+	}
+
+	.selectedCard {
+		padding: 25px;
+	}
+}

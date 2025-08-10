@@ -1,0 +1,277 @@
+/* Partners Contact Section */
+.partnersContact {
+	padding: 80px 0;
+	background: rgba(255, 255, 255, 0.02);
+}
+
+.contactGrid {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.contactInfo h2 {
+	font-size: 2.2rem;
+	font-weight: 700;
+	color: #ffffff;
+	margin-bottom: 25px;
+	line-height: 1.3;
+}
+
+.contactDescription {
+	color: #b5a5a5;
+	font-size: 1.1rem;
+	line-height: 1.6;
+	margin-bottom: 40px;
+}
+
+.contactMethods {
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+	margin-bottom: 40px;
+}
+
+.contactMethod {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	padding: 20px;
+	background: rgba(255, 255, 255, 0.05);
+	border-radius: 12px;
+	border: 1px solid rgba(188, 22, 22, 0.2);
+	transition: all 0.3s ease;
+}
+
+.contactMethod:hover {
+	background: rgba(188, 22, 22, 0.05);
+	border-color: #bc1616;
+	transform: translateX(10px);
+}
+
+.methodIcon {
+	width: 50px;
+	height: 50px;
+	background: linear-gradient(135deg, #bc1616, #ff3333);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+.methodIcon i {
+	color: #ffffff;
+	font-size: 1.3rem;
+}
+
+.methodInfo h4 {
+	color: #ffffff;
+	font-size: 1.1rem;
+	font-weight: 600;
+	margin-bottom: 5px;
+}
+
+.methodInfo p {
+	color: #b5a5a5;
+	font-size: 0.95rem;
+	margin: 0;
+}
+
+.socialSection {
+	padding-top: 20px;
+	border-top: 1px solid rgba(188, 22, 22, 0.2);
+}
+
+.socialSection h4 {
+	color: #ffffff;
+	font-size: 1.1rem;
+	font-weight: 600;
+	margin-bottom: 15px;
+}
+
+.socialLinks {
+	display: flex;
+	gap: 15px;
+}
+
+.socialLinks a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 45px;
+	height: 45px;
+	color: white;
+	transition: all 0.3s ease;
+	text-decoration: none;
+	border-radius: 8px;
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(188, 22, 22, 0.3);
+}
+
+.socialLinks a:hover {
+	color: #bc1616;
+	transform: translateY(-3px);
+	background: rgba(188, 22, 22, 0.1);
+	border-color: #bc1616;
+}
+
+.socialLinks svg {
+	width: 20px;
+	height: 20px;
+}
+
+.ctaCard {
+	background: rgba(17, 16, 16, 0.98);
+	border-radius: 20px;
+	padding: 40px;
+	border: 1px solid rgba(188, 22, 22, 0.2);
+	text-align: center;
+	transition: all 0.3s ease;
+	height: fit-content;
+	position: sticky;
+	top: 20px;
+}
+
+.ctaCard:hover {
+	transform: translateY(-5px);
+	background: rgba(188, 22, 22, 0.05);
+	border-color: #bc1616;
+	box-shadow: 0 20px 40px rgba(188, 22, 22, 0.2);
+}
+
+.ctaIcon {
+	width: 80px;
+	height: 80px;
+	background: linear-gradient(135deg, #bc1616, #ff3333);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto 25px;
+	transition: transform 0.3s ease;
+}
+
+.ctaCard:hover .ctaIcon {
+	transform: scale(1.1);
+}
+
+.ctaIcon i {
+	color: #ffffff;
+	font-size: 2.2rem;
+}
+
+.ctaCard h3 {
+	color: #ffffff;
+	font-size: 1.8rem;
+	font-weight: 700;
+	margin-bottom: 15px;
+}
+
+.ctaCard p {
+	color: #b5a5a5;
+	font-size: 1rem;
+	line-height: 1.6;
+	margin-bottom: 30px;
+}
+
+.ctaNote {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	margin-top: 20px;
+	padding: 15px;
+	background: rgba(255, 255, 255, 0.05);
+	border-radius: 8px;
+	border: 1px solid rgba(188, 22, 22, 0.2);
+}
+
+.ctaNote i {
+	color: #bc1616;
+	font-size: 0.9rem;
+}
+
+.ctaNote span {
+	color: #b5a5a5;
+	font-size: 0.85rem;
+	text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.contactGrid {
+		grid-template-columns: 1fr;
+		gap: 40px;
+	}
+
+	.contactInfo h2 {
+		font-size: 1.8rem;
+	}
+
+	.contactMethods {
+		gap: 20px;
+	}
+
+	.contactMethod {
+		padding: 15px;
+	}
+
+	.methodIcon {
+		width: 45px;
+		height: 45px;
+	}
+
+	.methodIcon i {
+		font-size: 1.1rem;
+	}
+
+	.ctaCard {
+		padding: 30px;
+		position: static;
+	}
+
+	.ctaIcon {
+		width: 70px;
+		height: 70px;
+		margin-bottom: 20px;
+	}
+
+	.ctaIcon i {
+		font-size: 2rem;
+	}
+
+	.ctaCard h3 {
+		font-size: 1.5rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.partnersContact {
+		padding: 60px 0;
+	}
+
+	.contactMethod {
+		flex-direction: column;
+		text-align: center;
+		gap: 15px;
+	}
+
+	.methodInfo h4 {
+		margin-bottom: 5px;
+	}
+
+	.socialLinks {
+		justify-content: center;
+	}
+
+	.ctaCard {
+		padding: 25px;
+	}
+
+	.ctaNote {
+		flex-direction: column;
+		gap: 5px;
+		text-align: center;
+	}
+}
