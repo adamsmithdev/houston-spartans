@@ -116,7 +116,7 @@ export const TEAM_MEMBERS = [
 export const CREATOR_PROGRAM_TIERS = [
 	{
 		id: 'spartan-recruit',
-		name: 'SPARTAN RECRUIT',
+		name: 'Content Creator',
 		requirements: [
 			'500+ followers/subscribers on a primary platform',
 			'Must be monetized on at least one platform',
@@ -161,7 +161,7 @@ export const CONTENT_CREATORS = [
 		id: 'arrow',
 		fullName: 'Jaia Burkhalter',
 		gamertag: 'Arrow',
-		creatorTier: 'Spartan Recruit',
+		creatorTier: 'Content Creator',
 		picture: '',
 		socialLinks: [
 			{ platform: 'instagram', url: 'http://instagram.com/bestintown7549_' },
@@ -176,7 +176,7 @@ export const CONTENT_CREATORS = [
 		id: 'ciscodisco',
 		fullName: '',
 		gamertag: 'Cisco Disco',
-		creatorTier: 'Spartan Recruit',
+		creatorTier: 'Content Creator',
 		picture: '/images/headshots/profile-ciscodisco.png',
 		socialLinks: [
 			{ platform: 'kick', url: 'https://kick.com/ciscodisco1618' },
@@ -190,7 +190,7 @@ export const CONTENT_CREATORS = [
 		id: 'Col3Train',
 		fullName: '',
 		gamertag: 'Col3Train',
-		creatorTier: 'Spartan Recruit',
+		creatorTier: 'Content Creator',
 		picture: '/images/headshots/profile-col3train.png',
 		socialLinks: [
 			{ platform: 'kick', url: 'https://kick.com/col3train' },
@@ -201,7 +201,7 @@ export const CONTENT_CREATORS = [
 		id: 'dblduty',
 		fullName: '',
 		gamertag: 'DBLduty',
-		creatorTier: 'Spartan Recruit',
+		creatorTier: 'Content Creator',
 		picture: '/images/headshots/profile-dblduty.png',
 		socialLinks: [
 			{ platform: 'kick', url: 'https://kick.com/dblduty' },
@@ -212,7 +212,7 @@ export const CONTENT_CREATORS = [
 		id: 'hawntingly',
 		fullName: '',
 		gamertag: 'Hawntingly',
-		creatorTier: 'Spartan Recruit',
+		creatorTier: 'Content Creator',
 		picture: '/images/headshots/profile-hawntingly.png',
 		socialLinks: [
 			{ platform: 'tiktok', url: 'https://www.tiktok.com/@hawntingly' },
@@ -224,7 +224,7 @@ export const CONTENT_CREATORS = [
 		id: 'kevology',
 		fullName: '',
 		gamertag: 'Kevology',
-		creatorTier: 'Spartan Recruit',
+		creatorTier: 'Content Creator',
 		picture: '/images/headshots/profile-kevology.png',
 		socialLinks: [
 			{ platform: 'kick', url: 'https://kick.com/kevology' },
@@ -237,7 +237,7 @@ export const CONTENT_CREATORS = [
 		id: 'massacre',
 		fullName: '',
 		gamertag: 'Massacre',
-		creatorTier: 'Spartan Recruit',
+		creatorTier: 'Content Creator',
 		picture: '/images/headshots/profile-massacre.png',
 		socialLinks: [
 			{ platform: 'x', url: 'https://x.com/massacre_nl' },
@@ -248,7 +248,7 @@ export const CONTENT_CREATORS = [
 		id: 'mysteryy',
 		fullName: '',
 		gamertag: 'Mysteryy',
-		creatorTier: 'Spartan Recruit',
+		creatorTier: 'Content Creator',
 		picture: '/images/headshots/profile-mysteryy.png',
 		socialLinks: [
 			{
@@ -264,7 +264,7 @@ export const CONTENT_CREATORS = [
 		id: 'rhino',
 		fullName: 'Griffin Wells',
 		gamertag: 'Rhino',
-		creatorTier: 'Spartan Recruit',
+		creatorTier: 'Content Creator',
 		picture: '/images/headshots/profile-rhino.png',
 		socialLinks: [
 			{ platform: 'tiktok', url: 'https://www.tiktok.com/@griffinwells1' },
@@ -277,13 +277,35 @@ export const CONTENT_CREATORS = [
 		id: 'sofrito',
 		fullName: 'Carlos Carvalho',
 		gamertag: 'SoFrito',
-		creatorTier: 'Spartan Recruit',
+		creatorTier: 'Content Creator',
 		picture: '/images/headshots/profile-sofrito.png',
 		socialLinks: [
 			{ platform: 'tiktok', url: 'https://www.tiktok.com/@sofritogaming' },
 			{ platform: 'twitch', url: 'https://www.twitch.tv/sofritogaming' },
 			{ platform: 'x', url: 'https://x.com/sofritogaming' },
 			{ platform: 'youtube', url: 'https://www.youtube.com/@sofritogaming' },
+		],
+	},
+	{
+		id: 'voltz',
+		fullName: '',
+		gamertag: 'Voltz',
+		creatorTier: 'Content Creator',
+		picture: '/images/headshots/profile-voltz.png',
+		socialLinks: [
+			{ platform: 'twitch', url: 'https://www.twitch.tv/voltz_9120' },
+			{ platform: 'x', url: 'https://x.com/voltz_9120' },
+		],
+	},
+	{
+		id: 'pescarodb',
+		fullName: 'Drew Pescaro',
+		gamertag: 'PescaroDB',
+		creatorTier: 'Content Creator',
+		picture: '/images/headshots/profile-pescarodb.png',
+		socialLinks: [
+			{ platform: 'twitch', url: 'https://www.twitch.tv/pescarodb' },
+			{ platform: 'x', url: 'https://x.com/pescarodb' },
 		],
 	},
 ] as const;
