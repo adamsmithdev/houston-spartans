@@ -108,7 +108,7 @@ export default function ContentCreatorProgram() {
 
 					<div className={styles.applyButton}>
 						<ButtonGroup>
-							<Button href="/contact" variant="primary">
+							<Button href="/apply" variant="primary">
 								APPLY TO BECOME A SPARTAN <i className="fas fa-arrow-right"></i>
 							</Button>
 						</ButtonGroup>
