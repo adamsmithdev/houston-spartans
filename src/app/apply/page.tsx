@@ -1,12 +1,14 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import PageHero from '@/components/PageHero';
 import ApplicationForm from '@/components/ApplicationForm';
+import { createPageMetadata } from '@/utils/metadata';
 
-export const metadata: Metadata = {
-	title: 'Apply to Join | Houston Spartans',
+export const metadata: Metadata = createPageMetadata({
+	title: 'Apply to Join',
 	description:
-		'Apply to become a Houston Spartan content creator. Join our community of passionate gamers and content creators representing excellence in esports.',
-};
+		'Apply to join the Houston Spartans Content Creator Program. Submit your application to become part of our gaming community.',
+	keywords: ['apply', 'application', 'join', 'content creator', 'program'],
+});
 
 export default function ApplyPage() {
 	return (

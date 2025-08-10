@@ -1,13 +1,15 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import PageHero from '@/components/PageHero';
 import ContentCreators from '@/components/ContentCreators';
 import ContentCreatorProgram from '@/components/ContentCreatorProgram';
+import { createPageMetadata } from '@/utils/metadata';
 
-export const metadata: Metadata = {
-	title: 'Content Creators | Houston Spartans',
+export const metadata: Metadata = createPageMetadata({
+	title: 'Content Creators',
 	description:
-		'Discover the talented streamers and content creators representing Houston Spartans. Learn about our Content Creator Program and how to join our team.',
-};
+		'Join the Houston Spartans Content Creator Program. Connect with fellow creators, grow your brand, and be part of our gaming community.',
+	keywords: ['content creators', 'streaming', 'youtube', 'twitch', 'program'],
+});
 
 export default function CreatorsPage() {
 	return (

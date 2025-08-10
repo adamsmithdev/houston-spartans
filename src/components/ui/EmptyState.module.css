@@ -1,0 +1,25 @@
+.emptyState {
+	text-align: center;
+	padding: 3rem 0;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.emptyStateIcon {
+	margin-bottom: 1.5rem;
+	font-size: 3rem;
+	opacity: 0.6;
+}
+
+.emptyStateTitle {
+	font-size: 1.5rem;
+	font-weight: 600;
+	margin-bottom: 0.75rem;
+	color: #ffffff;
+}
+
+.emptyStateDescription {
+	font-size: 1rem;
+	line-height: 1.6;
+	max-width: 500px;
+	margin: 0 auto;
+}

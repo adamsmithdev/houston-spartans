@@ -1,0 +1,96 @@
+.statusMessage {
+	text-align: center;
+	padding: 3rem 2rem;
+	border-radius: 12px;
+	margin: 2rem 0;
+}
+
+.statusIcon {
+	font-size: 4rem;
+	margin-bottom: 1.5rem;
+}
+
+.statusTitle {
+	font-size: 2rem;
+	font-weight: 700;
+	margin-bottom: 1rem;
+}
+
+.statusText {
+	font-size: 1.1rem;
+	line-height: 1.6;
+	margin-bottom: 2rem;
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.statusAction {
+	background: #bc1616;
+	color: #ffffff;
+	border: none;
+	padding: 0.75rem 2rem;
+	border-radius: 6px;
+	font-size: 1rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.statusAction:hover {
+	background: #9a1212;
+	transform: translateY(-2px);
+}
+
+/* Type-specific styles */
+.success {
+	background: rgba(34, 197, 94, 0.1);
+	border: 2px solid rgba(34, 197, 94, 0.3);
+}
+
+.success .statusIcon {
+	color: #22c55e;
+}
+
+.success .statusTitle {
+	color: #16a34a;
+}
+
+.error {
+	background: rgba(239, 68, 68, 0.1);
+	border: 2px solid rgba(239, 68, 68, 0.3);
+}
+
+.error .statusIcon {
+	color: #ef4444;
+}
+
+.error .statusTitle {
+	color: #dc2626;
+}
+
+.warning {
+	background: rgba(245, 158, 11, 0.1);
+	border: 2px solid rgba(245, 158, 11, 0.3);
+}
+
+.warning .statusIcon {
+	color: #f59e0b;
+}
+
+.warning .statusTitle {
+	color: #d97706;
+}
+
+.info {
+	background: rgba(59, 130, 246, 0.1);
+	border: 2px solid rgba(59, 130, 246, 0.3);
+}
+
+.info .statusIcon {
+	color: #3b82f6;
+}
+
+.info .statusTitle {
+	color: #2563eb;
+}
