@@ -10,7 +10,7 @@ const owners = [
 		fullName: 'CHRIS CERVANTEZ',
 		gamertag: 'PAPA SPART',
 		orgRole: 'OWNER',
-		picture: '/images/headshots/profile-papaspart.png',
+		picture: '/images/people/headshots/profile-papaspart.png',
 		socialLinks: [
 			{
 				platform: 'twitter',
@@ -24,7 +24,7 @@ const owners = [
 		fullName: 'ANITA CERVANTEZ',
 		gamertag: 'MAMA SPART',
 		orgRole: 'OWNER',
-		picture: '/images/headshots/profile-mamaspart.png',
+		picture: '/images/people/headshots/profile-mamaspart.png',
 		socialLinks: [
 			{
 				platform: 'twitter',

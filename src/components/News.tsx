@@ -10,7 +10,7 @@ const newsArticles = [
 		category: 'Tournaments',
 		author: 'Houston Spartans',
 		date: 'January 31, 2025',
-		image: '/images/blog/blog-1.png',
+		image: '/images/content/blog/blog-1.png',
 	},
 	{
 		id: 'tournament-announcement',
@@ -20,7 +20,7 @@ const newsArticles = [
 		category: 'Tournaments',
 		author: 'Houston Spartans',
 		date: 'January 21, 2025',
-		image: '/images/blog/blog-2.png',
+		image: '/images/content/blog/blog-2.png',
 	},
 	{
 		id: 'general-manager-position',
@@ -29,7 +29,7 @@ const newsArticles = [
 		category: 'Careers',
 		author: 'Houston Spartans',
 		date: 'January 4, 2025',
-		image: '/images/blog/blog-3.png',
+		image: '/images/content/blog/blog-3.png',
 	},
 ];
 

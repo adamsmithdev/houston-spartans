@@ -89,7 +89,7 @@ export default function Navbar() {
 			<div className={styles.navContainer}>
 				<Link href="/" className={styles.navLogo}>
 					<Image
-						src="/images/logo.png"
+						src="/images/branding/logo.png"
 						alt="Houston Spartans"
 						width={30}
 						height={30}

@@ -22,7 +22,7 @@ export default function Community() {
 					<div className={styles.communityImages}>
 						<div className={styles.communityImageCard}>
 							<Image
-								src="/images/community/community-1.png"
+								src="/images/content/community/community-1.png"
 								alt="Houston Spartans Community Event"
 								width={400}
 								height={200}
@@ -37,7 +37,7 @@ export default function Community() {
 						</div>
 						<div className={styles.communityImageCard}>
 							<Image
-								src="/images/community/community-2.png"
+								src="/images/content/community/community-2.png"
 								alt="Houston Spartans Gaming Session"
 								width={200}
 								height={200}
@@ -52,7 +52,7 @@ export default function Community() {
 						</div>
 						<div className={styles.communityImageCard}>
 							<Image
-								src="/images/community/community-3.png"
+								src="/images/content/community/community-3.png"
 								alt="Houston Spartans Tournament"
 								width={200}
 								height={200}

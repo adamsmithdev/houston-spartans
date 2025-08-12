@@ -10,7 +10,7 @@ const spartans = [
 		fullName: '',
 		gamertag: 'CISCODISCO',
 		orgRole: 'CONTENT CREATOR',
-		picture: '/images/headshots/profile-ciscodisco.png',
+		picture: '/images/people/headshots/profile-ciscodisco.png',
 		socialLinks: [
 			{
 				platform: 'twitter',
@@ -44,7 +44,7 @@ const spartans = [
 		fullName: 'Kevin Tucker',
 		gamertag: 'KEVOLOGY',
 		orgRole: 'ASSISTANT',
-		picture: '/images/headshots/profile-kevology.png',
+		picture: '/images/people/headshots/profile-kevology.png',
 		socialLinks: [
 			{ platform: 'twitter', url: 'https://x.com/xkevology', icon: <XIcon /> },
 			{
@@ -64,7 +64,7 @@ const spartans = [
 		fullName: 'Trae Pancerella',
 		gamertag: 'APOLLO',
 		orgRole: 'CALL OF DUTY DIRECTOR',
-		picture: '/images/headshots/profile-apollo.png',
+		picture: '/images/people/headshots/profile-apollo.png',
 		socialLinks: [
 			{ platform: 'twitter', url: 'https://x.com/ihyapollo', icon: <XIcon /> },
 			{

@@ -11,7 +11,7 @@ const partners = [
 		id: 'stafford-esports',
 		name: 'Stafford High School ESports',
 		category: 'Education Partner',
-		src: '/images/partners/stafford-esports-logo.png',
+		src: '/images/partners/collaborators/stafford-esports-logo.png',
 		description:
 			'Stafford High School ESports program represents excellence in competitive gaming education, fostering student development through structured esports programs and competitive opportunities.',
 		website: 'https://shs.staffordmsd.org/',
@@ -20,7 +20,7 @@ const partners = [
 		id: 'never-chalked',
 		name: 'Never Chalked',
 		category: 'Media Partner',
-		src: '/images/partners/never-chalked-logo.png',
+		src: '/images/partners/collaborators/never-chalked-logo.png',
 		description:
 			'The premier CDL podcast delivering in-depth analysis, player interviews, and comprehensive coverage of the Call of Duty League competitive scene.',
 		website: 'https://x.com/NeverChalkedPOD',
@@ -29,7 +29,7 @@ const partners = [
 		id: 'tx-sef',
 		name: 'Texas Scholastic Esports Federation',
 		category: 'Education Partner',
-		src: '/images/partners/tx-sef-logo.png',
+		src: '/images/partners/collaborators/tx-sef-logo.png',
 		description:
 			'The Texas Scholastic Esports Federation (TXSEF) promotes competitive gaming in educational settings, providing structured tournaments and development programs for students across Texas.',
 		website: 'https://www.texsef.org/',
@@ -38,7 +38,7 @@ const partners = [
 		id: 'aldine-esports',
 		name: 'Aldine Esports',
 		category: 'Education Partner',
-		src: '/images/partners/aldine-esports-logo.png',
+		src: '/images/partners/collaborators/aldine-esports-logo.png',
 		description:
 			'Aldine Esports represents a forward-thinking approach to integrating competitive gaming into educational curricula, developing the next generation of esports athletes and industry professionals.',
 		website: 'https://x.com/aldineesports',
@@ -47,7 +47,7 @@ const partners = [
 		id: 'war-gaming',
 		name: 'WAR Gaming',
 		category: 'Gaming Partner',
-		src: '/images/partners/war-gaming-logo.png',
+		src: '/images/partners/collaborators/war-gaming-logo.png',
 		description:
 			'Warriors and Rodeo (WAR Gaming) brings together competitive gaming excellence with community engagement, supporting charitable initiatives and fostering inclusive gaming environments.',
 		website: 'https://warmissions.org/',
@@ -56,7 +56,7 @@ const partners = [
 		id: 'kindr3d-sauce',
 		name: 'Kindr3d Sauce Co',
 		category: 'Lifestyle Partner',
-		src: '/images/partners/kindr3d-sauce-logo.png',
+		src: '/images/partners/collaborators/kindr3d-sauce-logo.png',
 		description:
 			'Kindr3d Sauce Co delivers premium sauces and condiments that fuel gaming sessions and community gatherings, bringing flavor and excitement to the esports lifestyle.',
 		website: 'http://www.kindr3dnations.com/',
@@ -65,7 +65,7 @@ const partners = [
 		id: 'bluebonnet',
 		name: 'Bluebonnet Law Firm, P.C.',
 		category: 'Legal Partner',
-		src: '/images/partners/bluebonnet-logo.png',
+		src: '/images/partners/collaborators/bluebonnet-logo.png',
 		description:
 			'Bluebonnet Law Firm, P.C. provides comprehensive legal services and guidance, ensuring Houston Spartans operates with integrity and compliance in all business endeavors.',
 		website: 'https://www.bluebonnetlawfirmpc.com/',

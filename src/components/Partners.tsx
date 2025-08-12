@@ -42,17 +42,17 @@ const partnerLogos = [
 	},
 	{
 		id: 'ssi-pc',
-		src: '/images/sponsors/ssi-pc-optimization-logo.png',
+		src: '/images/partners/sponsors/ssi-pc-optimization-logo.png',
 		alt: 'SSI PC Optimization',
 	},
 	{
 		id: 'rally-esports',
-		src: '/images/sponsors/rally-esports-logo.png',
+		src: '/images/partners/sponsors/rally-esports-logo.png',
 		alt: 'Rally Esports',
 	},
 	{
 		id: 'soardogg',
-		src: '/images/sponsors/soardogg-logo.png',
+		src: '/images/partners/sponsors/soardogg-logo.png',
 		alt: 'SoarDogg',
 	},
 ];

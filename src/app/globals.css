@@ -71,7 +71,7 @@ body {
 .placeholder-hero {
 	background:
 		linear-gradient(135deg, rgba(17, 16, 16, 0.9), rgba(188, 22, 22, 0.1)),
-		url('/images/backdrops/backdrop-red.png') center/cover;
+		url('/images/backgrounds/red.png') center/cover;
 	padding: 120px 0 80px;
 	text-align: center;
 	min-height: 40vh;
@@ -284,7 +284,7 @@ body {
 			rgba(26, 26, 26, 0.6) 50%,
 			rgba(17, 16, 16, 0.8) 100%
 		),
-		url('/images/backdrops/backdrop-hero.png');
+		url('/images/backgrounds/hero.png');
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
@@ -679,7 +679,7 @@ body {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: url('/images/backdrops/backdrop-merch.png') center/cover no-repeat;
+	background: url('/images/backgrounds/merch.png') center/cover no-repeat;
 	z-index: -2;
 }
 

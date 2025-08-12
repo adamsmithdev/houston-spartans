@@ -46,7 +46,7 @@ export default function Hero() {
 			<div className={styles.heroLogo}>
 				<div className="logo-glow">
 					<Image
-						src="/images/logo.png"
+						src="/images/branding/logo.png"
 						alt="Houston Spartans Logo"
 						width={120}
 						height={120}

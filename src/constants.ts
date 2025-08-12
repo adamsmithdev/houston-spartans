@@ -8,7 +8,7 @@ export const TEAM_MEMBERS = [
 		fullName: 'Chris Cervantez',
 		gamertag: 'PapaSpart',
 		orgRole: 'Owner',
-		picture: '/images/headshots/profile-papaspart.png',
+		picture: '/images/people/headshots/profile-papaspart.png',
 		socialLinks: [
 			{
 				platform: 'x',
@@ -21,7 +21,7 @@ export const TEAM_MEMBERS = [
 		fullName: 'Trae Pancerella',
 		gamertag: 'Apollo',
 		orgRole: 'COD Director',
-		picture: '/images/headshots/profile-apollo.png',
+		picture: '/images/people/headshots/profile-apollo.png',
 		socialLinks: [
 			{
 				platform: 'x',
@@ -34,7 +34,7 @@ export const TEAM_MEMBERS = [
 		fullName: 'Robert Duran',
 		gamertag: 'DarkSZN',
 		orgRole: 'CC Manager',
-		picture: '/images/headshots/profile-darkszn.png',
+		picture: '/images/people/headshots/profile-darkszn.png',
 		socialLinks: [
 			{
 				platform: 'x',
@@ -47,7 +47,7 @@ export const TEAM_MEMBERS = [
 		fullName: 'Kevin Tucker',
 		gamertag: 'Kevology',
 		orgRole: 'Assistant',
-		picture: '/images/headshots/profile-kevology.png',
+		picture: '/images/people/headshots/profile-kevology.png',
 		socialLinks: [
 			{
 				platform: 'x',
@@ -60,7 +60,7 @@ export const TEAM_MEMBERS = [
 		fullName: 'JadedFox',
 		gamertag: 'JadedFox',
 		orgRole: 'Social Media Manager',
-		picture: '/images/headshots/profile-jadedfox.png',
+		picture: '/images/people/headshots/profile-jadedfox.png',
 		socialLinks: [
 			{
 				platform: 'x',
@@ -73,7 +73,7 @@ export const TEAM_MEMBERS = [
 		fullName: 'Matt DeLaTorre',
 		gamertag: 'Stryker',
 		orgRole: 'Legacy',
-		picture: '/images/headshots/profile-stryker.png',
+		picture: '/images/people/headshots/profile-stryker.png',
 		socialLinks: [
 			{
 				platform: 'x',
@@ -86,7 +86,7 @@ export const TEAM_MEMBERS = [
 		fullName: 'xoGrinchy',
 		gamertag: 'xoGrinchy',
 		orgRole: 'Legacy',
-		picture: '/images/headshots/profile-xogrinchy.png',
+		picture: '/images/people/headshots/profile-xogrinchy.png',
 		socialLinks: [
 			{
 				platform: 'x',
@@ -99,7 +99,7 @@ export const TEAM_MEMBERS = [
 		fullName: 'Lil Spart',
 		gamertag: 'Lil Spart',
 		orgRole: 'Legacy',
-		picture: '/images/headshots/profile-lilspart.png',
+		picture: '/images/people/headshots/profile-lilspart.png',
 		socialLinks: [],
 	},
 	{
@@ -107,7 +107,7 @@ export const TEAM_MEMBERS = [
 		fullName: 'Kourtney',
 		gamertag: 'Kourtney',
 		orgRole: 'Legacy',
-		picture: '/images/headshots/profile-kourtney.png',
+		picture: '/images/people/headshots/profile-kourtney.png',
 		socialLinks: [],
 	},
 ] as const;
@@ -177,7 +177,7 @@ export const CONTENT_CREATORS = [
 		fullName: '',
 		gamertag: 'Cisco Disco',
 		creatorTier: 'Content Creator',
-		picture: '/images/headshots/profile-ciscodisco.png',
+		picture: '/images/people/headshots/profile-ciscodisco.png',
 		socialLinks: [
 			{ platform: 'kick', url: 'https://kick.com/ciscodisco1618' },
 			{ platform: 'tiktok', url: 'https://www.tiktok.com/@ciscodisco1618' },
@@ -191,7 +191,7 @@ export const CONTENT_CREATORS = [
 		fullName: '',
 		gamertag: 'Col3Train',
 		creatorTier: 'Content Creator',
-		picture: '/images/headshots/profile-col3train.png',
+		picture: '/images/people/headshots/profile-col3train.png',
 		socialLinks: [
 			{ platform: 'kick', url: 'https://kick.com/col3train' },
 			{ platform: 'x', url: 'https://x.com/Col3TrainFBGG' },
@@ -202,7 +202,7 @@ export const CONTENT_CREATORS = [
 		fullName: '',
 		gamertag: 'DBLduty',
 		creatorTier: 'Content Creator',
-		picture: '/images/headshots/profile-dblduty.png',
+		picture: '/images/people/headshots/profile-dblduty.png',
 		socialLinks: [
 			{ platform: 'kick', url: 'https://kick.com/dblduty' },
 			{ platform: 'x', url: 'https://x.com/dbldtydadx13' },
@@ -213,7 +213,7 @@ export const CONTENT_CREATORS = [
 		fullName: '',
 		gamertag: 'Hawntingly',
 		creatorTier: 'Content Creator',
-		picture: '/images/headshots/profile-hawntingly.png',
+		picture: '/images/people/headshots/profile-hawntingly.png',
 		socialLinks: [
 			{ platform: 'tiktok', url: 'https://www.tiktok.com/@hawntingly' },
 			{ platform: 'twitch', url: 'https://www.twitch.tv/hawntingly' },
@@ -225,7 +225,7 @@ export const CONTENT_CREATORS = [
 		fullName: '',
 		gamertag: 'Kevology',
 		creatorTier: 'Content Creator',
-		picture: '/images/headshots/profile-kevology.png',
+		picture: '/images/people/headshots/profile-kevology.png',
 		socialLinks: [
 			{ platform: 'kick', url: 'https://kick.com/kevology' },
 			{ platform: 'tiktok', url: 'https://www.tiktok.com/@xkevologyx' },
@@ -238,7 +238,7 @@ export const CONTENT_CREATORS = [
 		fullName: '',
 		gamertag: 'Massacre',
 		creatorTier: 'Content Creator',
-		picture: '/images/headshots/profile-massacre.png',
+		picture: '/images/people/headshots/profile-massacre.png',
 		socialLinks: [
 			{ platform: 'x', url: 'https://x.com/massacre_nl' },
 			{ platform: 'youtube', url: 'https://www.youtube.com/@massacre_nl' },
@@ -249,7 +249,7 @@ export const CONTENT_CREATORS = [
 		fullName: '',
 		gamertag: 'Mysteryy',
 		creatorTier: 'Content Creator',
-		picture: '/images/headshots/profile-mysteryy.png',
+		picture: '/images/people/headshots/profile-mysteryy.png',
 		socialLinks: [
 			{
 				platform: 'instagram',
@@ -265,7 +265,7 @@ export const CONTENT_CREATORS = [
 		fullName: 'Griffin Wells',
 		gamertag: 'Rhino',
 		creatorTier: 'Content Creator',
-		picture: '/images/headshots/profile-rhino.png',
+		picture: '/images/people/headshots/profile-rhino.png',
 		socialLinks: [
 			{ platform: 'tiktok', url: 'https://www.tiktok.com/@griffinwells1' },
 			{ platform: 'twitch', url: 'https://www.twitch.tv/issamysteryy' },
@@ -278,7 +278,7 @@ export const CONTENT_CREATORS = [
 		fullName: 'Carlos Carvalho',
 		gamertag: 'SoFrito',
 		creatorTier: 'Content Creator',
-		picture: '/images/headshots/profile-sofrito.png',
+		picture: '/images/people/headshots/profile-sofrito.png',
 		socialLinks: [
 			{ platform: 'tiktok', url: 'https://www.tiktok.com/@sofritogaming' },
 			{ platform: 'twitch', url: 'https://www.twitch.tv/sofritogaming' },
@@ -291,7 +291,7 @@ export const CONTENT_CREATORS = [
 		fullName: '',
 		gamertag: 'Voltz',
 		creatorTier: 'Content Creator',
-		picture: '/images/headshots/profile-voltz.png',
+		picture: '/images/people/headshots/profile-voltz.png',
 		socialLinks: [
 			{ platform: 'twitch', url: 'https://www.twitch.tv/voltz_9120' },
 			{ platform: 'x', url: 'https://x.com/voltz_9120' },
@@ -302,7 +302,7 @@ export const CONTENT_CREATORS = [
 		fullName: 'Drew Pescaro',
 		gamertag: 'PescaroDB',
 		creatorTier: 'Content Creator',
-		picture: '/images/headshots/profile-pescarodb.png',
+		picture: '/images/people/headshots/profile-pescarodb.png',
 		socialLinks: [
 			{ platform: 'twitch', url: 'https://www.twitch.tv/pescarodb' },
 			{ platform: 'x', url: 'https://x.com/pescarodb' },

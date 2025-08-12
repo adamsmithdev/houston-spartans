@@ -16,7 +16,7 @@ export const createPageMetadata = ({
 	title,
 	description,
 	keywords = [],
-	ogImage = '/images/logo.png',
+	ogImage = '/images/branding/logo.png',
 }: PageMetadataOptions): Metadata => {
 	const fullTitle = title.includes('Houston Spartans')
 		? title

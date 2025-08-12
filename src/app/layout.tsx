@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 		title: 'Houston Spartans - Esports Community',
 		description:
 			'Rise. Compete. Conquer. Join the Houston Spartans esports community.',
-		images: ['/images/logo.png'],
+		images: ['/images/branding/logo.png'],
 		type: 'website',
 	},
 	twitter: {
@@ -31,11 +31,11 @@ export const metadata: Metadata = {
 		title: 'Houston Spartans - Esports Community',
 		description:
 			'Rise. Compete. Conquer. Join the Houston Spartans esports community.',
-		images: ['/images/logo.png'],
+		images: ['/images/branding/logo.png'],
 	},
 	icons: {
-		icon: '/favicon.ico',
-		shortcut: '/favicon.ico',
+		icon: '/images/branding/favicon.ico',
+		shortcut: '/images/branding/favicon.ico',
 	},
 };
 
