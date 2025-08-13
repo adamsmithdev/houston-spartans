@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { Container, SectionHeading, Button } from '@/components/ui';
+import { collaboration } from '@/constants/images';
 import styles from './Sponsors.module.css';
 import globalStyles from '@/styles/globals.module.css';
 
@@ -11,7 +12,7 @@ const sponsors = [
 		id: 'ssi-pc',
 		name: 'SSI PC Optimization',
 		category: 'Technology Sponsor',
-		src: '/images/partners/sponsors/ssi-pc-optimization-logo.png',
+		src: collaboration.sponsors.ssi,
 		description:
 			'SSI PC Optimization specializes in maximizing computer performance for competitive gaming, providing hardware optimization services and technical support for peak gaming performance.',
 		website: 'https://x.com/ssi_pc_opti',
@@ -20,7 +21,7 @@ const sponsors = [
 		id: 'rally-esports',
 		name: 'Rally Esports',
 		category: 'Gaming Sponsor',
-		src: '/images/partners/sponsors/rally-esports-logo.png',
+		src: collaboration.sponsors.rallyEsports,
 		description:
 			'Rally Esports supports competitive gaming communities through event sponsorship, player development programs, and fostering connections within the esports ecosystem.',
 		website: 'https://x.com/rally_esports',
@@ -29,7 +30,7 @@ const sponsors = [
 		id: 'soardogg',
 		name: 'SoarDogg',
 		category: 'Gaming Sponsor',
-		src: '/images/partners/sponsors/soardogg-logo.png',
+		src: collaboration.sponsors.soardogg,
 		description:
 			'SoarDogg provides premium gaming merchandise and community support, helping teams and players represent their passion for competitive gaming with high-quality gear and accessories.',
 		website:
