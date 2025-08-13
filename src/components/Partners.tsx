@@ -5,54 +5,57 @@ import {
 	SectionHeading,
 	Container,
 } from '@/components/ui';
+import { collaboration } from '@/constants/images';
 import styles from './Partners.module.css';
 import globalStyles from '@/styles/globals.module.css';
+
+const { partners, sponsors } = collaboration;
 
 const partnerLogos = [
 	{
 		id: 'stafford-esports',
-		src: '/images/partners/stafford-esports-logo.png',
+		src: partners.staffordEsports,
 		alt: 'Stafford Esports',
 	},
 	{
 		id: 'never-chalked',
-		src: '/images/partners/never-chalked-logo.png',
+		src: partners.neverChalked,
 		alt: 'Never Chalked',
 	},
-	{ id: 'tx-sef', src: '/images/partners/tx-sef-logo.png', alt: 'Texas SEF' },
+	{ id: 'tx-sef', src: partners.txSef, alt: 'Texas SEF' },
 	{
 		id: 'aldine-esports',
-		src: '/images/partners/aldine-esports-logo.png',
+		src: partners.aldineEsports,
 		alt: 'Aldine Esports',
 	},
 	{
 		id: 'war-gaming',
-		src: '/images/partners/war-gaming-logo.png',
+		src: partners.warGaming,
 		alt: 'WAR Gaming',
 	},
 	{
 		id: 'kindr3d-sauce',
-		src: '/images/partners/kindr3d-sauce-logo.png',
+		src: partners.kindr3dSauce,
 		alt: 'Kindr3d Sauce Co',
 	},
 	{
 		id: 'bluebonnet',
-		src: '/images/partners/bluebonnet-logo.png',
+		src: partners.bluebonnet,
 		alt: 'Bluebonnet Law Firm',
 	},
 	{
 		id: 'ssi-pc',
-		src: '/images/partners/sponsors/ssi-pc-optimization-logo.png',
+		src: sponsors.ssi,
 		alt: 'SSI PC Optimization',
 	},
 	{
 		id: 'rally-esports',
-		src: '/images/partners/sponsors/rally-esports-logo.png',
+		src: sponsors.rallyEsports,
 		alt: 'Rally Esports',
 	},
 	{
 		id: 'soardogg',
-		src: '/images/partners/sponsors/soardogg-logo.png',
+		src: sponsors.soardogg,
 		alt: 'SoarDogg',
 	},
 ];
