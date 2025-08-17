@@ -1,6 +1,11 @@
 import Link from 'next/link';
 import { Container } from '@/components/ui';
-import { FacebookIcon, XIcon, InstagramIcon, LinktreeIcon } from './icons';
+import {
+	FacebookIcon,
+	XIcon,
+	InstagramIcon,
+	LinktreeIcon,
+} from '@/components/icons';
 import styles from './Footer.module.css';
 
 export default function Footer() {

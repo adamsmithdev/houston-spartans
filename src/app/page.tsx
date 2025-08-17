@@ -1,11 +1,13 @@
-import Hero from '@/components/Hero';
-import Mission from '@/components/Mission';
-import Partners from '@/components/Partners';
-import Community from '@/components/Community';
-import Merch from '@/components/Merch';
-import Spartans from '@/components/Spartans';
-import News from '@/components/News';
-import Contact from '@/components/Contact';
+import { Hero } from '@/components/layout';
+import {
+	Mission,
+	Community,
+	Merch,
+	Spartans,
+} from '@/components/sections/home';
+import { Partners } from '@/components/sections/partners';
+import { News } from '@/components/sections/news';
+import { Contact } from '@/components/forms';
 
 export default function Home() {
 	return (

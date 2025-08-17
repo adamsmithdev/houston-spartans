@@ -1,6 +1,12 @@
 import { Container, SectionHeading } from '@/components/ui';
-import SpartanCard from './SpartanCard';
-import { KickIcon, XIcon, TwitchIcon, TikTokIcon, YouTubeIcon } from './icons';
+import { SpartanCard } from '@/components/cards';
+import {
+	KickIcon,
+	XIcon,
+	TwitchIcon,
+	TikTokIcon,
+	YouTubeIcon,
+} from '@/components/icons';
 import styles from './Spartans.module.css';
 import globalStyles from '@/styles/globals.module.css';
 

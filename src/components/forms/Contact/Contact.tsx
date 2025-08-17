@@ -3,7 +3,12 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Container, Button } from '@/components/ui';
-import { DiscordIcon, XIcon, InstagramIcon, FacebookIcon } from './icons';
+import {
+	DiscordIcon,
+	XIcon,
+	InstagramIcon,
+	FacebookIcon,
+} from '@/components/icons';
 import styles from './Contact.module.css';
 
 interface FormData {

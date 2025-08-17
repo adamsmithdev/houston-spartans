@@ -1,7 +1,9 @@
-import PageHero from '@/components/PageHero';
-import PartnersSection from '@/components/PartnersSection';
-import Sponsors from '@/components/Sponsors';
-import PartnershipOpportunities from '@/components/PartnershipOpportunities';
+import { PageHero } from '@/components/layout';
+import {
+	PartnersSection,
+	Sponsors,
+	PartnershipOpportunities,
+} from '@/components/sections/partners';
 
 export default function PartnersPage() {
 	return (

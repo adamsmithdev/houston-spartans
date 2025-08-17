@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { DiscordIcon } from './icons';
+import { DiscordIcon } from '@/components/icons';
 import styles from './Hero.module.css';
 
 export default function Hero() {

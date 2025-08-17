@@ -1,8 +1,10 @@
-import PageHero from '@/components/PageHero';
-import AboutEstablished from '@/components/AboutEstablished';
-import AboutMission from '@/components/AboutMission';
-import AboutOwners from '@/components/AboutOwners';
-import AboutBrand from '@/components/AboutBrand';
+import { PageHero } from '@/components/layout';
+import {
+	AboutEstablished,
+	AboutMission,
+	AboutOwners,
+	AboutBrand,
+} from '@/components/sections/about';
 
 export default function AboutPage() {
 	return (
