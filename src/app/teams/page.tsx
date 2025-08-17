@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import PageHero from '@/components/PageHero';
-import Teams from '@/components/Teams';
+import { PageHero } from '@/components/layout';
+import { Teams } from '@/components/sections/teams';
 import { createPageMetadata } from '@/utils/metadata';
 
 export const metadata: Metadata = createPageMetadata({

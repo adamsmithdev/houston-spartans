@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
-import PageHero from '@/components/PageHero';
-import ContentCreators from '@/components/ContentCreators';
-import ContentCreatorProgram from '@/components/ContentCreatorProgram';
+import { PageHero } from '@/components/layout';
+import {
+	ContentCreators,
+	ContentCreatorProgram,
+} from '@/components/sections/creators';
 import { createPageMetadata } from '@/utils/metadata';
 
 export const metadata: Metadata = createPageMetadata({

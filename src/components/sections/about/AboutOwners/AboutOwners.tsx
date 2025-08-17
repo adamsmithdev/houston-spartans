@@ -1,5 +1,5 @@
 import { Container, SectionHeading } from '@/components/ui';
-import SpartanCard from '@/components/SpartanCard';
+import { SpartanCard } from '@/components/cards';
 import { XIcon } from '@/components/icons';
 import styles from './AboutOwners.module.css';
 import globalStyles from '@/styles/globals.module.css';

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import PageHero from '@/components/PageHero';
-import ApplicationForm from '@/components/ApplicationForm';
+import { PageHero } from '@/components/layout';
+import { ApplicationForm } from '@/components/forms';
 import { createPageMetadata } from '@/utils/metadata';
 
 export const metadata: Metadata = createPageMetadata({
