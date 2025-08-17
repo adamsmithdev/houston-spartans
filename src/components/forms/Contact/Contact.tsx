@@ -26,6 +26,8 @@ export default function Contact() {
 		message: '',
 	});
 
+	const [isSubmitting, setIsSubmitting] = useState(false);
+
 	const [notification, setNotification] = useState<{
 		message: string;
 		type: 'success' | 'error' | 'info';
@@ -44,7 +46,7 @@ export default function Contact() {
 		setTimeout(() => setNotification(null), 5000);
 	};
 
-	const handleSubmit = (e: React.FormEvent) => {
+	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 
 		// Basic validation
@@ -63,12 +65,40 @@ export default function Contact() {
 			return;
 		}
 
-		// Simulate form submission
-		showNotification(
-			"Message sent successfully! We'll get back to you soon.",
-			'success',
-		);
-		setFormData({ name: '', email: '', subject: '', message: '' });
+		setIsSubmitting(true);
+
+		try {
+			const response = await fetch('/api/contact', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(formData),
+			});
+
+			const result = await response.json();
+
+			if (response.ok) {
+				showNotification(
+					"Message sent successfully! We'll get back to you soon.",
+					'success',
+				);
+				setFormData({ name: '', email: '', subject: '', message: '' });
+			} else {
+				showNotification(
+					result.error || 'Failed to send message. Please try again.',
+					'error',
+				);
+			}
+		} catch (error) {
+			console.error('Error sending message:', error);
+			showNotification(
+				'Failed to send message. Please check your connection and try again.',
+				'error',
+			);
+		} finally {
+			setIsSubmitting(false);
+		}
 	};
 
 	const handleChange = (
@@ -136,8 +166,8 @@ export default function Contact() {
 									required
 								/>
 							</div>
-							<Button type="submit" variant="submit">
-								SUBMIT
+							<Button type="submit" variant="submit" disabled={isSubmitting}>
+								{isSubmitting ? 'SENDING...' : 'SUBMIT'}
 							</Button>
 						</form>
 					</div>
