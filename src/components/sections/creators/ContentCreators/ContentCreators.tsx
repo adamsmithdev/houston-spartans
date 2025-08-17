@@ -4,7 +4,7 @@ import {
 	EmptyState,
 	processSocialLinks,
 } from '@/components/ui';
-import SpartanCard from './SpartanCard';
+import { SpartanCard } from '@/components/cards';
 import { CONTENT_CREATORS, type ContentCreator } from '@/constants';
 import styles from './ContentCreators.module.css';
 import globalStyles from '@/styles/globals.module.css';

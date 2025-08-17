@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { DiscordIcon } from './icons';
+import { DiscordIcon } from '@/components/icons';
 import { HOUSTON_SPARTANS_STORE_URL } from '@/constants';
 import styles from './Navbar.module.css';
 

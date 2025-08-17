@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { Button, ButtonGroup, Container } from '@/components/ui';
-import { DiscordIcon } from './icons';
+import { DiscordIcon } from '@/components/icons';
 import styles from './Community.module.css';
 import globalStyles from '@/styles/globals.module.css';
 

@@ -1,5 +1,5 @@
-import PageHero from '@/components/PageHero';
-import Contact from '@/components/Contact';
+import { PageHero } from '@/components/layout';
+import { Contact } from '@/components/forms';
 
 export default function ContactPage() {
 	return (

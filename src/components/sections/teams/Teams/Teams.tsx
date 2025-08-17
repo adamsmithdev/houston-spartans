@@ -1,5 +1,5 @@
 import { Section, processSocialLinks } from '@/components/ui';
-import SpartanCard from './SpartanCard';
+import { SpartanCard } from '@/components/cards';
 import { TEAM_MEMBERS } from '@/constants';
 import styles from './Teams.module.css';
 
