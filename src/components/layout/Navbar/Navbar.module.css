@@ -112,6 +112,37 @@
 	display: none;
 }
 
+.authBtn {
+	background: linear-gradient(45deg, #bc1616, #833131);
+	padding: 10px 20px;
+	border-radius: 25px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-weight: 600;
+	transition: all 0.3s ease;
+	border: 2px solid transparent;
+	cursor: pointer;
+	color: #ffffff !important;
+}
+
+.authBtn:hover {
+	background: linear-gradient(45deg, #833131, #bc1616);
+	transform: translateY(-2px);
+	box-shadow: 0 8px 20px rgba(188, 22, 22, 0.3);
+	color: #ffffff !important;
+}
+
+.authBtn:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+	transform: none;
+}
+
+.authBtn::after {
+	display: none;
+}
+
 .navToggle {
 	display: none;
 	flex-direction: column;

@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import './globals.css';
 import '@/styles/global-base.css';
-import { Navbar, Footer } from '@/components/layout';
+import { Navbar, Footer, AdminSidebar } from '@/components/layout';
 import { BackToTop } from '@/components/common';
+import { AuthProvider } from '@/contexts/AuthContext';
 
 const montserrat = Montserrat({
 	variable: '--font-montserrat',
@@ -52,10 +53,13 @@ export default function RootLayout({
 				/>
 			</head>
 			<body className={`${montserrat.variable} antialiased`}>
-				<Navbar />
-				{children}
-				<Footer />
-				<BackToTop />
+				<AuthProvider>
+					<AdminSidebar />
+					<Navbar />
+					{children}
+					<Footer />
+					<BackToTop />
+				</AuthProvider>
 			</body>
 		</html>
 	);
