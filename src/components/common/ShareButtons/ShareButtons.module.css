@@ -1,0 +1,30 @@
+.shareButtons {
+	display: flex;
+	gap: 15px;
+}
+
+.shareBtn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 45px;
+	height: 45px;
+	color: white;
+	transition: all 0.3s ease;
+	text-decoration: none;
+	border-radius: 8px;
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(188, 22, 22, 0.3);
+}
+
+.shareBtn:hover {
+	color: #bc1616;
+	transform: translateY(-3px);
+	background: rgba(188, 22, 22, 0.1);
+	border-color: #bc1616;
+}
+
+.shareBtn svg {
+	width: 20px;
+	height: 20px;
+}

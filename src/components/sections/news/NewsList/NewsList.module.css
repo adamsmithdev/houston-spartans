@@ -1,0 +1,388 @@
+/* News List Section */
+.newsList {
+	padding: 60px 0 80px;
+	background: #111010;
+}
+
+/* Featured Section */
+.featuredSection {
+	margin-bottom: 80px;
+}
+
+.featuredPost {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 60px;
+	align-items: center;
+	background: rgba(255, 255, 255, 0.05);
+	border-radius: 15px;
+	overflow: hidden;
+	border: 1px solid rgba(188, 22, 22, 0.2);
+	transition: all 0.3s ease;
+}
+
+.featuredPost:hover {
+	background: rgba(188, 22, 22, 0.1);
+	border-color: #bc1616;
+	transform: translateY(-5px);
+}
+
+.featuredImage {
+	position: relative;
+	height: 400px;
+	overflow: hidden;
+}
+
+.featuredImage img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.3s ease;
+}
+
+.featuredPost:hover .featuredImage img {
+	transform: scale(1.05);
+}
+
+.featuredOverlay {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+}
+
+.featuredCategory {
+	background: #bc1616;
+	color: #ffffff;
+	padding: 8px 15px;
+	border-radius: 25px;
+	font-size: 0.9rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.featuredContent {
+	padding: 40px;
+}
+
+.featuredMeta {
+	display: flex;
+	gap: 20px;
+	margin-bottom: 20px;
+	font-size: 0.9rem;
+	color: #b5a5a5;
+}
+
+.featuredContent h2 {
+	font-size: 2.2rem;
+	font-weight: 700;
+	color: #ffffff;
+	margin-bottom: 20px;
+	line-height: 1.3;
+}
+
+.featuredContent p {
+	font-size: 1.1rem;
+	color: #b5a5a5;
+	line-height: 1.6;
+	margin-bottom: 25px;
+}
+
+/* Articles Section */
+.articlesSection {
+	margin-top: 80px;
+}
+
+.sectionHeader {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+/* Ensure section heading doesn't wrap and affect layout */
+.sectionHeader h2 {
+	margin: 0;
+}
+
+.categories {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-bottom: 40px;
+}
+
+.categoryBtn {
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(188, 22, 22, 0.2);
+	color: #b5a5a5;
+	padding: 10px 20px;
+	border-radius: 25px;
+	font-size: 0.9rem;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	transition: all 0.3s ease;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	white-space: nowrap; /* Prevent text wrapping */
+	height: 40px; /* Fixed height for consistency */
+	box-sizing: border-box;
+}
+
+.categoryBtn:hover,
+.categoryBtn.active {
+	background: #bc1616;
+	border-color: #bc1616;
+	color: #ffffff;
+	transform: translateY(-2px);
+}
+
+.categoryCount {
+	font-size: 0.8rem;
+	opacity: 0.8;
+}
+
+.articlesGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+	gap: 40px;
+	animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.articleCard {
+	background: rgba(255, 255, 255, 0.05);
+	border-radius: 15px;
+	overflow: hidden;
+	border: 1px solid rgba(188, 22, 22, 0.2);
+	transition: all 0.3s ease;
+}
+
+.articleCard:hover {
+	transform: translateY(-10px);
+	background: rgba(188, 22, 22, 0.1);
+	border-color: #bc1616;
+}
+
+.articleImage {
+	position: relative;
+	height: 250px;
+	overflow: hidden;
+}
+
+.articleImage img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.3s ease;
+}
+
+.articleCard:hover .articleImage img {
+	transform: scale(1.05);
+}
+
+.articleOverlay {
+	position: absolute;
+	top: 15px;
+	left: 15px;
+}
+
+.articleCategory {
+	background: #bc1616;
+	color: #ffffff;
+	padding: 6px 12px;
+	border-radius: 20px;
+	font-size: 0.8rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.articleContent {
+	padding: 30px;
+}
+
+.articleMeta {
+	display: flex;
+	gap: 15px;
+	margin-bottom: 15px;
+	font-size: 0.85rem;
+	color: #b5a5a5;
+}
+
+.articleContent h3 {
+	font-size: 1.4rem;
+	font-weight: 600;
+	color: #ffffff;
+	margin-bottom: 15px;
+	line-height: 1.4;
+}
+
+.articleContent p {
+	color: #b5a5a5;
+	margin-bottom: 20px;
+	line-height: 1.6;
+	font-size: 1rem;
+}
+
+/* Shared Styles */
+.author,
+.date,
+.readTime {
+	position: relative;
+}
+
+.author::after,
+.date::after {
+	content: '•';
+	margin-left: 15px;
+	color: #bc1616;
+}
+
+.tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-bottom: 25px;
+}
+
+.tag {
+	background: rgba(188, 22, 22, 0.1);
+	border: 1px solid rgba(188, 22, 22, 0.3);
+	color: #bc1616;
+	padding: 4px 10px;
+	border-radius: 15px;
+	font-size: 0.75rem;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.readMoreBtn {
+	margin-top: auto;
+}
+
+/* No Articles Message */
+.noArticles {
+	grid-column: 1 / -1;
+	text-align: center;
+	padding: 60px 20px;
+	background: rgba(255, 255, 255, 0.02);
+	border-radius: 15px;
+	border: 1px solid rgba(188, 22, 22, 0.1);
+}
+
+.noArticles h3 {
+	color: #ffffff;
+	font-size: 1.5rem;
+	margin-bottom: 15px;
+}
+
+.noArticles p {
+	color: #b5a5a5;
+	font-size: 1.1rem;
+	margin-bottom: 25px;
+}
+
+.showAllBtn {
+	margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+	.featuredPost {
+		grid-template-columns: 1fr;
+		gap: 0;
+	}
+
+	.featuredImage {
+		height: 300px;
+	}
+
+	.sectionHeader {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 30px;
+	}
+
+	.categories {
+		width: 100%;
+		overflow-x: auto;
+		padding-bottom: 10px;
+	}
+}
+
+@media (max-width: 768px) {
+	.newsList {
+		padding: 40px 0 60px;
+	}
+
+	.featuredSection {
+		margin-bottom: 60px;
+	}
+
+	.featuredContent {
+		padding: 25px;
+	}
+
+	.featuredContent h2 {
+		font-size: 1.8rem;
+	}
+
+	.articlesGrid {
+		grid-template-columns: 1fr;
+		gap: 30px;
+	}
+
+	.articleContent {
+		padding: 25px;
+	}
+
+	.articleContent h3 {
+		font-size: 1.2rem;
+	}
+
+	.categories {
+		gap: 8px;
+	}
+
+	.categoryBtn {
+		padding: 8px 16px;
+		font-size: 0.8rem;
+		white-space: nowrap;
+	}
+}
+
+@media (max-width: 480px) {
+	.featuredContent h2 {
+		font-size: 1.5rem;
+	}
+
+	.featuredContent p {
+		font-size: 1rem;
+	}
+
+	.featuredMeta,
+	.articleMeta {
+		flex-direction: column;
+		gap: 5px;
+	}
+
+	.author::after,
+	.date::after {
+		display: none;
+	}
+}

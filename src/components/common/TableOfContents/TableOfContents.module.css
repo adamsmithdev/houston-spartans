@@ -1,0 +1,97 @@
+/* Table of Contents */
+.tableOfContents {
+	background: rgba(255, 255, 255, 0.02);
+	border-radius: 10px;
+	padding: 25px;
+	border: 1px solid rgba(188, 22, 22, 0.1);
+	position: sticky;
+	top: 100px;
+}
+
+.tableOfContents h3 {
+	color: #ffffff;
+	font-size: 1.1rem;
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid #bc1616;
+}
+
+.nav {
+	max-height: 400px;
+	overflow-y: auto;
+}
+
+.list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.item {
+	margin-bottom: 8px;
+}
+
+.link {
+	display: block;
+	width: 100%;
+	text-align: left;
+	background: none;
+	border: none;
+	color: #b5a5a5;
+	font-size: 0.9rem;
+	line-height: 1.4;
+	padding: 8px 12px;
+	border-radius: 6px;
+	transition: all 0.3s ease;
+	cursor: pointer;
+}
+
+.link:hover {
+	color: #ffffff;
+	background: rgba(188, 22, 22, 0.1);
+}
+
+.item.active .link {
+	color: #bc1616;
+	background: rgba(188, 22, 22, 0.15);
+	font-weight: 600;
+}
+
+/* Heading Levels */
+.level2 .link {
+	padding-left: 12px;
+	font-weight: 500;
+}
+
+.level3 .link {
+	padding-left: 24px;
+	font-size: 0.85rem;
+	font-weight: 400;
+}
+
+/* Scrollbar Styling */
+.nav::-webkit-scrollbar {
+	width: 4px;
+}
+
+.nav::-webkit-scrollbar-track {
+	background: rgba(255, 255, 255, 0.05);
+	border-radius: 2px;
+}
+
+.nav::-webkit-scrollbar-thumb {
+	background: rgba(188, 22, 22, 0.5);
+	border-radius: 2px;
+}
+
+.nav::-webkit-scrollbar-thumb:hover {
+	background: rgba(188, 22, 22, 0.7);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+	.tableOfContents {
+		position: static;
+		margin-bottom: 30px;
+	}
+}
