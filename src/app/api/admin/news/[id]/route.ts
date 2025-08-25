@@ -5,6 +5,34 @@ interface RouteParams {
 	params: Promise<{ id: string }>;
 }
 
+interface NewsPostUpdateRequest {
+	title: string;
+	slug: string;
+	excerpt?: string;
+	content: string;
+	category?: string;
+	is_published?: boolean;
+	is_featured?: boolean;
+	image_url?: string;
+	read_time?: string | number;
+	tags?: string[];
+}
+
+interface NewsPostRecord {
+	id: string;
+	title: string;
+	slug: string;
+	excerpt?: string;
+	content: string;
+	category?: string;
+	is_published: boolean;
+	is_featured: boolean;
+	image_url?: string;
+	read_time: number;
+	tags: string[];
+	published_at?: string | null;
+}
+
 // GET /api/admin/news/[id] - Get specific news post
 export async function GET(request: NextRequest, { params }: RouteParams) {
 	try {
@@ -43,6 +71,165 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
 	}
 }
 
+/**
+ * Validates required fields for news post update
+ */
+function validateUpdateFields(
+	body: NewsPostUpdateRequest,
+): NextResponse | null {
+	const { title, slug, content } = body;
+
+	if (!title || !slug || !content) {
+		return NextResponse.json(
+			{ error: 'Title, slug, and content are required' },
+			{ status: 400 },
+		);
+	}
+
+	return null;
+}
+
+/**
+ * Normalizes slug format
+ */
+function normalizeSlug(slug: string): string {
+	return slug
+		.toLowerCase()
+		.replace(/[^a-z0-9-]/g, '-')
+		.replace(/-+/g, '-');
+}
+
+/**
+ * Prepares update data object with proper type conversion
+ */
+function prepareUpdateData(
+	body: NewsPostUpdateRequest,
+	currentPost: NewsPostRecord,
+): Record<string, unknown> {
+	const {
+		title,
+		slug,
+		excerpt,
+		content,
+		category,
+		is_featured,
+		image_url,
+		read_time,
+		tags,
+	} = body;
+
+	return {
+		title,
+		slug: normalizeSlug(slug),
+		excerpt,
+		content,
+		category,
+		is_featured,
+		image_url,
+		read_time: read_time
+			? parseInt(read_time.toString())
+			: currentPost.read_time,
+		tags: Array.isArray(tags) ? tags : currentPost.tags,
+	};
+}
+
+/**
+ * Handles publishing status logic and timestamps
+ */
+function handlePublishingStatus(
+	updateData: Record<string, unknown>,
+	is_published: boolean | undefined,
+	currentPost: NewsPostRecord,
+): void {
+	if (is_published === undefined) return;
+
+	updateData.is_published = is_published;
+
+	if (is_published && !currentPost.published_at) {
+		updateData.published_at = new Date().toISOString();
+	} else if (!is_published) {
+		updateData.published_at = null;
+	}
+}
+
+/**
+ * Unfeatures other posts when this post is being featured
+ */
+async function handleFeaturingLogic(
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	supabase: any,
+	id: string,
+	is_featured: boolean | undefined,
+	currentPost: NewsPostRecord,
+): Promise<void> {
+	if (is_featured !== true || currentPost.is_featured) return;
+
+	const { error } = await supabase
+		.from('news_posts')
+		.update({ is_featured: false })
+		.neq('id', id)
+		.eq('is_featured', true);
+
+	if (error) {
+		console.error('Error unfeaturing other posts:', error);
+		// Continue with the update anyway - this is not a critical failure
+	}
+}
+
+/**
+ * Fetches current post and handles not found errors
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+async function fetchCurrentPost(supabase: any, id: string) {
+	const { data: currentPost, error: fetchError } = await supabase
+		.from('news_posts')
+		.select('*')
+		.eq('id', id)
+		.single();
+
+	if (fetchError) {
+		if (fetchError.code === 'PGRST116') {
+			return {
+				error: NextResponse.json({ error: 'Post not found' }, { status: 404 }),
+			};
+		}
+		throw fetchError;
+	}
+
+	return { currentPost: currentPost as NewsPostRecord };
+}
+
+/**
+ * Updates the post in database with error handling
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+async function updatePostInDatabase(
+	supabase: any,
+	id: string,
+	updateData: Record<string, unknown>,
+) {
+	const { data: post, error } = await supabase
+		.from('news_posts')
+		.update(updateData)
+		.eq('id', id)
+		.select()
+		.single();
+
+	if (error) {
+		if (error.code === '23505') {
+			return {
+				error: NextResponse.json(
+					{ error: 'A post with this slug already exists' },
+					{ status: 409 },
+				),
+			};
+		}
+		throw error;
+	}
+
+	return { post };
+}
+
 // PUT /api/admin/news/[id] - Update specific news post
 export async function PUT(request: NextRequest, { params }: RouteParams) {
 	try {
@@ -59,105 +246,29 @@ export async function PUT(request: NextRequest, { params }: RouteParams) {
 		const { id } = resolvedParams;
 		const body = await request.json();
 
-		const {
-			title,
-			slug,
-			excerpt,
-			content,
-			category,
-			is_published,
-			is_featured,
-			image_url,
-			read_time,
-			tags,
-		} = body;
+		// Validate required fields
+		const validationError = validateUpdateFields(body);
+		if (validationError) return validationError;
 
-		// Validation
-		if (!title || !slug || !content) {
-			return NextResponse.json(
-				{ error: 'Title, slug, and content are required' },
-				{ status: 400 },
-			);
-		}
-
-		// Get current post to check if it exists
-		const { data: currentPost, error: fetchError } = await supabase
-			.from('news_posts')
-			.select('*')
-			.eq('id', id)
-			.single();
-
-		if (fetchError) {
-			if (fetchError.code === 'PGRST116') {
-				return NextResponse.json({ error: 'Post not found' }, { status: 404 });
-			}
-			throw fetchError;
-		}
+		// Fetch current post
+		const fetchResult = await fetchCurrentPost(supabase, id);
+		if ('error' in fetchResult) return fetchResult.error;
+		const { currentPost } = fetchResult;
 
 		// Prepare update data
-		const updateData: Record<string, unknown> = {
-			title,
-			slug: slug
-				.toLowerCase()
-				.replace(/[^a-z0-9-]/g, '-')
-				.replace(/-+/g, '-'),
-			excerpt,
-			content,
-			category,
-			is_featured,
-			image_url,
-			read_time: parseInt(read_time?.toString()) || currentPost.read_time,
-			tags: Array.isArray(tags) ? tags : currentPost.tags,
-		};
+		const updateData = prepareUpdateData(body, currentPost);
 
 		// Handle publishing status
-		if (is_published !== undefined) {
-			updateData.is_published = is_published;
+		handlePublishingStatus(updateData, body.is_published, currentPost);
 
-			// Set published_at timestamp when publishing for the first time
-			if (is_published && !currentPost.published_at) {
-				updateData.published_at = new Date().toISOString();
-			}
-			// Clear published_at when unpublishing
-			else if (!is_published) {
-				updateData.published_at = null;
-			}
-		}
-
-		// Auto-unfeaturing logic: If this post is being featured, unfeature all others
-		if (is_featured === true && !currentPost.is_featured) {
-			const { error: unfeatueError } = await supabase
-				.from('news_posts')
-				.update({ is_featured: false })
-				.neq('id', id)
-				.eq('is_featured', true);
-
-			if (unfeatueError) {
-				console.error('Error unfeaturing other posts:', unfeatueError);
-				// Continue with the update anyway - this is not a critical failure
-			}
-		}
+		// Handle featuring logic
+		await handleFeaturingLogic(supabase, id, body.is_featured, currentPost);
 
 		// Update the post
-		const { data: post, error } = await supabase
-			.from('news_posts')
-			.update(updateData)
-			.eq('id', id)
-			.select()
-			.single();
+		const updateResult = await updatePostInDatabase(supabase, id, updateData);
+		if ('error' in updateResult) return updateResult.error;
 
-		if (error) {
-			if (error.code === '23505') {
-				// Unique constraint violation
-				return NextResponse.json(
-					{ error: 'A post with this slug already exists' },
-					{ status: 409 },
-				);
-			}
-			throw error;
-		}
-
-		return NextResponse.json({ post });
+		return NextResponse.json({ post: updateResult.post });
 	} catch (error) {
 		console.error('Error updating news post:', error);
 		return NextResponse.json(
