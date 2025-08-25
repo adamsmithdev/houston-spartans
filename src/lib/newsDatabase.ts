@@ -1,6 +1,7 @@
 'use server';
 
 import { createClient } from '@/lib/supabase/server';
+import { createBuildClient } from '@/lib/supabase/build';
 import { type NewsArticle } from '@/types/news';
 import {
 	transformPostsToArticles,
@@ -36,12 +37,22 @@ export async function getAllArticles(): Promise<NewsArticle[]> {
 
 /**
  * Get article by slug
+ * Uses build client during static generation, server client at runtime
  */
 export async function getArticleBySlug(
 	slug: string,
 ): Promise<NewsArticle | null> {
 	try {
-		const supabase = await createClient();
+		// Use build client if we're in a build context (no request)
+		// This is determined by whether cookies() would throw
+		let supabase;
+		try {
+			supabase = await createClient();
+		} catch {
+			// If createClient fails (likely due to cookies in build context),
+			// fall back to build client
+			supabase = createBuildClient();
+		}
 
 		const { data: post, error } = await supabase
 			.from('news_posts')
@@ -64,6 +75,7 @@ export async function getArticleBySlug(
 
 /**
  * Get related articles (same category, excluding current article)
+ * Uses build client during static generation, server client at runtime
  */
 export async function getRelatedArticles(
 	currentSlug: string,
@@ -71,7 +83,14 @@ export async function getRelatedArticles(
 	limit: number = 3,
 ): Promise<NewsArticle[]> {
 	try {
-		const supabase = await createClient();
+		// Use build client if we're in a build context (no request)
+		let supabase;
+		try {
+			supabase = await createClient();
+		} catch {
+			// If createClient fails, fall back to build client
+			supabase = createBuildClient();
+		}
 
 		const { data: posts, error } = await supabase
 			.from('news_posts')
@@ -96,10 +115,11 @@ export async function getRelatedArticles(
 
 /**
  * Get all published slugs for static generation
+ * Uses build client to avoid cookie issues during generateStaticParams
  */
 export async function getAllSlugs(): Promise<string[]> {
 	try {
-		const supabase = await createClient();
+		const supabase = createBuildClient();
 
 		const { data: posts, error } = await supabase
 			.from('news_posts')
