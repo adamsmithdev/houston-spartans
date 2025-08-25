@@ -146,23 +146,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 									))}
 								</div>
 							</div>
-
-							<div className={styles.newsletter}>
-								<h3>Stay Updated</h3>
-								<p>
-									Get the latest Houston Spartans news delivered to your inbox.
-								</p>
-								<form className={styles.newsletterForm}>
-									<input
-										type="email"
-										placeholder="Your email"
-										className={styles.emailInput}
-									/>
-									<Button variant="primary" type="submit">
-										Subscribe
-									</Button>
-								</form>
-							</div>
 						</aside>
 					</div>
 				</Container>

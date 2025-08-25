@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { checkAdminAuth, isAuthError } from '@/lib/auth/adminAuth';
+import type { SupabaseClient } from '@supabase/supabase-js';
 
 interface RouteParams {
 	params: Promise<{ id: string }>;
@@ -202,9 +203,8 @@ async function fetchCurrentPost(supabase: any, id: string) {
 /**
  * Updates the post in database with error handling
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function updatePostInDatabase(
-	supabase: any,
+	supabase: SupabaseClient,
 	id: string,
 	updateData: Record<string, unknown>,
 ) {

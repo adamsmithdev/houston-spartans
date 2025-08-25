@@ -1,6 +1,6 @@
 import { PageHero } from '@/components/layout';
 import { Breadcrumbs } from '@/components/common';
-import { NewsList, NewsletterSignup } from '@/components/sections/news';
+import { NewsList } from '@/components/sections/news';
 import { createPageMetadata } from '@/utils/metadata';
 
 export const metadata = createPageMetadata({
@@ -31,7 +31,6 @@ export default function NewsPage() {
 			/>
 			<Breadcrumbs items={breadcrumbItems} />
 			<NewsList />
-			<NewsletterSignup />
 		</>
 	);
 }
