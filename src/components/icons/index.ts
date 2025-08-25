@@ -1,5 +1,6 @@
 export { default as KickIcon } from './KickIcon';
 export { default as LinktreeIcon } from './LinktreeIcon';
+export { default as NewsIcon } from './NewsIcon';
 export { default as XIcon } from './XIcon';
 export { default as TwitchIcon } from './TwitchIcon';
 export { default as TikTokIcon } from './TikTokIcon';

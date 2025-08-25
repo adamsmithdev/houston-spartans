@@ -30,11 +30,6 @@ export const collaboration = {
 };
 
 export const content = {
-	blog: {
-		blog1: '/images/content/blog/blog-1.png',
-		blog2: '/images/content/blog/blog-2.png',
-		blog3: '/images/content/blog/blog-3.png',
-	},
 	community: {
 		community1: '/images/content/community/community-1.png',
 		community2: '/images/content/community/community-2.png',

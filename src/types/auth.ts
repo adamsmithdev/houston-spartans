@@ -1,10 +1,5 @@
 // Define user roles as a const assertion for type safety
-export const USER_ROLES = [
-	'member',
-	'admin',
-	'moderator',
-	'team_captain',
-] as const;
+export const USER_ROLES = ['member', 'admin'] as const;
 export type UserRole = (typeof USER_ROLES)[number];
 
 // Base user structure with required fields

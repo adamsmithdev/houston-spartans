@@ -2,9 +2,10 @@
 
 import { useState, useCallback } from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { useRouter, usePathname } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
-import { SignOutIcon } from '@/components/icons';
+import { SignOutIcon, NewsIcon } from '@/components/icons';
 import styles from './AdminSidebar.module.css';
 
 // Component state interface
@@ -16,6 +17,7 @@ function AdminSidebar(): React.ReactElement | null {
 	const [state, setState] = useState<SidebarState>({ isCollapsed: true });
 	const { user, signOut, isLoading } = useAuth();
 	const router = useRouter();
+	const pathname = usePathname();
 
 	// State update helper
 	const updateState = useCallback(function (
@@ -67,8 +69,8 @@ function AdminSidebar(): React.ReactElement | null {
 		[updateState],
 	);
 
-	// Don't render if user is not authenticated
-	if (!user) {
+	// Don't render if user is not authenticated or not an admin
+	if (!user || user.role !== 'admin') {
 		return null;
 	}
 
@@ -133,6 +135,21 @@ function AdminSidebar(): React.ReactElement | null {
 				</div>
 
 				<nav className={styles.sidebarNav}>
+					{/* Admin Navigation Links */}
+					<Link
+						href="/admin/news"
+						className={`${styles.navItem} ${pathname.startsWith('/admin/news') ? styles.active : ''}`}
+						title={state.isCollapsed ? 'Manage News' : ''}
+					>
+						<span className={styles.navIcon}>
+							<NewsIcon size={18} />
+						</span>
+						{!state.isCollapsed && (
+							<span className={styles.navText}>Manage News</span>
+						)}
+					</Link>
+
+					{/* Sign Out Button */}
 					<button
 						onClick={handleSignOut}
 						className={`${styles.navItem} ${styles.signOutBtn}`}

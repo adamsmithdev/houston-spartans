@@ -8,7 +8,7 @@ import {
 	getArticleBySlug,
 	getRelatedArticles,
 	getAllSlugs,
-} from '@/lib/newsData';
+} from '@/lib/newsDatabase';
 import { createPageMetadata } from '@/utils/metadata';
 import { SafeHtml } from '@/utils/sanitizeHtml';
 import styles from './page.module.css';
@@ -20,7 +20,7 @@ interface BlogPostPageProps {
 }
 
 export async function generateStaticParams() {
-	const slugs = getAllSlugs();
+	const slugs = await getAllSlugs();
 	return slugs.map((slug) => ({
 		slug,
 	}));
@@ -28,7 +28,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: BlogPostPageProps) {
 	const { slug } = await params;
-	const article = getArticleBySlug(slug);
+	const article = await getArticleBySlug(slug);
 
 	if (!article) {
 		return {
@@ -45,13 +45,13 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
 	const { slug } = await params;
-	const article = getArticleBySlug(slug);
+	const article = await getArticleBySlug(slug);
 
 	if (!article) {
 		notFound();
 	}
 
-	const relatedArticles = getRelatedArticles(slug, 3);
+	const relatedArticles = await getRelatedArticles(slug, article.category, 3);
 
 	const breadcrumbItems = [
 		{ label: 'Home', href: '/' },

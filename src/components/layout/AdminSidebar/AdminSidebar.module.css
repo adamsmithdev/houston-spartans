@@ -176,6 +176,16 @@
 	color: #bc1616;
 }
 
+.navItem.active {
+	background: rgba(188, 22, 22, 0.2);
+	color: #ffffff;
+	border-right: 3px solid #bc1616;
+}
+
+.navItem.active .navIcon {
+	color: #bc1616;
+}
+
 .navIcon {
 	flex-shrink: 0;
 	width: 20px;

@@ -5,7 +5,15 @@ import styles from './Button.module.css';
 
 interface ButtonProps {
 	readonly children: React.ReactNode;
-	readonly variant?: 'primary' | 'secondary' | 'view-all' | 'submit' | 'merch';
+	readonly variant?:
+		| 'primary'
+		| 'secondary'
+		| 'view-all'
+		| 'submit'
+		| 'merch'
+		| 'success'
+		| 'warning'
+		| 'danger';
 	readonly onClick?: () => void;
 	readonly href?: string;
 	readonly type?: 'button' | 'submit';
@@ -29,6 +37,9 @@ export default function Button({
 		'view-all': styles['button-view-all'] || '',
 		submit: styles['button-submit'] || '',
 		merch: styles['button-merch'] || '',
+		success: styles['button-success'] || '',
+		warning: styles['button-warning'] || '',
+		danger: styles['button-danger'] || '',
 	};
 
 	const buttonClasses =

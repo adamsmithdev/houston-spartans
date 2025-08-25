@@ -1,11 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Container, SectionHeading, Button } from '@/components/ui';
-import { getAllArticles } from '@/lib/newsData';
-import { type NewsCategory } from '@/types/news';
+import { type NewsCategory, type NewsArticle } from '@/types/news';
 import { useScrollToSection } from '@/hooks/useScrollToSection';
 import styles from './NewsList.module.css';
 
@@ -21,27 +20,71 @@ const categories: ReadonlyArray<CategoryFilter> = [
 
 export default function NewsList() {
 	const [activeCategory, setActiveCategory] = useState<CategoryFilter>('All');
-	const newsArticles = getAllArticles();
+	const [newsArticles, setNewsArticles] = useState<NewsArticle[]>([]);
+	const [loading, setLoading] = useState(true);
 	const scrollToSection = useScrollToSection();
+
+	useEffect(() => {
+		const fetchArticles = async () => {
+			try {
+				const response = await fetch('/api/news');
+				if (!response.ok) {
+					throw new Error(`Failed to fetch: ${response.status}`);
+				}
+				const articles: NewsArticle[] = await response.json();
+				setNewsArticles(articles);
+			} catch (error) {
+				console.error('Error fetching articles:', error);
+				setNewsArticles([]);
+			} finally {
+				setLoading(false);
+			}
+		};
+
+		fetchArticles();
+	}, []);
 
 	// Always show the featured article regardless of category
 	const featuredArticle = newsArticles.find((article) => article.featured);
 
-	// Filter regular articles based on active category (excluding featured)
-	const allRegularArticles = newsArticles.filter(
-		(article) => !article.featured,
-	);
+	// Filter regular articles based on active category (including featured post)
 	const regularArticles =
 		activeCategory === 'All'
-			? allRegularArticles
-			: allRegularArticles.filter(
-					(article) => article.category === activeCategory,
-				);
+			? newsArticles
+			: newsArticles.filter((article) => article.category === activeCategory);
 
 	const handleCategoryClick = (category: CategoryFilter) => {
 		setActiveCategory(category);
 		scrollToSection('[data-articles-section]');
 	};
+
+	if (loading) {
+		return (
+			<section className={styles.newsList}>
+				<Container>
+					<div className={styles.loading}>
+						<SectionHeading>Loading Latest News...</SectionHeading>
+						<div className={styles.loadingSpinner}>
+							<div className={styles.spinner} />
+						</div>
+					</div>
+				</Container>
+			</section>
+		);
+	}
+
+	if (newsArticles.length === 0) {
+		return (
+			<section className={styles.newsList}>
+				<Container>
+					<div className={styles.emptyState}>
+						<SectionHeading>No News Articles Found</SectionHeading>
+						<p>Check back soon for the latest Houston Spartans updates!</p>
+					</div>
+				</Container>
+			</section>
+		);
+	}
 
 	return (
 		<section className={styles.newsList}>

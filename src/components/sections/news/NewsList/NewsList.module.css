@@ -386,3 +386,45 @@
 		display: none;
 	}
 }
+
+/* Loading State */
+.loading {
+	text-align: center;
+	padding: 80px 0;
+}
+
+.loadingSpinner {
+	display: flex;
+	justify-content: center;
+	margin-top: 40px;
+}
+
+.spinner {
+	width: 40px;
+	height: 40px;
+	border: 3px solid rgba(188, 22, 22, 0.3);
+	border-top: 3px solid #bc1616;
+	border-radius: 50%;
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+/* Empty State */
+.emptyState {
+	text-align: center;
+	padding: 80px 0;
+	color: #b5a5a5;
+}
+
+.emptyState p {
+	font-size: 1.1rem;
+	margin-top: 20px;
+}

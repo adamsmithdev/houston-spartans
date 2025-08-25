@@ -126,3 +126,43 @@
 .button-view-all:hover i {
 	transform: translateX(5px);
 }
+
+/* Admin Button Variants */
+.button-success {
+	background: linear-gradient(135deg, #28a745, #20c997);
+	color: white;
+	border: 2px solid #28a745;
+	padding: 8px 16px;
+	font-size: 12px;
+}
+
+.button-success:hover:not(:disabled) {
+	background: linear-gradient(135deg, #218838, #1e7e34);
+	transform: translateY(-1px);
+}
+
+.button-warning {
+	background: linear-gradient(135deg, #ffc107, #fd7e14);
+	color: #1a1a1a;
+	border: 2px solid #ffc107;
+	padding: 8px 16px;
+	font-size: 12px;
+}
+
+.button-warning:hover:not(:disabled) {
+	background: linear-gradient(135deg, #e0a800, #dc3545);
+	transform: translateY(-1px);
+}
+
+.button-danger {
+	background: linear-gradient(135deg, #dc3545, #c82333);
+	color: white;
+	border: 2px solid #dc3545;
+	padding: 8px 16px;
+	font-size: 12px;
+}
+
+.button-danger:hover:not(:disabled) {
+	background: linear-gradient(135deg, #c82333, #bd2130);
+	transform: translateY(-1px);
+}
