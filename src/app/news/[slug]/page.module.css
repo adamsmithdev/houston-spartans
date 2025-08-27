@@ -140,6 +140,28 @@
 	left: -20px;
 }
 
+/* Blockquotes */
+.articleBody blockquote {
+	border-left: 4px solid #bc1616;
+	margin: 1.5rem 0;
+	font-style: italic;
+	color: #b5a5a5;
+	background: rgba(188, 22, 22, 0.05);
+	padding: 1rem 1.5rem;
+	border-radius: 0 8px 8px 0;
+}
+
+/* Links */
+.articleBody a {
+	color: #bc1616;
+	text-decoration: underline;
+	transition: color 0.2s ease;
+}
+
+.articleBody a:hover {
+	color: #ff6b6b;
+}
+
 /* Article Footer */
 .articleFooter {
 	padding: 40px;
