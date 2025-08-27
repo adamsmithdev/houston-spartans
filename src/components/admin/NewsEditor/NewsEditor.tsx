@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
-import { Button } from '@/components/ui';
+import { Button, LoadingSpinner } from '@/components/ui';
 import { generateSlug } from '@/lib/validators/slugValidator';
 import RichTextEditor from './RichTextEditor';
 import ImageUpload from './ImageUpload';
@@ -35,7 +35,7 @@ const CATEGORIES = [
 ] as const;
 
 export default function NewsEditor({ postId }: NewsEditorProps) {
-	const { user } = useAuth();
+	const { user, isLoading } = useAuth();
 	const router = useRouter();
 	const [loading, setLoading] = useState(false);
 	const [saving, setSaving] = useState(false);
@@ -185,13 +185,21 @@ export default function NewsEditor({ postId }: NewsEditorProps) {
 		updateFormData({ image_url: url });
 	};
 
+	// Redirect to login if not authenticated or not admin
+	useEffect(() => {
+		if (!isLoading && (!user || user.role !== 'admin')) {
+			router.push('/login');
+		}
+	}, [user, isLoading, router]);
+
+	// Show loading spinner while auth is checking
+	if (isLoading) {
+		return <LoadingSpinner message="Checking authentication..." />;
+	}
+
+	// Show loading spinner while redirecting
 	if (!user || user.role !== 'admin') {
-		return (
-			<div className={styles.accessDenied}>
-				<h2>Access Denied</h2>
-				<p>You need admin privileges to access this page.</p>
-			</div>
-		);
+		return <LoadingSpinner message="Redirecting to login..." />;
 	}
 
 	if (loading) {

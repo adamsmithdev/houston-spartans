@@ -2,8 +2,9 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
-import { Button } from '@/components/ui';
+import { Button, LoadingSpinner } from '@/components/ui';
 import styles from './NewsManagement.module.css';
 
 interface NewsPost {
@@ -33,7 +34,8 @@ interface NewsListResponse {
 }
 
 export default function NewsManagement() {
-	const { user } = useAuth();
+	const { user, isLoading } = useAuth();
+	const router = useRouter();
 	const [posts, setPosts] = useState<readonly NewsPost[]>([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
@@ -186,13 +188,21 @@ export default function NewsManagement() {
 		setCurrentPage(1);
 	}, [filter]);
 
+	// Redirect to login if not authenticated or not admin
+	useEffect(() => {
+		if (!isLoading && (!user || user.role !== 'admin')) {
+			router.push('/login');
+		}
+	}, [user, isLoading, router]);
+
+	// Show loading spinner while auth is checking
+	if (isLoading) {
+		return <LoadingSpinner message="Checking authentication..." />;
+	}
+
+	// Show loading spinner while redirecting
 	if (!user || user.role !== 'admin') {
-		return (
-			<div className={styles.accessDenied}>
-				<h2>Access Denied</h2>
-				<p>You need admin privileges to access this page.</p>
-			</div>
-		);
+		return <LoadingSpinner message="Redirecting to login..." />;
 	}
 
 	// Render posts list content based on state

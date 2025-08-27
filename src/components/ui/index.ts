@@ -7,6 +7,7 @@ export { default as EmptyState } from './EmptyState';
 export { default as Section } from './Section';
 export { default as InputField } from './InputField';
 export { default as StatusMessage } from './StatusMessage';
+export { default as LoadingSpinner } from './LoadingSpinner';
 export {
 	getSocialIcon,
 	processSocialLinks,
