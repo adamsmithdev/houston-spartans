@@ -217,3 +217,15 @@
 		padding: 0 10px;
 	}
 }
+
+/* Remove default fieldset styling */
+.section fieldset {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.section legend {
+	padding: 0;
+	margin-bottom: 8px;
+}

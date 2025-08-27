@@ -312,7 +312,7 @@ export default function NewsEditor({ postId }: NewsEditorProps) {
 						/>
 					</div>
 
-					<div className={styles.field}>
+					<div className={styles.field} style={{ marginTop: '20px' }}>
 						<label htmlFor="tags" className={styles.label}>
 							Tags
 						</label>

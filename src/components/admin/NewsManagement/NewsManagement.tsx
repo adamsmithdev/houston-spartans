@@ -132,6 +132,33 @@ export default function NewsManagement() {
 		}
 	};
 
+	// Toggle featured status
+	const handleToggleFeatured = async (post: NewsPost) => {
+		try {
+			const response = await fetch(`/api/admin/news/${post.id}`, {
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					...post,
+					is_featured: !post.is_featured,
+				}),
+			});
+
+			if (!response.ok) {
+				throw new Error('Failed to update post');
+			}
+
+			// Refresh the list
+			fetchPosts();
+		} catch (err) {
+			alert(
+				err instanceof Error ? err.message : 'Failed to update featured status',
+			);
+		}
+	};
+
 	useEffect(() => {
 		if (user?.role === 'admin') {
 			fetchPosts();
@@ -195,15 +222,32 @@ export default function NewsManagement() {
 							</div>
 							<p className={styles.excerpt}>{post.excerpt}</p>
 							<div className={styles.postActions}>
-								<Button
-									variant={post.is_published ? 'warning' : 'success'}
-									onClick={() => handleTogglePublished(post)}
-									className={styles.iconButton}
-								>
-									<i
-										className={`fas ${post.is_published ? 'fa-eye-slash' : 'fa-eye'}`}
-									></i>
-								</Button>
+								<div className={styles.statusButtonsGroup}>
+									<Button
+										variant={post.is_published ? 'warning' : 'success'}
+										onClick={() => handleTogglePublished(post)}
+										className={styles.iconButton}
+									>
+										<i
+											className={`fas ${post.is_published ? 'fa-eye-slash' : 'fa-eye'}`}
+										></i>
+									</Button>
+
+									<Button
+										variant={post.is_featured ? 'info' : 'warning'}
+										onClick={() => handleToggleFeatured(post)}
+										className={styles.iconButton}
+									>
+										<i
+											className={
+												post.is_featured ? 'fas fa-star' : 'far fa-star'
+											}
+											style={{
+												color: post.is_featured ? '#fbbf24' : undefined,
+											}}
+										></i>
+									</Button>
+								</div>
 
 								<div className={styles.editDeleteGroup}>
 									<Link

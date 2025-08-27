@@ -228,6 +228,13 @@
 	flex-wrap: wrap;
 }
 
+/* Status buttons group (publish and featured) */
+.statusButtonsGroup {
+	display: flex;
+	gap: 6px;
+	align-items: center;
+}
+
 /* Icon button styles for compact, mobile-friendly design */
 .iconButton {
 	min-width: 40px;
@@ -294,6 +301,10 @@
 		gap: 8px;
 	}
 
+	.statusButtonsGroup {
+		gap: 8px;
+	}
+
 	.pagination {
 		flex-direction: column;
 		gap: 10px;
@@ -308,6 +319,10 @@
 	}
 
 	.editDeleteGroup {
+		gap: 6px;
+	}
+
+	.statusButtonsGroup {
 		gap: 6px;
 	}
 
