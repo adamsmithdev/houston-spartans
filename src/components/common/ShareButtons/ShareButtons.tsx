@@ -1,26 +1,34 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { XIcon, FacebookIcon, DiscordIcon } from '@/components/icons';
 import styles from './ShareButtons.module.css';
 
 interface ShareButtonsProps {
 	readonly title: string;
-	readonly url?: string;
+	readonly url?: string; // Keep optional for flexibility, but will default to current page
 }
 
 export default function ShareButtons({ title, url }: ShareButtonsProps) {
-	// Use current page URL as fallback if no URL provided
-	const shareUrl = url || '';
+	const [currentUrl, setCurrentUrl] = useState('');
+
+	// Get the current URL after component mounts (client-side only)
+	useEffect(() => {
+		setCurrentUrl(window.location.href);
+	}, []);
+
+	// Use provided URL or current page URL
+	const shareUrl = url || currentUrl;
 	const encodedTitle = encodeURIComponent(title);
-	const encodedUrl = shareUrl ? encodeURIComponent(shareUrl) : '';
+	const encodedUrl = encodeURIComponent('shareUrl');
 
 	const shareLinks = {
-		twitter:
-			`https://twitter.com/intent/tweet?text=${encodedTitle}` +
-			(encodedUrl ? `&url=${encodedUrl}` : ''),
-		facebook:
-			`https://www.facebook.com/sharer/sharer.php` +
-			(encodedUrl ? `?u=${encodedUrl}` : ''),
+		twitter: shareUrl
+			? `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`
+			: `https://twitter.com/intent/tweet?text=${encodedTitle}`,
+		facebook: shareUrl
+			? `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`
+			: `https://www.facebook.com/sharer/sharer.php?quote=${encodedTitle}`,
 		discord: 'https://discord.gg/fP5Ek7Xv3A',
 	};
 
