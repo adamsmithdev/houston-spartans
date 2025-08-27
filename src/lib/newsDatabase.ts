@@ -43,15 +43,29 @@ export async function getArticleBySlug(
 	slug: string,
 ): Promise<NewsArticle | null> {
 	try {
-		// Use build client if we're in a build context (no request)
-		// This is determined by whether cookies() would throw
+		// Determine which client to use based on environment
 		let supabase;
-		try {
-			supabase = await createClient();
-		} catch {
-			// If createClient fails (likely due to cookies in build context),
-			// fall back to build client
+
+		// Check if we're in a build/static generation context
+		const isStaticGeneration =
+			typeof window === 'undefined' &&
+			(!globalThis.process?.env?.VERCEL_ENV ||
+				globalThis.process?.env?.VERCEL_ENV === 'preview');
+
+		if (isStaticGeneration) {
+			// Use build client for static generation
 			supabase = createBuildClient();
+		} else {
+			try {
+				// Try server client first
+				supabase = await createClient();
+			} catch (error) {
+				console.warn(
+					'Server client failed, falling back to build client:',
+					error,
+				);
+				supabase = createBuildClient();
+			}
 		}
 
 		const { data: post, error } = await supabase
@@ -62,6 +76,7 @@ export async function getArticleBySlug(
 			.single();
 
 		if (error || !post) {
+			console.error('Error fetching article by slug:', error);
 			return null;
 		}
 
@@ -83,13 +98,29 @@ export async function getRelatedArticles(
 	limit: number = 3,
 ): Promise<NewsArticle[]> {
 	try {
-		// Use build client if we're in a build context (no request)
+		// Determine which client to use based on environment
 		let supabase;
-		try {
-			supabase = await createClient();
-		} catch {
-			// If createClient fails, fall back to build client
+
+		// Check if we're in a build/static generation context
+		const isStaticGeneration =
+			typeof window === 'undefined' &&
+			(!globalThis.process?.env?.VERCEL_ENV ||
+				globalThis.process?.env?.VERCEL_ENV === 'preview');
+
+		if (isStaticGeneration) {
+			// Use build client for static generation
 			supabase = createBuildClient();
+		} else {
+			try {
+				// Try server client first
+				supabase = await createClient();
+			} catch (error) {
+				console.warn(
+					'Server client failed, falling back to build client:',
+					error,
+				);
+				supabase = createBuildClient();
+			}
 		}
 
 		const { data: posts, error } = await supabase
