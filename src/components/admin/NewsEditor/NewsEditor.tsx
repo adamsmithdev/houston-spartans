@@ -5,6 +5,10 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button, LoadingSpinner } from '@/components/ui';
 import { generateSlug } from '@/lib/validators/slugValidator';
+import {
+	NEWS_VALIDATION_LIMITS,
+	validateTags,
+} from '@/lib/validators/newsValidator';
 import RichTextEditor from './RichTextEditor';
 import ImageUpload from './ImageUpload';
 import styles from './NewsEditor.module.css';
@@ -233,32 +237,70 @@ export default function NewsEditor({ postId }: NewsEditorProps) {
 					<div className={styles.row}>
 						<div className={styles.field}>
 							<label htmlFor="title" className={styles.label}>
-								Title *
+								Title * ({formData.title.length}/
+								{NEWS_VALIDATION_LIMITS.title.max})
 							</label>
 							<input
 								id="title"
 								type="text"
 								value={formData.title}
 								onChange={(e) => handleInputChange('title', e.target.value)}
-								className={styles.input}
+								className={`${styles.input} ${
+									formData.title.length > NEWS_VALIDATION_LIMITS.title.max
+										? styles.invalid
+										: ''
+								}`}
 								placeholder="Enter post title"
+								maxLength={NEWS_VALIDATION_LIMITS.title.max}
 								required
 							/>
+							{formData.title.length > NEWS_VALIDATION_LIMITS.title.max && (
+								<div className={styles.errorText}>
+									Title is too long ({formData.title.length}/
+									{NEWS_VALIDATION_LIMITS.title.max} characters)
+								</div>
+							)}
+							{formData.title.length < NEWS_VALIDATION_LIMITS.title.min &&
+								formData.title.length > 0 && (
+									<div className={styles.warningText}>
+										Title should be at least {NEWS_VALIDATION_LIMITS.title.min}{' '}
+										characters
+									</div>
+								)}
 						</div>
 
 						<div className={styles.field}>
 							<label htmlFor="slug" className={styles.label}>
-								Slug *
+								Slug * ({formData.slug.length}/{NEWS_VALIDATION_LIMITS.slug.max}
+								)
 							</label>
 							<input
 								id="slug"
 								type="text"
 								value={formData.slug}
 								onChange={(e) => handleInputChange('slug', e.target.value)}
-								className={styles.input}
+								className={`${styles.input} ${
+									formData.slug.length > NEWS_VALIDATION_LIMITS.slug.max
+										? styles.invalid
+										: ''
+								}`}
 								placeholder="url-friendly-slug"
+								maxLength={NEWS_VALIDATION_LIMITS.slug.max}
 								required
 							/>
+							{formData.slug.length > NEWS_VALIDATION_LIMITS.slug.max && (
+								<div className={styles.errorText}>
+									Slug is too long ({formData.slug.length}/
+									{NEWS_VALIDATION_LIMITS.slug.max} characters)
+								</div>
+							)}
+							{formData.slug.length < NEWS_VALIDATION_LIMITS.slug.min &&
+								formData.slug.length > 0 && (
+									<div className={styles.warningText}>
+										Slug should be at least {NEWS_VALIDATION_LIMITS.slug.min}{' '}
+										characters
+									</div>
+								)}
 							<small className={styles.hint}>
 								URL: /news/{formData.slug || 'your-slug'}
 							</small>
@@ -291,8 +333,8 @@ export default function NewsEditor({ postId }: NewsEditorProps) {
 							<input
 								id="readTime"
 								type="number"
-								min="1"
-								max="60"
+								min={NEWS_VALIDATION_LIMITS.readTime.min}
+								max={NEWS_VALIDATION_LIMITS.readTime.max}
 								value={formData.read_time || ''}
 								onChange={(e) => {
 									const value = e.target.value;
@@ -300,7 +342,11 @@ export default function NewsEditor({ postId }: NewsEditorProps) {
 										handleInputChange('read_time', 0);
 									} else {
 										const numValue = parseInt(value);
-										if (!isNaN(numValue) && numValue > 0) {
+										if (
+											!isNaN(numValue) &&
+											numValue >= NEWS_VALIDATION_LIMITS.readTime.min &&
+											numValue <= NEWS_VALIDATION_LIMITS.readTime.max
+										) {
 											handleInputChange('read_time', numValue);
 										}
 									}
@@ -311,39 +357,110 @@ export default function NewsEditor({ postId }: NewsEditorProps) {
 										handleInputChange('read_time', 5);
 									}
 								}}
-								className={styles.input}
+								className={`${styles.input} ${
+									formData.read_time &&
+									(formData.read_time < NEWS_VALIDATION_LIMITS.readTime.min ||
+										formData.read_time > NEWS_VALIDATION_LIMITS.readTime.max)
+										? styles.invalid
+										: ''
+								}`}
 								placeholder="5"
 							/>
+							{Boolean(
+								formData.read_time &&
+									(formData.read_time < NEWS_VALIDATION_LIMITS.readTime.min ||
+										formData.read_time > NEWS_VALIDATION_LIMITS.readTime.max),
+							) && (
+								<div className={styles.errorText}>
+									Read time must be between{' '}
+									{NEWS_VALIDATION_LIMITS.readTime.min} and{' '}
+									{NEWS_VALIDATION_LIMITS.readTime.max} minutes
+								</div>
+							)}
 						</div>
 					</div>
 
 					<div className={styles.field}>
 						<label htmlFor="excerpt" className={styles.label}>
-							Excerpt
+							Excerpt ({formData.excerpt.length}/
+							{NEWS_VALIDATION_LIMITS.excerpt.max})
 						</label>
 						<textarea
 							id="excerpt"
 							value={formData.excerpt}
 							onChange={(e) => handleInputChange('excerpt', e.target.value)}
-							className={styles.textarea}
-							placeholder="Brief description of the post"
+							className={`${styles.textarea} ${
+								formData.excerpt.length > NEWS_VALIDATION_LIMITS.excerpt.max
+									? styles.invalid
+									: ''
+							}`}
+							placeholder="Brief description of the post (optional)"
+							maxLength={NEWS_VALIDATION_LIMITS.excerpt.max}
 							rows={3}
 						/>
+						{formData.excerpt.length > NEWS_VALIDATION_LIMITS.excerpt.max && (
+							<div className={styles.errorText}>
+								Excerpt is too long ({formData.excerpt.length}/
+								{NEWS_VALIDATION_LIMITS.excerpt.max} characters)
+							</div>
+						)}
 					</div>
 
 					<div className={styles.field} style={{ marginTop: '20px' }}>
 						<label htmlFor="tags" className={styles.label}>
-							Tags
+							Tags (
+							{(() => {
+								const tags = tagInput
+									.split(',')
+									.map((tag) => tag.trim())
+									.filter((tag) => tag.length > 0);
+								return `${tags.length}/${NEWS_VALIDATION_LIMITS.tags.maxCount}`;
+							})()}
+							)
 						</label>
 						<input
 							id="tags"
 							type="text"
 							value={tagInput}
 							onChange={(e) => setTagInput(e.target.value)}
-							className={styles.input}
+							className={`${styles.input} ${(() => {
+								const tags = tagInput
+									.split(',')
+									.map((tag) => tag.trim())
+									.filter((tag) => tag.length > 0);
+								const validation = validateTags(tags);
+								return !validation.isValid ? styles.invalid : '';
+							})()}`}
 							placeholder="tag1, tag2, tag3"
 						/>
-						<small className={styles.hint}>Separate tags with commas</small>
+						{(() => {
+							const tags = tagInput
+								.split(',')
+								.map((tag) => tag.trim())
+								.filter((tag) => tag.length > 0);
+							const validation = validateTags(tags);
+
+							if (!validation.isValid) {
+								return (
+									<div className={styles.errorText}>{validation.errors[0]}</div>
+								);
+							}
+
+							if (validation.warnings.length > 0) {
+								return (
+									<div className={styles.warningText}>
+										{validation.warnings[0]}
+									</div>
+								);
+							}
+
+							return null;
+						})()}
+						<small className={styles.hint}>
+							Separate tags with commas (max{' '}
+							{NEWS_VALIDATION_LIMITS.tags.maxCount} tags,{' '}
+							{NEWS_VALIDATION_LIMITS.tags.maxLength} chars each)
+						</small>
 					</div>
 				</div>
 

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { checkAdminAuth, isAuthError } from '@/lib/auth/adminAuth';
+import { validateNewsPost } from '@/lib/validators/newsValidator';
 
 // GET /api/admin/news - Get all news posts (including drafts for admin)
 export async function GET(request: NextRequest) {
@@ -98,10 +99,25 @@ export async function POST(request: NextRequest) {
 			tags = [],
 		} = body;
 
-		// Validation
-		if (!title || !slug || !content) {
+		// Enhanced validation using our validation system
+		const validationData = {
+			title: title || '',
+			slug: slug || '',
+			excerpt: excerpt || '', // Now optional
+			content: content || '',
+			category: category || 'Community',
+			readTime: parseInt(read_time?.toString() || '5'),
+			tags: Array.isArray(tags) ? tags : [],
+			imageUrl: image_url,
+		};
+
+		const validation = validateNewsPost(validationData);
+		if (!validation.isValid) {
 			return NextResponse.json(
-				{ error: 'Title, slug, and content are required' },
+				{
+					error: 'Validation failed',
+					details: validation.errors,
+				},
 				{ status: 400 },
 			);
 		}

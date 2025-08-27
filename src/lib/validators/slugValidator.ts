@@ -3,6 +3,12 @@
  * Ensures consistent, URL-safe slugs across the application
  */
 
+interface ValidationResult {
+	readonly isValid: boolean;
+	readonly errors: readonly string[];
+	readonly warnings: readonly string[];
+}
+
 /**
  * Generate a URL-safe slug from a title
  * Handles edge cases like multiple spaces, special characters, and trim issues
@@ -164,4 +170,28 @@ export function getSlugValidationError(slug: string): string | null {
 	}
 
 	return null;
+}
+
+/**
+ * Validate slug with detailed validation result
+ */
+export function validateSlug(slug: string): ValidationResult {
+	const errors: string[] = [];
+	const warnings: string[] = [];
+
+	const error = getSlugValidationError(slug);
+	if (error) {
+		errors.push(error);
+	}
+
+	// Warning for very long slugs
+	if (slug && slug.length > 50) {
+		warnings.push('Slug is quite long and may impact SEO and readability');
+	}
+
+	return {
+		isValid: errors.length === 0,
+		errors,
+		warnings,
+	};
 }

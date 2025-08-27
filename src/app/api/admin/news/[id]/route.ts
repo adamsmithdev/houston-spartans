@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { checkAdminAuth, isAuthError } from '@/lib/auth/adminAuth';
+import { validateNewsPost } from '@/lib/validators/newsValidator';
 import type { SupabaseClient } from '@supabase/supabase-js';
 
 interface RouteParams {
@@ -73,16 +74,29 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
 }
 
 /**
- * Validates required fields for news post update
+ * Validates required fields for news post update using comprehensive validation
  */
 function validateUpdateFields(
 	body: NewsPostUpdateRequest,
 ): NextResponse | null {
-	const { title, slug, content } = body;
+	const validationData = {
+		title: body.title || '',
+		slug: body.slug || '',
+		excerpt: body.excerpt || '', // Now optional
+		content: body.content || '',
+		category: body.category || 'Community',
+		readTime: parseInt(body.read_time?.toString() || '5'),
+		tags: Array.isArray(body.tags) ? body.tags : [],
+		imageUrl: body.image_url,
+	};
 
-	if (!title || !slug || !content) {
+	const validation = validateNewsPost(validationData);
+	if (!validation.isValid) {
 		return NextResponse.json(
-			{ error: 'Title, slug, and content are required' },
+			{
+				error: 'Validation failed',
+				details: validation.errors,
+			},
 			{ status: 400 },
 		);
 	}
