@@ -48,6 +48,12 @@ export default function NewsManagement() {
 	});
 	const [debouncedSearch, setDebouncedSearch] = useState('');
 
+	// Helper function to truncate text with ellipses
+	const truncateText = (text: string, maxLength: number = 20): string => {
+		if (text.length <= maxLength) return text;
+		return text.substring(0, maxLength) + '...';
+	};
+
 	// Fetch posts
 	const fetchPosts = useCallback(async () => {
 		try {
@@ -242,7 +248,7 @@ export default function NewsManagement() {
 					{posts.map((post) => (
 						<article key={post.id} className={styles.postCard}>
 							<div className={styles.postHeader}>
-								<h3 className={styles.postTitle}>{post.title}</h3>
+								<h3 className={styles.postTitle}>{truncateText(post.title)}</h3>
 								<div className={styles.postMeta}>
 									<span className={styles.category}>{post.category}</span>
 									<span className={styles.date}>
@@ -255,7 +261,7 @@ export default function NewsManagement() {
 									</span>
 								</div>
 							</div>
-							<p className={styles.excerpt}>{post.excerpt}</p>
+							<p className={styles.excerpt}>{truncateText(post.excerpt)}</p>
 							<div className={styles.postActions}>
 								<div className={styles.statusButtonsGroup}>
 									<Button
