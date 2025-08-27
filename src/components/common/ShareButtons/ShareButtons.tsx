@@ -20,7 +20,7 @@ export default function ShareButtons({ title, url }: ShareButtonsProps) {
 	// Use provided URL or current page URL
 	const shareUrl = url || currentUrl;
 	const encodedTitle = encodeURIComponent(title);
-	const encodedUrl = encodeURIComponent('shareUrl');
+	const encodedUrl = encodeURIComponent(shareUrl);
 
 	const shareLinks = {
 		twitter: shareUrl
