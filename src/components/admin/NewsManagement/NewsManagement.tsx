@@ -195,18 +195,33 @@ export default function NewsManagement() {
 							</div>
 							<p className={styles.excerpt}>{post.excerpt}</p>
 							<div className={styles.postActions}>
-								<Link href={`/admin/news/${post.id}`}>
-									<Button variant="secondary">Edit</Button>
-								</Link>
 								<Button
 									variant={post.is_published ? 'warning' : 'success'}
 									onClick={() => handleTogglePublished(post)}
+									className={styles.iconButton}
 								>
-									{post.is_published ? 'Unpublish' : 'Publish'}
+									<i
+										className={`fas ${post.is_published ? 'fa-eye-slash' : 'fa-eye'}`}
+									></i>
 								</Button>
-								<Button variant="danger" onClick={() => handleDelete(post.id)}>
-									Delete
-								</Button>
+
+								<div className={styles.editDeleteGroup}>
+									<Link
+										href={`/admin/news/${post.id}`}
+										className={styles.linkButton}
+									>
+										<Button variant="secondary" className={styles.iconButton}>
+											<i className="fas fa-edit"></i>
+										</Button>
+									</Link>
+									<Button
+										variant="danger"
+										onClick={() => handleDelete(post.id)}
+										className={styles.iconButton}
+									>
+										<i className="fas fa-trash"></i>
+									</Button>
+								</div>
 							</div>
 						</article>
 					))}

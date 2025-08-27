@@ -8,12 +8,14 @@ interface ButtonProps {
 	readonly variant?:
 		| 'primary'
 		| 'secondary'
+		| 'discord'
 		| 'view-all'
 		| 'submit'
 		| 'merch'
 		| 'success'
 		| 'warning'
-		| 'danger';
+		| 'danger'
+		| 'info';
 	readonly onClick?: () => void;
 	readonly href?: string;
 	readonly type?: 'button' | 'submit';
@@ -34,12 +36,14 @@ export default function Button({
 	const variantClasses = {
 		primary: styles['button-primary'] || '',
 		secondary: styles['button-secondary'] || '',
+		discord: styles['button-discord'] || '',
 		'view-all': styles['button-view-all'] || '',
 		submit: styles['button-submit'] || '',
 		merch: styles['button-merch'] || '',
 		success: styles['button-success'] || '',
 		warning: styles['button-warning'] || '',
 		danger: styles['button-danger'] || '',
+		info: styles['button-info'] || '',
 	};
 
 	const buttonClasses =

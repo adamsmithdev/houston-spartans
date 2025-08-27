@@ -221,9 +221,35 @@
 
 .postActions {
 	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	gap: 8px;
 	flex-shrink: 0;
 	flex-wrap: wrap;
+}
+
+/* Icon button styles for compact, mobile-friendly design */
+.iconButton {
+	min-width: 40px;
+	padding: 8px 12px !important;
+	border-radius: 8px !important;
+	font-size: 14px !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+}
+
+/* Edit/Delete button grouping */
+.editDeleteGroup {
+	display: flex;
+	gap: 6px;
+	align-items: center;
+}
+
+/* Ensure Link wrapper doesn't affect button styling */
+.linkButton {
+	display: inline-flex;
+	text-decoration: none;
 }
 
 /* Pagination */
@@ -260,7 +286,12 @@
 
 	.postActions {
 		width: 100%;
-		justify-content: center;
+		justify-content: space-between;
+		gap: 12px;
+	}
+
+	.editDeleteGroup {
+		gap: 8px;
 	}
 
 	.pagination {
@@ -271,10 +302,19 @@
 
 @media (max-width: 480px) {
 	.postActions {
-		flex-direction: column;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
 	}
 
-	.postActions button {
-		width: 100%;
+	.editDeleteGroup {
+		gap: 6px;
+	}
+
+	.iconButton {
+		min-width: 36px;
+		padding: 6px 10px !important;
+		font-size: 12px !important;
+		border-radius: 8px !important;
 	}
 }
