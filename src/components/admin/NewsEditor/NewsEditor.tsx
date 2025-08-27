@@ -57,6 +57,9 @@ export default function NewsEditor({ postId }: NewsEditorProps) {
 
 	// Auto-generate slug from title
 	const generateSlugFromTitle = useCallback((title: string): string => {
+		if (!title?.trim()) {
+			return '';
+		}
 		return generateSlug(title);
 	}, []);
 
