@@ -293,11 +293,26 @@ export default function NewsEditor({ postId }: NewsEditorProps) {
 								type="number"
 								min="1"
 								max="60"
-								value={formData.read_time}
-								onChange={(e) =>
-									handleInputChange('read_time', parseInt(e.target.value) || 5)
-								}
+								value={formData.read_time || ''}
+								onChange={(e) => {
+									const value = e.target.value;
+									if (value === '') {
+										handleInputChange('read_time', 0);
+									} else {
+										const numValue = parseInt(value);
+										if (!isNaN(numValue) && numValue > 0) {
+											handleInputChange('read_time', numValue);
+										}
+									}
+								}}
+								onBlur={() => {
+									// Set default value if field is empty when user leaves
+									if (formData.read_time === 0 || !formData.read_time) {
+										handleInputChange('read_time', 5);
+									}
+								}}
 								className={styles.input}
+								placeholder="5"
 							/>
 						</div>
 					</div>
