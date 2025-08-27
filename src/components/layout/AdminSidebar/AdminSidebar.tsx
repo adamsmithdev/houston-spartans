@@ -69,6 +69,14 @@ function AdminSidebar(): React.ReactElement | null {
 		[updateState],
 	);
 
+	// Handle navigation item click - close sidebar after navigation
+	const handleNavClick = useCallback(
+		function (): void {
+			updateState({ isCollapsed: true });
+		},
+		[updateState],
+	);
+
 	// Don't render if user is not authenticated or not an admin
 	if (!user || user.role !== 'admin') {
 		return null;
@@ -135,37 +143,42 @@ function AdminSidebar(): React.ReactElement | null {
 				</div>
 
 				<nav className={styles.sidebarNav}>
-					{/* Admin Navigation Links */}
-					<Link
-						href="/admin/news"
-						className={`${styles.navItem} ${pathname.startsWith('/admin/news') ? styles.active : ''}`}
-						title={state.isCollapsed ? 'Manage News' : ''}
-					>
-						<span className={styles.navIcon}>
-							<NewsIcon size={18} />
-						</span>
-						{!state.isCollapsed && (
-							<span className={styles.navText}>Manage News</span>
-						)}
-					</Link>
-
-					{/* Sign Out Button */}
-					<button
-						onClick={handleSignOut}
-						className={`${styles.navItem} ${styles.signOutBtn}`}
-						disabled={isLoading}
-						title={state.isCollapsed ? 'Sign Out' : ''}
-						type="button"
-					>
-						<span className={styles.navIcon}>
-							<SignOutIcon size={18} />
-						</span>
-						{!state.isCollapsed && (
-							<span className={styles.navText}>
-								{isLoading ? 'Signing Out...' : 'Sign Out'}
+					{/* Navigation Items */}
+					<div className={styles.navItems}>
+						<Link
+							href="/admin/news"
+							className={`${styles.navItem} ${pathname.startsWith('/admin/news') ? styles.active : ''}`}
+							title={state.isCollapsed ? 'Manage News' : ''}
+							onClick={handleNavClick}
+						>
+							<span className={styles.navIcon}>
+								<NewsIcon size={18} />
 							</span>
-						)}
-					</button>
+							{!state.isCollapsed && (
+								<span className={styles.navText}>Manage News</span>
+							)}
+						</Link>
+					</div>
+
+					{/* Sign Out Section */}
+					<div className={styles.signOutSection}>
+						<button
+							onClick={handleSignOut}
+							className={`${styles.navItem} ${styles.signOutBtn}`}
+							disabled={isLoading}
+							title={state.isCollapsed ? 'Sign Out' : ''}
+							type="button"
+						>
+							<span className={styles.navIcon}>
+								<SignOutIcon size={18} />
+							</span>
+							{!state.isCollapsed && (
+								<span className={styles.navText}>
+									{isLoading ? 'Signing Out...' : 'Sign Out'}
+								</span>
+							)}
+						</button>
+					</div>
 				</nav>
 			</div>
 
