@@ -159,11 +159,27 @@ export default function NewsManagement() {
 		}
 	};
 
+	// Initial load effect - runs only once when component mounts
 	useEffect(() => {
 		if (user?.role === 'admin') {
 			fetchPosts();
 		}
-	}, [user, currentPage, filter, fetchPosts]);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [user?.role]); // fetchPosts is stable via useCallback
+
+	// Pagination and filter effect - runs when page or filters change
+	useEffect(() => {
+		if (
+			user?.role === 'admin' &&
+			(currentPage > 1 ||
+				filter.category !== 'All' ||
+				filter.published !== 'all' ||
+				filter.search.trim())
+		) {
+			fetchPosts();
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [currentPage, filter]); // fetchPosts is stable via useCallback
 
 	// Reset page when filters change
 	useEffect(() => {
