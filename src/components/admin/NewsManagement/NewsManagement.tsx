@@ -208,7 +208,7 @@ export default function NewsManagement() {
 	// Render posts list content based on state
 	const renderPostsContent = () => {
 		if (loading) {
-			return <div className={styles.loading}>Loading posts...</div>;
+			return <LoadingSpinner message="Loading posts..." />;
 		}
 
 		if (error) {

@@ -9,6 +9,7 @@ import { TextStyle } from '@tiptap/extension-text-style';
 import { Color } from '@tiptap/extension-color';
 import { Highlight } from '@tiptap/extension-highlight';
 import { useCallback } from 'react';
+import { LoadingSpinner } from '@/components/ui';
 import styles from './RichTextEditor.module.css';
 
 interface RichTextEditorProps {
@@ -147,7 +148,7 @@ export default function RichTextEditor({
 	}, [editor]);
 
 	if (!editor) {
-		return <div className={styles.loading}>Loading editor...</div>;
+		return <LoadingSpinner message="Loading editor..." size="small" />;
 	}
 
 	return (

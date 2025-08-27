@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { useAuth } from '@/contexts/AuthContext';
+import { LoadingSpinner } from '@/components/ui';
 import styles from './LoginForm.module.css';
 
 // Form state interface
@@ -96,22 +97,7 @@ function LoginForm(): React.ReactElement | null {
 
 	// Show loading state
 	if (isLoading) {
-		return (
-			<div className={styles.loginContainer}>
-				<div className={styles.loginForm}>
-					<div className={styles.logoSection}>
-						<Image
-							src="/images/branding/logo.png"
-							alt="Houston Spartans"
-							width={80}
-							height={80}
-							className={styles.logo}
-						/>
-						<h1 className={styles.title}>Loading...</h1>
-					</div>
-				</div>
-			</div>
-		);
+		return <LoadingSpinner message="Checking authentication..." />;
 	}
 
 	const isFormDisabled = formState.isSubmitting || isLoading;

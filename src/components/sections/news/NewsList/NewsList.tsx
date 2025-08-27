@@ -3,7 +3,12 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Container, SectionHeading, Button } from '@/components/ui';
+import {
+	Container,
+	SectionHeading,
+	Button,
+	LoadingSpinner,
+} from '@/components/ui';
 import { type NewsCategory, type NewsArticle } from '@/types/news';
 import { useScrollToSection } from '@/hooks/useScrollToSection';
 import styles from './NewsList.module.css';
@@ -62,12 +67,8 @@ export default function NewsList() {
 		return (
 			<section className={styles.newsList}>
 				<Container>
-					<div className={styles.loading}>
-						<SectionHeading>Loading Latest News...</SectionHeading>
-						<div className={styles.loadingSpinner}>
-							<div className={styles.spinner} />
-						</div>
-					</div>
+					<SectionHeading>Loading Latest News...</SectionHeading>
+					<LoadingSpinner message="Fetching news articles..." />
 				</Container>
 			</section>
 		);

@@ -203,11 +203,7 @@ export default function NewsEditor({ postId }: NewsEditorProps) {
 	}
 
 	if (loading) {
-		return (
-			<div className={styles.loading}>
-				<p>Loading post...</p>
-			</div>
-		);
+		return <LoadingSpinner message="Loading post..." />;
 	}
 
 	return (

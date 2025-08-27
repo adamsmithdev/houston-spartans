@@ -3,7 +3,12 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Container, SectionHeading, Button } from '@/components/ui';
+import {
+	Container,
+	SectionHeading,
+	Button,
+	LoadingSpinner,
+} from '@/components/ui';
 import { getRecentArticles } from '@/lib/newsDatabase';
 import { type NewsArticle } from '@/types/news';
 import styles from './News.module.css';
@@ -34,9 +39,7 @@ export default function News() {
 					<SectionHeading description="Loading the latest news from the Houston Spartans...">
 						LATEST NEWS POSTS
 					</SectionHeading>
-					<div className={styles.loading}>
-						<div className={styles.spinner} />
-					</div>
+					<LoadingSpinner message="Loading latest news..." />
 				</Container>
 			</section>
 		);
