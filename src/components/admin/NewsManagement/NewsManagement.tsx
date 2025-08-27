@@ -46,6 +46,7 @@ export default function NewsManagement() {
 		published: 'all', // 'all', 'published', 'draft'
 		search: '',
 	});
+	const [debouncedSearch, setDebouncedSearch] = useState('');
 
 	// Fetch posts
 	const fetchPosts = useCallback(async () => {
@@ -67,8 +68,8 @@ export default function NewsManagement() {
 				params.append('published', 'false');
 			}
 
-			if (filter.search.trim()) {
-				params.append('search', filter.search.trim());
+			if (debouncedSearch.trim()) {
+				params.append('search', debouncedSearch.trim());
 			}
 
 			const response = await fetch(`/api/admin/news?${params}`);
@@ -85,7 +86,7 @@ export default function NewsManagement() {
 		} finally {
 			setLoading(false);
 		}
-	}, [currentPage, filter]);
+	}, [currentPage, filter.category, filter.published, debouncedSearch]);
 
 	// Delete post
 	const handleDelete = async (id: string) => {
@@ -161,39 +162,47 @@ export default function NewsManagement() {
 		}
 	};
 
-	// Initial load effect - runs only once when component mounts
-	useEffect(() => {
-		if (user?.role === 'admin') {
-			fetchPosts();
-		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [user?.role]); // fetchPosts is stable via useCallback
-
-	// Pagination and filter effect - runs when page or filters change
-	useEffect(() => {
-		if (
-			user?.role === 'admin' &&
-			(currentPage > 1 ||
-				filter.category !== 'All' ||
-				filter.published !== 'all' ||
-				filter.search.trim())
-		) {
-			fetchPosts();
-		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [currentPage, filter]); // fetchPosts is stable via useCallback
-
-	// Reset page when filters change
-	useEffect(() => {
-		setCurrentPage(1);
-	}, [filter]);
-
 	// Redirect to login if not authenticated or not admin
 	useEffect(() => {
 		if (!isLoading && (!user || user.role !== 'admin')) {
 			router.push('/login');
 		}
 	}, [user, isLoading, router]);
+
+	// Debounce search input only - don't fetch here
+	useEffect(() => {
+		// Clear debouncedSearch immediately when search becomes empty
+		if (filter.search.trim() === '') {
+			setDebouncedSearch('');
+			return;
+		}
+
+		// Otherwise, debounce the search term
+		const timer = setTimeout(() => {
+			setDebouncedSearch(filter.search);
+		}, 300); // 300ms debounce
+
+		return () => clearTimeout(timer);
+	}, [filter.search]);
+
+	// Main fetch effect - runs when any filter changes (including debounced search)
+	useEffect(() => {
+		if (user?.role === 'admin') {
+			fetchPosts();
+		}
+	}, [
+		user?.role,
+		currentPage,
+		filter.category,
+		filter.published,
+		debouncedSearch,
+		fetchPosts,
+	]);
+
+	// Reset page when filters change (but not for search input)
+	useEffect(() => {
+		setCurrentPage(1);
+	}, [filter.category, filter.published, debouncedSearch]);
 
 	// Show loading spinner while auth is checking
 	if (isLoading) {
