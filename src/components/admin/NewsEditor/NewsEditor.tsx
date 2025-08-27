@@ -103,6 +103,22 @@ export default function NewsEditor({ postId }: NewsEditorProps) {
 		}
 	}, [postId]);
 
+	// Auto-scroll to top when error occurs
+	useEffect(() => {
+		if (error) {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		}
+	}, [error]);
+
+	// Function to scroll to top and set error (ensures scroll even if error already exists)
+	const setErrorAndScroll = useCallback((errorMessage: string) => {
+		setError(errorMessage);
+		// Always scroll to top when setting an error, even if error already exists
+		setTimeout(() => {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		}, 0);
+	}, []);
+
 	// Auto-generate slug when title changes (only for new posts)
 	useEffect(() => {
 		if (!postId || postId === 'new') {
@@ -170,7 +186,9 @@ export default function NewsEditor({ postId }: NewsEditorProps) {
 			// Redirect to admin news list page after successful save
 			router.push('/admin/news');
 		} catch (err) {
-			setError(err instanceof Error ? err.message : 'Failed to save post');
+			setErrorAndScroll(
+				err instanceof Error ? err.message : 'Failed to save post',
+			);
 		} finally {
 			setSaving(false);
 		}

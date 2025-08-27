@@ -6,9 +6,19 @@ import {
 	InstagramIcon,
 	LinktreeIcon,
 } from '@/components/icons';
+import { getRecentArticles } from '@/lib/newsDatabase';
+import { type NewsArticle } from '@/types/news';
 import styles from './Footer.module.css';
 
-export default function Footer() {
+export default async function Footer() {
+	// Get the latest 2 articles for the footer
+	let recentArticles: NewsArticle[];
+	try {
+		recentArticles = await getRecentArticles(2);
+	} catch (error) {
+		console.error('Error fetching recent articles for footer:', error);
+		recentArticles = [];
+	}
 	return (
 		<footer className={styles.footer}>
 			<Container>
@@ -16,8 +26,20 @@ export default function Footer() {
 					<div className={styles.footerSection}>
 						<h3>LATEST POSTS</h3>
 						<div className={styles.footerPosts}>
-							<Link href="#">RECAP: MIAMI LAN – ACADEMY RED</Link>
-							<Link href="#">HOUSTON SPARTANS 4V4 BO3 VARIANT TOURNAMENT</Link>
+							{recentArticles.map((article) => (
+								<Link key={article.slug} href={`/news/${article.slug}`}>
+									{article.title.length > 50
+										? `${article.title.substring(0, 47).toUpperCase()}...`
+										: article.title.toUpperCase()}
+								</Link>
+							))}
+							{/* Fallback if no articles */}
+							{recentArticles.length === 0 && (
+								<>
+									<Link href="/news">VIEW ALL NEWS</Link>
+									<Link href="/news">STAY UPDATED</Link>
+								</>
+							)}
 						</div>
 					</div>
 
