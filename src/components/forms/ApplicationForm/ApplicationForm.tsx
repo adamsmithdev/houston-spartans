@@ -54,10 +54,23 @@ export default function ApplicationForm() {
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 		setIsSubmitting(true);
+		setSubmitStatus('idle');
 
 		try {
-			// Simulate form submission - in production, this would submit to your backend
-			await new Promise((resolve) => setTimeout(resolve, 2000));
+			const response = await fetch('/api/apply', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(formData),
+			});
+
+			const result = await response.json();
+
+			if (!response.ok) {
+				throw new Error(result.error || 'Failed to submit application');
+			}
+
 			setSubmitStatus('success');
 			setFormData(initialFormData);
 		} catch (error) {
