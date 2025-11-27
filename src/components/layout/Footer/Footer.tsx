@@ -81,8 +81,8 @@ export default async function Footer() {
 					<div className={styles.footerLinks}>
 						<Link href="/terms">Terms & Conditions</Link>
 						<Link href="/privacy">Privacy Policy</Link>
-						<Link href="#">FAQs</Link>
-						<Link href="https://www.houstonspartans.com">Home</Link>
+						<Link href="/faqs">FAQs</Link>
+						<Link href="/">Home</Link>
 					</div>
 					<p className={styles.copyright}>
 						© 2025 Houston Spartans. All rights reserved.
