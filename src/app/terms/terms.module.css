@@ -1,0 +1,153 @@
+/* Terms & Conditions Section */
+.termsSection {
+	padding: 80px 0 100px;
+	background: #0a0a0a;
+	color: #ffffff;
+}
+
+.termsContent {
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+.lastUpdated {
+	text-align: center;
+	color: #999999;
+	font-size: 0.95rem;
+	margin-bottom: 50px;
+	font-style: italic;
+}
+
+.termsBlock {
+	margin-bottom: 50px;
+	padding-bottom: 30px;
+	border-bottom: 1px solid rgba(188, 22, 22, 0.2);
+}
+
+.termsBlock:last-of-type {
+	border-bottom: none;
+}
+
+.termsBlock h2 {
+	color: #bc1616;
+	font-size: 1.6rem;
+	font-weight: 700;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.termsBlock p {
+	font-size: 1.05rem;
+	line-height: 1.8;
+	color: #cccccc;
+	margin-bottom: 15px;
+}
+
+.termsBlock p:last-child {
+	margin-bottom: 0;
+}
+
+.termsBlock ul {
+	margin: 15px 0;
+	padding-left: 0;
+	list-style: none;
+}
+
+.termsBlock li {
+	padding: 10px 0;
+	padding-left: 30px;
+	position: relative;
+	color: #cccccc;
+	line-height: 1.7;
+	font-size: 1.05rem;
+}
+
+.termsBlock li::before {
+	content: '▸';
+	color: #bc1616;
+	font-weight: bold;
+	position: absolute;
+	left: 0;
+	font-size: 1.2rem;
+}
+
+.acknowledgment {
+	background: linear-gradient(
+		135deg,
+		rgba(188, 22, 22, 0.1) 0%,
+		rgba(188, 22, 22, 0.05) 100%
+	);
+	border: 1px solid rgba(188, 22, 22, 0.3);
+	border-radius: 12px;
+	padding: 30px;
+	margin-top: 50px;
+	text-align: center;
+}
+
+.acknowledgment p {
+	font-size: 1.1rem;
+	line-height: 1.8;
+	color: #e0e0e0;
+	margin: 0;
+	font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.termsSection {
+		padding: 60px 0 80px;
+	}
+
+	.termsContent {
+		padding: 0 20px;
+	}
+
+	.termsBlock h2 {
+		font-size: 1.3rem;
+		margin-bottom: 15px;
+	}
+
+	.termsBlock p,
+	.termsBlock li {
+		font-size: 1rem;
+	}
+
+	.termsBlock {
+		margin-bottom: 40px;
+		padding-bottom: 25px;
+	}
+
+	.acknowledgment {
+		padding: 25px 20px;
+	}
+
+	.acknowledgment p {
+		font-size: 1rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.termsSection {
+		padding: 40px 0 60px;
+	}
+
+	.lastUpdated {
+		font-size: 0.9rem;
+		margin-bottom: 40px;
+	}
+
+	.termsBlock h2 {
+		font-size: 1.2rem;
+	}
+
+	.termsBlock p,
+	.termsBlock li {
+		font-size: 0.95rem;
+		line-height: 1.7;
+	}
+
+	.termsBlock li {
+		padding-left: 25px;
+	}
+}
