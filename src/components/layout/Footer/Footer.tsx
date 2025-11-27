@@ -80,7 +80,7 @@ export default async function Footer() {
 				<div className={styles.footerBottom}>
 					<div className={styles.footerLinks}>
 						<Link href="/terms">Terms & Conditions</Link>
-						<Link href="#">Privacy Policy</Link>
+						<Link href="/privacy">Privacy Policy</Link>
 						<Link href="#">FAQs</Link>
 						<Link href="https://www.houstonspartans.com">Home</Link>
 					</div>
