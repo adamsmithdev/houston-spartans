@@ -2,7 +2,7 @@
 export const TWITCH_CONFIG = {
 	channelName: 'spart',
 	channelUrl: 'https://twitch.tv/spart',
-	embedParents: ['localhost', 'houstonspartans.com', 'www.houstonspartans.com'],
+	embedParents: ['localhost', 'houstonspartans.com', 'dev.houstonspartans.com'],
 	pollInterval: 120000, // 2 minutes
 } as const;
 
