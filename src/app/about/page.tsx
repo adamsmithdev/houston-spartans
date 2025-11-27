@@ -1,6 +1,7 @@
 import { PageHero } from '@/components/layout';
 import {
 	AboutEstablished,
+	AboutSpart,
 	AboutMission,
 	AboutOwners,
 	AboutBrand,
@@ -15,6 +16,7 @@ export default function AboutPage() {
 				description="Discover the story behind Houston Spartans - a family-run esports organization dedicated to empowering players and building a strong gaming community in the heart of Texas."
 			/>
 			<AboutEstablished />
+			<AboutSpart />
 			<AboutMission />
 			<AboutOwners />
 			<AboutBrand />
