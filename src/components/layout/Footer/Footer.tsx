@@ -79,13 +79,21 @@ export default async function Footer() {
 
 				<div className={styles.footerBottom}>
 					<div className={styles.footerLinks}>
-						<Link href="#">Terms & Conditions</Link>
-						<Link href="#">Privacy Policy</Link>
-						<Link href="#">FAQs</Link>
-						<Link href="https://www.houstonspartans.com">Home</Link>
+						<Link href="/terms">Terms & Conditions</Link>
+						<Link href="/privacy">Privacy Policy</Link>
+						<Link href="/faqs">FAQs</Link>
+						<Link href="/">Home</Link>
 					</div>
 					<p className={styles.copyright}>
-						© 2025 Houston Spartans. All rights reserved.
+						© 2025 Houston Spartans. All rights reserved. • Built by{' '}
+						<a
+							href="https://adamsmith.tech"
+							target="_blank"
+							rel="noopener noreferrer"
+							className={styles.creditLink}
+						>
+							Adam
+						</a>
 					</p>
 				</div>
 			</Container>
