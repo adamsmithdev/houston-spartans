@@ -69,6 +69,14 @@ export const TEAM_MEMBERS = [
 		],
 	},
 	{
+		id: 'adam',
+		fullName: 'Adam Smith',
+		gamertag: 'Cypphex',
+		orgRole: 'Website Development Director',
+		picture: '/images/people/headshots/profile-cypphex.png',
+		socialLinks: [],
+	},
+	{
 		id: 'matt-delatorre',
 		fullName: 'Matt DeLaTorre',
 		gamertag: 'Stryker',
