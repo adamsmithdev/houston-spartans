@@ -83,6 +83,16 @@
 	font-size: 0.9rem;
 }
 
+.creditLink {
+	color: #b5a5a5;
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+.creditLink:hover {
+	color: #bc1616;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
 	.footerContent {
