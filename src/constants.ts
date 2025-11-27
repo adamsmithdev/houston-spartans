@@ -170,7 +170,7 @@ export const CONTENT_CREATORS = [
 		fullName: 'Jaia Burkhalter',
 		gamertag: 'Arrow',
 		creatorTier: 'Content Creator',
-		picture: '',
+		picture: '/images/people/headshots/profile-arrow.png',
 		socialLinks: [
 			{ platform: 'instagram', url: 'http://instagram.com/bestintown7549_' },
 			{ platform: 'twitch', url: 'https://twitch.tv/bestintown7549' },
