@@ -4,7 +4,6 @@ import {
 	Button,
 	ButtonGroup,
 } from '@/components/ui';
-import { CREATOR_PROGRAM_TIERS } from '@/constants';
 import styles from './ContentCreatorProgram.module.css';
 import globalStyles from '@/styles/globals.module.css';
 
@@ -21,40 +20,50 @@ export default function ContentCreatorProgram() {
 					<p className={styles.introText}>
 						The Houston Spartans are launching an exciting Content Creator
 						Program to connect with passionate creators who share our vision of
-						excellence in esports and gaming. This program is designed to
-						empower creators, build community engagement, and provide rewarding
+						excellence and community. This program is designed to empower
+						creators, build community engagement, and provide rewarding
 						opportunities for their contributions.
 					</p>
 				</div>
 
-				<div className={styles.tiersGrid}>
-					{CREATOR_PROGRAM_TIERS.map((tier) => (
-						<div key={tier.id} className={styles.tierCard}>
-							<div className={styles.tierHeader}>
-								<h3 className={styles.tierName}>{tier.name}</h3>
+				<div className={styles.programHighlight}>
+					<div className={styles.highlightContent}>
+						<h3 className={styles.highlightTitle}>JOIN OUR CREATOR FAMILY</h3>
+						<p className={styles.highlightDescription}>
+							We&apos;re looking for passionate content creators who are growing
+							their platforms and want to continue that growth within a
+							supportive community. Whether you&apos;re streaming, creating
+							videos, or building content across multiple platforms, if
+							you&apos;re dedicated to your craft and want to be part of
+							something bigger, we want to hear from you.
+						</p>
+
+						<div className={styles.programDetails}>
+							<div className={styles.detailSection}>
+								<h4>What We&apos;re Looking For:</h4>
+								<ul className={styles.detailList}>
+									<li>Active content creators passionate about their craft</li>
+									<li>
+										Creators who are growing their audience and engagement
+									</li>
+									<li>Commitment to producing quality content regularly</li>
+									<li>Desire to collaborate and grow within a community</li>
+									<li>Alignment with Houston Spartans values and brand</li>
+								</ul>
 							</div>
 
-							<div className={styles.tierContent}>
-								<div className={styles.requirementsSection}>
-									<h4>Requirements:</h4>
-									<ul className={styles.requirementsList}>
-										{tier.requirements.map((requirement) => (
-											<li key={requirement}>{requirement}</li>
-										))}
-									</ul>
-								</div>
-
-								<div className={styles.incentivesSection}>
-									<h4>Incentives:</h4>
-									<ul className={styles.incentivesList}>
-										{tier.incentives.map((incentive) => (
-											<li key={incentive}>{incentive}</li>
-										))}
-									</ul>
-								</div>
+							<div className={styles.detailSection}>
+								<h4>What You&apos;ll Receive:</h4>
+								<ul className={styles.detailList}>
+									<li>Social media promotion and shoutouts</li>
+									<li>Access to our creator community and networking</li>
+									<li>Opportunities for collaborations and co-streaming</li>
+									<li>Support and resources to help grow your platform</li>
+									<li>Exclusive event invitations</li>
+								</ul>
 							</div>
 						</div>
-					))}
+					</div>
 				</div>
 
 				<div className={styles.applicationSection}>
@@ -79,7 +88,7 @@ export default function ContentCreatorProgram() {
 								<h4>Content Submission</h4>
 								<p>
 									Provide links to your best content showcasing your creativity
-									and relevance to gaming or esports.
+									and what makes you unique.
 								</p>
 							</div>
 						</div>
