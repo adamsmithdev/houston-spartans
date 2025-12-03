@@ -69,6 +69,14 @@ export const TEAM_MEMBERS = [
 		],
 	},
 	{
+		id: 'molitor',
+		fullName: 'Mike',
+		gamertag: 'Molitor',
+		orgRole: 'Esports School Director',
+		picture: '/images/people/headshots/profile-molitor.png',
+		socialLinks: [],
+	},
+	{
 		id: 'adam',
 		fullName: 'Adam Smith',
 		gamertag: 'Cypphex',
@@ -296,7 +304,7 @@ export const CONTENT_CREATORS = [
 	},
 	{
 		id: 'voltz',
-		fullName: '',
+		fullName: 'Chandler Johnston',
 		gamertag: 'Voltz',
 		creatorTier: 'Content Creator',
 		picture: '/images/people/headshots/profile-voltz.png',
