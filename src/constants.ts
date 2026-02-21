@@ -20,12 +20,25 @@ export const TEAM_MEMBERS = [
 		id: 'trae-pancerella',
 		fullName: 'Trae Pancerella',
 		gamertag: 'Apollo',
-		orgRole: 'COD Director',
+		orgRole: 'General Manager',
 		picture: '/images/people/headshots/profile-apollo.png',
 		socialLinks: [
 			{
 				platform: 'x',
 				url: 'https://x.com/ihyApollo',
+			},
+		],
+	},
+	{
+		id: 'jadedfox',
+		fullName: 'JadedFox',
+		gamertag: 'JadedFox',
+		orgRole: 'General Manager',
+		picture: '/images/people/headshots/profile-jadedfox.png',
+		socialLinks: [
+			{
+				platform: 'x',
+				url: 'https://x.com/JadedFox',
 			},
 		],
 	},
@@ -56,17 +69,12 @@ export const TEAM_MEMBERS = [
 		],
 	},
 	{
-		id: 'jadedfox',
-		fullName: 'JadedFox',
-		gamertag: 'JadedFox',
-		orgRole: 'Social Media Manager',
-		picture: '/images/people/headshots/profile-jadedfox.png',
-		socialLinks: [
-			{
-				platform: 'x',
-				url: 'https://x.com/JadedFox',
-			},
-		],
+		id: 'molitor',
+		fullName: 'Mike',
+		gamertag: 'Molitor',
+		orgRole: 'Esports School Director',
+		picture: '/images/people/headshots/profile-molitor.png',
+		socialLinks: [],
 	},
 	{
 		id: 'adam',
@@ -296,7 +304,7 @@ export const CONTENT_CREATORS = [
 	},
 	{
 		id: 'voltz',
-		fullName: '',
+		fullName: 'Chandler Johnston',
 		gamertag: 'Voltz',
 		creatorTier: 'Content Creator',
 		picture: '/images/people/headshots/profile-voltz.png',
