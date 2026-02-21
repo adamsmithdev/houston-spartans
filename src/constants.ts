@@ -20,12 +20,25 @@ export const TEAM_MEMBERS = [
 		id: 'trae-pancerella',
 		fullName: 'Trae Pancerella',
 		gamertag: 'Apollo',
-		orgRole: 'COD Director',
+		orgRole: 'General Manager',
 		picture: '/images/people/headshots/profile-apollo.png',
 		socialLinks: [
 			{
 				platform: 'x',
 				url: 'https://x.com/ihyApollo',
+			},
+		],
+	},
+	{
+		id: 'jadedfox',
+		fullName: 'JadedFox',
+		gamertag: 'JadedFox',
+		orgRole: 'General Manager',
+		picture: '/images/people/headshots/profile-jadedfox.png',
+		socialLinks: [
+			{
+				platform: 'x',
+				url: 'https://x.com/JadedFox',
 			},
 		],
 	},
@@ -52,19 +65,6 @@ export const TEAM_MEMBERS = [
 			{
 				platform: 'x',
 				url: 'https://x.com/xKevology',
-			},
-		],
-	},
-	{
-		id: 'jadedfox',
-		fullName: 'JadedFox',
-		gamertag: 'JadedFox',
-		orgRole: 'Social Media Manager',
-		picture: '/images/people/headshots/profile-jadedfox.png',
-		socialLinks: [
-			{
-				platform: 'x',
-				url: 'https://x.com/JadedFox',
 			},
 		],
 	},
