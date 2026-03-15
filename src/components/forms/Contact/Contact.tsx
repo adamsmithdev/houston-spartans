@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Link from 'next/link';
+import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile';
 import { Container, Button } from '@/components/ui';
 import {
 	DiscordIcon,
@@ -19,6 +20,9 @@ interface FormData {
 }
 
 export default function Contact() {
+	const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+	const turnstileRef = useRef<TurnstileInstance>(null);
+
 	const [formData, setFormData] = useState<FormData>({
 		name: '',
 		email: '',
@@ -65,6 +69,14 @@ export default function Contact() {
 			return;
 		}
 
+		if (!turnstileToken) {
+			showNotification(
+				'Please wait for the security check to complete.',
+				'error',
+			);
+			return;
+		}
+
 		setIsSubmitting(true);
 
 		try {
@@ -73,7 +85,7 @@ export default function Contact() {
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify(formData),
+				body: JSON.stringify({ ...formData, turnstileToken }),
 			});
 
 			const result = await response.json();
@@ -98,6 +110,8 @@ export default function Contact() {
 			);
 		} finally {
 			setIsSubmitting(false);
+			turnstileRef.current?.reset();
+			setTurnstileToken(null);
 		}
 	};
 
@@ -166,7 +180,18 @@ export default function Contact() {
 									required
 								/>
 							</div>
-							<Button type="submit" variant="submit" disabled={isSubmitting}>
+							<Turnstile
+								ref={turnstileRef}
+								siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+								onSuccess={setTurnstileToken}
+								onError={() => setTurnstileToken(null)}
+								onExpire={() => setTurnstileToken(null)}
+							/>
+							<Button
+								type="submit"
+								variant="submit"
+								disabled={isSubmitting || !turnstileToken}
+							>
 								{isSubmitting ? 'SENDING...' : 'SUBMIT'}
 							</Button>
 						</form>

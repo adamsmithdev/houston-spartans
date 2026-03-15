@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile';
 import { Container, SectionHeading, Button } from '@/components/ui';
 import styles from './ApplicationForm.module.css';
 import globalStyles from '@/styles/globals.module.css';
@@ -38,6 +39,8 @@ export default function ApplicationForm() {
 	const [submitStatus, setSubmitStatus] = useState<
 		'idle' | 'success' | 'error'
 	>('idle');
+	const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+	const turnstileRef = useRef<TurnstileInstance>(null);
 
 	const handleInputChange = (
 		e: React.ChangeEvent<
@@ -53,6 +56,12 @@ export default function ApplicationForm() {
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
+
+		if (!turnstileToken) {
+			setSubmitStatus('error');
+			return;
+		}
+
 		setIsSubmitting(true);
 		setSubmitStatus('idle');
 
@@ -62,7 +71,7 @@ export default function ApplicationForm() {
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify(formData),
+				body: JSON.stringify({ ...formData, turnstileToken }),
 			});
 
 			const result = await response.json();
@@ -78,6 +87,8 @@ export default function ApplicationForm() {
 			setSubmitStatus('error');
 		} finally {
 			setIsSubmitting(false);
+			turnstileRef.current?.reset();
+			setTurnstileToken(null);
 		}
 	};
 
@@ -258,8 +269,19 @@ export default function ApplicationForm() {
 						</div>
 					)}
 
+					<Turnstile
+						ref={turnstileRef}
+						siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+						onSuccess={setTurnstileToken}
+						onError={() => setTurnstileToken(null)}
+						onExpire={() => setTurnstileToken(null)}
+					/>
 					<div className={styles.submitSection}>
-						<Button type="submit" variant="primary" disabled={isSubmitting}>
+						<Button
+							type="submit"
+							variant="primary"
+							disabled={isSubmitting || !turnstileToken}
+						>
 							{isSubmitting ? 'Submitting...' : 'Submit Application'}
 							<i className="fas fa-paper-plane"></i>
 						</Button>
