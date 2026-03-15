@@ -1,6 +1,5 @@
 import { Resend } from 'resend';
 import { NextRequest, NextResponse } from 'next/server';
-import { verifyTurnstile } from '@/lib/turnstile';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -13,7 +12,6 @@ interface ApplicationFormData {
 	followerCount: string;
 	contentLinks: string;
 	whyJoin: string;
-	turnstileToken: string;
 }
 
 export async function POST(request: NextRequest) {
@@ -28,17 +26,7 @@ export async function POST(request: NextRequest) {
 			followerCount,
 			contentLinks,
 			whyJoin,
-			turnstileToken,
 		} = body;
-
-		// Verify Turnstile token
-		const isHuman = await verifyTurnstile(turnstileToken ?? '');
-		if (!isHuman) {
-			return NextResponse.json(
-				{ error: 'Security check failed. Please try again.' },
-				{ status: 400 },
-			);
-		}
 
 		// Validate required fields
 		if (
