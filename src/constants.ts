@@ -56,6 +56,17 @@ export const TEAM_MEMBERS = [
 		],
 	},
 	{
+		id: 'dblduty',
+		fullName: '',
+		gamertag: 'DBLduty',
+		orgRole: 'CC Manager',
+		picture: '/images/people/headshots/profile-dblduty.png',
+		socialLinks: [
+			{ platform: 'kick', url: 'https://kick.com/dblduty' },
+			{ platform: 'x', url: 'https://x.com/dbldtydadx13' },
+		],
+	},
+	{
 		id: 'kevin-tucker',
 		fullName: 'Kevin Tucker',
 		gamertag: 'Kevology',
