@@ -45,7 +45,7 @@ const partnerLogos = [
 	},
 	{
 		id: 'ssi-pc',
-		src: sponsors.ssi,
+		src: partners.ssi,
 		alt: 'SSI PC Optimization',
 	},
 	{

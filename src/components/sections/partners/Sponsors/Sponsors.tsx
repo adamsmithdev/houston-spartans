@@ -9,15 +9,6 @@ import globalStyles from '@/styles/globals.module.css';
 
 const sponsors = [
 	{
-		id: 'ssi-pc',
-		name: 'SSI PC Optimization',
-		category: 'Technology Sponsor',
-		src: collaboration.sponsors.ssi,
-		description:
-			'SSI PC Optimization specializes in maximizing computer performance for competitive gaming, providing hardware optimization services and technical support for peak gaming performance.',
-		website: 'https://x.com/ssi_pc_opti',
-	},
-	{
 		id: 'rally-esports',
 		name: 'Rally Esports',
 		category: 'Gaming Sponsor',
