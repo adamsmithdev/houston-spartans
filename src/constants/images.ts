@@ -21,11 +21,11 @@ export const collaboration = {
 		warGaming: '/images/collaboration/partners/war-gaming-logo.png',
 		kindr3dSauce: '/images/collaboration/partners/kindr3d-sauce-logo.png',
 		bluebonnet: '/images/collaboration/partners/bluebonnet-logo.png',
+		ssi: '/images/collaboration/partners/ssi-pc-optimization-logo.png',
 	},
 	sponsors: {
 		rallyEsports: '/images/collaboration/sponsors/rally-esports-logo.png',
 		soardogg: '/images/collaboration/sponsors/soardogg-logo.png',
-		ssi: '/images/collaboration/sponsors/ssi-pc-optimization-logo.png',
 	},
 };
 

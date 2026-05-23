@@ -71,18 +71,18 @@ const partners = [
 			'Bluebonnet Law Firm, P.C. provides comprehensive legal services and guidance, ensuring Houston Spartans operates with integrity and compliance in all business endeavors.',
 		website: 'https://www.bluebonnetlawfirmpc.com/',
 	},
-];
-
-const sponsors = [
 	{
 		id: 'ssi-pc',
 		name: 'SSI PC Optimization',
-		category: 'Technology Sponsor',
-		src: collaboration.sponsors.ssi,
+		category: 'Technology Partner',
+		src: collaboration.partners.ssi,
 		description:
 			'SSI PC Optimization specializes in maximizing computer performance for competitive gaming, providing hardware optimization services and technical support for peak gaming performance.',
 		website: 'https://x.com/ssi_pc_opti',
 	},
+];
+
+const sponsors = [
 	{
 		id: 'rally-esports',
 		name: 'Rally Esports',
