@@ -59,5 +59,7 @@ export const people = {
 		stryker: '/images/people/headshots/profile-stryker.png',
 		voltz: '/images/people/headshots/profile-voltz.png',
 		xogrinchy: '/images/people/headshots/profile-xogrinchy.png',
+		carretttop: '/images/people/headshots/profile-carretttop.png',
+		dank: '/images/people/headshots/profile-dank.png',
 	},
 };

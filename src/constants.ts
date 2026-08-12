@@ -17,19 +17,6 @@ export const TEAM_MEMBERS = [
 		],
 	},
 	{
-		id: 'trae-pancerella',
-		fullName: 'Trae Pancerella',
-		gamertag: 'Apollo',
-		orgRole: 'General Manager',
-		picture: '/images/people/headshots/profile-apollo.png',
-		socialLinks: [
-			{
-				platform: 'x',
-				url: 'https://x.com/ihyApollo',
-			},
-		],
-	},
-	{
 		id: 'jadedfox',
 		fullName: 'JadedFox',
 		gamertag: 'JadedFox',
@@ -67,6 +54,32 @@ export const TEAM_MEMBERS = [
 		],
 	},
 	{
+		id: 'garrett-mitchell',
+		fullName: 'Garrett Mitchell',
+		gamertag: 'CARRETTTOP',
+		orgRole: 'Esports Director',
+		picture: '/images/people/headshots/profile-carretttop.png',
+		socialLinks: [
+			{
+				platform: 'x',
+				url: 'https://x.com/HSTXCARRETTTOP',
+			},
+		],
+	},
+	{
+		id: 'colton-english',
+		fullName: 'Colton English',
+		gamertag: 'DANK',
+		orgRole: 'U18 Head Coach',
+		picture: '/images/people/headshots/profile-dank.png',
+		socialLinks: [
+			{
+				platform: 'x',
+				url: 'https://x.com/DANK____1',
+			},
+		],
+	},
+	{
 		id: 'kevin-tucker',
 		fullName: 'Kevin Tucker',
 		gamertag: 'Kevology',
@@ -94,6 +107,19 @@ export const TEAM_MEMBERS = [
 		orgRole: 'Website Development Director',
 		picture: '/images/people/headshots/profile-cypphex.png',
 		socialLinks: [],
+	},
+	{
+		id: 'trae-pancerella',
+		fullName: 'Trae Pancerella',
+		gamertag: 'Apollo',
+		orgRole: 'Legacy',
+		picture: '/images/people/headshots/profile-apollo.png',
+		socialLinks: [
+			{
+				platform: 'x',
+				url: 'https://x.com/ihyApollo',
+			},
+		],
 	},
 	{
 		id: 'matt-delatorre',
