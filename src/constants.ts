@@ -17,15 +17,41 @@ export const TEAM_MEMBERS = [
 		],
 	},
 	{
-		id: 'jadedfox',
-		fullName: 'JadedFox',
-		gamertag: 'JadedFox',
+		id: 'garrett-mitchell',
+		fullName: 'Garrett Mitchell',
+		gamertag: 'CARRETTTOP',
 		orgRole: 'General Manager',
-		picture: '/images/people/headshots/profile-jadedfox.png',
+		picture: '/images/people/headshots/profile-carretttop.png',
 		socialLinks: [
 			{
 				platform: 'x',
-				url: 'https://x.com/JadedFox',
+				url: 'https://x.com/HSTXCARRETTTOP',
+			},
+		],
+	},
+	{
+		id: 'colton-english',
+		fullName: 'Colton English',
+		gamertag: 'DANK',
+		orgRole: 'Esports Director',
+		picture: '/images/people/headshots/profile-dank.png',
+		socialLinks: [
+			{
+				platform: 'x',
+				url: 'https://x.com/DANK____1',
+			},
+		],
+	},
+	{
+		id: 'kujoh',
+		fullName: 'Eric',
+		gamertag: 'Kujoh',
+		orgRole: 'Rocket League Manager',
+		picture: '/images/people/headshots/profile-kujoh.png',
+		socialLinks: [
+			{
+				platform: 'x',
+				url: 'https://x.com/ImKujoh',
 			},
 		],
 	},
@@ -51,32 +77,6 @@ export const TEAM_MEMBERS = [
 		socialLinks: [
 			{ platform: 'kick', url: 'https://kick.com/dblduty' },
 			{ platform: 'x', url: 'https://x.com/dbldtydadx13' },
-		],
-	},
-	{
-		id: 'garrett-mitchell',
-		fullName: 'Garrett Mitchell',
-		gamertag: 'CARRETTTOP',
-		orgRole: 'Esports Director',
-		picture: '/images/people/headshots/profile-carretttop.png',
-		socialLinks: [
-			{
-				platform: 'x',
-				url: 'https://x.com/HSTXCARRETTTOP',
-			},
-		],
-	},
-	{
-		id: 'colton-english',
-		fullName: 'Colton English',
-		gamertag: 'DANK',
-		orgRole: 'U18 Head Coach',
-		picture: '/images/people/headshots/profile-dank.png',
-		socialLinks: [
-			{
-				platform: 'x',
-				url: 'https://x.com/DANK____1',
-			},
 		],
 	},
 	{
@@ -210,6 +210,23 @@ export const CREATOR_PROGRAM_TIERS = [
 export const CONTENT_CREATORS = [
 	// Add content creators here when data is available
 	// Example structure:
+	{
+		id: 'jadedfox',
+		fullName: 'JadedFox',
+		gamertag: 'JadedFox',
+		creatorTier: 'Content Creator',
+		picture: '/images/people/headshots/profile-jadedfox.png',
+		socialLinks: [
+			{
+				platform: 'x',
+				url: 'https://x.com/JadedFox',
+			},
+			{
+				platform: 'twitch',
+				url: 'https://www.twitch.tv/JadedFox6',
+			},
+		],
+	},
 	{
 		id: 'arrow',
 		fullName: 'Jaia Burkhalter',
