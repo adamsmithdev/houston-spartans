@@ -1,50 +1,10 @@
 import { Container, SectionHeading } from '@/components/ui';
 import { SpartanCard } from '@/components/cards';
-import {
-	KickIcon,
-	XIcon,
-	TwitchIcon,
-	TikTokIcon,
-	YouTubeIcon,
-} from '@/components/icons';
+import { KickIcon, XIcon, TikTokIcon } from '@/components/icons';
 import styles from './Spartans.module.css';
 import globalStyles from '@/styles/globals.module.css';
 
 const spartans = [
-	{
-		id: 'ciscodisco',
-		fullName: '',
-		gamertag: 'CISCODISCO',
-		orgRole: 'CONTENT CREATOR',
-		picture: '/images/people/headshots/profile-ciscodisco.png',
-		socialLinks: [
-			{
-				platform: 'twitter',
-				url: 'https://x.com/ciscodisco1618',
-				icon: <XIcon />,
-			},
-			{
-				platform: 'twitch',
-				url: 'https://www.twitch.tv/ciscodisco1618',
-				icon: <TwitchIcon />,
-			},
-			{
-				platform: 'kick',
-				url: 'https://kick.com/ciscodisco1618',
-				icon: <KickIcon />,
-			},
-			{
-				platform: 'tiktok',
-				url: 'https://www.tiktok.com/@ciscodisco1618',
-				icon: <TikTokIcon />,
-			},
-			{
-				platform: 'youtube',
-				url: 'https://www.youtube.com/@CiscoDisco1618',
-				icon: <YouTubeIcon />,
-			},
-		],
-	},
 	{
 		id: 'kevology',
 		fullName: 'Kevin Tucker',
