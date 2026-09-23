@@ -5,13 +5,12 @@ import {
 	processSocialLinks,
 } from '@/components/ui';
 import { SpartanCard } from '@/components/cards';
-import { CONTENT_CREATORS, type ContentCreator } from '@/constants';
+import { getContentCreators } from '@/lib/rosterDatabase';
 import styles from './ContentCreators.module.css';
 import globalStyles from '@/styles/globals.module.css';
 
-export default function ContentCreators() {
-	// Type assertion to work with the current empty array
-	const creators = CONTENT_CREATORS as unknown as ContentCreator[];
+export default async function ContentCreators() {
+	const creators = await getContentCreators();
 
 	if (creators.length === 0) {
 		return (
@@ -40,11 +39,11 @@ export default function ContentCreators() {
 					<SpartanCard
 						key={creator.id}
 						id={creator.id}
-						fullName={creator.fullName}
-						gamertag={creator.gamertag}
-						orgRole={creator.creatorTier}
-						picture={creator.picture}
-						socialLinks={processSocialLinks(creator.socialLinks)}
+						fullName={creator.full_name}
+						gamertag={creator.gamertag ?? undefined}
+						orgRole={creator.creator_tier ?? 'Content Creator'}
+						picture={creator.picture_url ?? undefined}
+						socialLinks={processSocialLinks(creator.social_links)}
 					/>
 				))}
 			</div>

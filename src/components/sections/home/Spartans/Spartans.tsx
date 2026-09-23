@@ -1,47 +1,12 @@
-import { Container, SectionHeading } from '@/components/ui';
+import { Container, SectionHeading, processSocialLinks } from '@/components/ui';
 import { SpartanCard } from '@/components/cards';
-import { KickIcon, XIcon, TikTokIcon } from '@/components/icons';
+import { getFeaturedHomeMembers } from '@/lib/rosterDatabase';
 import styles from './Spartans.module.css';
 import globalStyles from '@/styles/globals.module.css';
 
-const spartans = [
-	{
-		id: 'kevology',
-		fullName: 'Kevin Tucker',
-		gamertag: 'KEVOLOGY',
-		orgRole: 'ASSISTANT',
-		picture: '/images/people/headshots/profile-kevology.png',
-		socialLinks: [
-			{ platform: 'twitter', url: 'https://x.com/xkevology', icon: <XIcon /> },
-			{
-				platform: 'kick',
-				url: 'https://kick.com/kevology',
-				icon: <KickIcon />,
-			},
-			{
-				platform: 'tiktok',
-				url: 'https://www.tiktok.com/@xkevologyx',
-				icon: <TikTokIcon />,
-			},
-		],
-	},
-	{
-		id: 'carretttop',
-		fullName: 'Garrett Mitchell',
-		gamertag: 'CARRETTTOP',
-		orgRole: 'Esports Director',
-		picture: '/images/people/headshots/profile-carretttop.png',
-		socialLinks: [
-			{
-				platform: 'twitter',
-				url: 'https://x.com/hstxcarretttop',
-				icon: <XIcon />,
-			},
-		],
-	},
-];
+export default async function Spartans() {
+	const spartans = await getFeaturedHomeMembers();
 
-export default function Spartans() {
 	return (
 		<section id="spartans" className={styles.spartans}>
 			<Container>
@@ -54,11 +19,15 @@ export default function Spartans() {
 						<SpartanCard
 							key={spartan.id}
 							id={spartan.id}
-							fullName={spartan.fullName}
-							gamertag={spartan.gamertag}
-							orgRole={spartan.orgRole}
-							picture={spartan.picture}
-							socialLinks={spartan.socialLinks}
+							fullName={spartan.full_name}
+							gamertag={spartan.gamertag ?? undefined}
+							orgRole={
+								(spartan.is_team_member ? spartan.team_role : null) ??
+								spartan.creator_tier ??
+								''
+							}
+							picture={spartan.picture_url ?? undefined}
+							socialLinks={processSocialLinks(spartan.social_links)}
 						/>
 					))}
 				</div>

@@ -1,9 +1,11 @@
 import { Section, processSocialLinks } from '@/components/ui';
 import { SpartanCard } from '@/components/cards';
-import { TEAM_MEMBERS } from '@/constants';
+import { getTeamMembers } from '@/lib/rosterDatabase';
 import styles from './Teams.module.css';
 
-export default function Teams() {
+export default async function Teams() {
+	const teamMembers = await getTeamMembers();
+
 	return (
 		<Section className={styles.teamsSection}>
 			<div className={styles.teamsContent}>
@@ -21,15 +23,15 @@ export default function Teams() {
 				</div>
 
 				<div className={styles.teamGrid}>
-					{TEAM_MEMBERS.map((member) => (
+					{teamMembers.map((member) => (
 						<SpartanCard
 							key={member.id}
 							id={member.id}
-							fullName={member.fullName}
-							gamertag={member.gamertag}
-							orgRole={member.orgRole}
-							picture={member.picture}
-							socialLinks={processSocialLinks(member.socialLinks)}
+							fullName={member.full_name}
+							gamertag={member.gamertag ?? undefined}
+							orgRole={member.team_role ?? ''}
+							picture={member.picture_url ?? undefined}
+							socialLinks={processSocialLinks(member.social_links)}
 						/>
 					))}
 				</div>
