@@ -15,6 +15,59 @@
 	overflow: hidden;
 }
 
+/* Buttons with a tooltip need overflow visible so the floating tooltip
+   below isn't clipped by the shine-sweep containment above. */
+.button[data-tooltip] {
+	overflow: visible;
+}
+
+.button[data-tooltip]::after,
+.button[data-tooltip]::before {
+	position: absolute;
+	left: 50%;
+	bottom: calc(100% + 8px);
+	pointer-events: none;
+	opacity: 0;
+	visibility: hidden;
+	transform: translate(-50%, 4px);
+	transition:
+		opacity 0.15s ease,
+		transform 0.15s ease,
+		visibility 0.15s ease;
+	z-index: 30;
+}
+
+.button[data-tooltip]::after {
+	content: attr(data-tooltip);
+	background: #1a1a1a;
+	color: #ffffff;
+	padding: 6px 10px;
+	border-radius: 6px;
+	border: 1px solid rgba(188, 22, 22, 0.3);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+	font-size: 12px;
+	font-weight: 600;
+	text-transform: none;
+	letter-spacing: normal;
+	white-space: nowrap;
+}
+
+.button[data-tooltip]::before {
+	content: '';
+	bottom: calc(100% + 3px);
+	border: 5px solid transparent;
+	border-top-color: #1a1a1a;
+}
+
+.button[data-tooltip]:hover::after,
+.button[data-tooltip]:hover::before,
+.button[data-tooltip]:focus-visible::after,
+.button[data-tooltip]:focus-visible::before {
+	opacity: 1;
+	visibility: visible;
+	transform: translate(-50%, 0);
+}
+
 .button:disabled {
 	cursor: not-allowed;
 	opacity: 0.6;

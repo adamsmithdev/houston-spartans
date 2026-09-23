@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
-import { SignOutIcon, NewsIcon } from '@/components/icons';
+import { SignOutIcon, NewsIcon, UsersIcon } from '@/components/icons';
 import styles from './AdminSidebar.module.css';
 
 // Component state interface
@@ -156,6 +156,20 @@ function AdminSidebar(): React.ReactElement | null {
 							</span>
 							{!state.isCollapsed && (
 								<span className={styles.navText}>Manage News</span>
+							)}
+						</Link>
+
+						<Link
+							href="/admin/roster"
+							className={`${styles.navItem} ${pathname.startsWith('/admin/roster') ? styles.active : ''}`}
+							title={state.isCollapsed ? 'Manage Roster' : ''}
+							onClick={handleNavClick}
+						>
+							<span className={styles.navIcon}>
+								<UsersIcon size={18} />
+							</span>
+							{!state.isCollapsed && (
+								<span className={styles.navText}>Manage Roster</span>
 							)}
 						</Link>
 					</div>

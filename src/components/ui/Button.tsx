@@ -21,6 +21,7 @@ interface ButtonProps {
 	readonly type?: 'button' | 'submit';
 	readonly className?: string;
 	readonly disabled?: boolean;
+	readonly title?: string;
 }
 
 export default function Button({
@@ -31,6 +32,7 @@ export default function Button({
 	type = 'button',
 	className = '',
 	disabled = false,
+	title,
 }: ButtonProps) {
 	// Use a simpler approach for CSS class mapping
 	const variantClasses = {
@@ -66,6 +68,8 @@ export default function Button({
 				onClick={handleClick}
 				target={isExternal ? '_blank' : undefined}
 				rel={isExternal ? 'noopener noreferrer' : undefined}
+				aria-label={title}
+				data-tooltip={title}
 			>
 				{children}
 				{variant === 'primary' && <span className={styles['button-shine']} />}
@@ -79,6 +83,8 @@ export default function Button({
 			className={buttonClasses}
 			onClick={handleClick}
 			disabled={disabled}
+			aria-label={title}
+			data-tooltip={title}
 		>
 			{children}
 			{variant === 'primary' && <span className={styles['button-shine']} />}

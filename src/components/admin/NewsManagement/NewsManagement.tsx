@@ -268,6 +268,7 @@ export default function NewsManagement() {
 										variant={post.is_published ? 'warning' : 'success'}
 										onClick={() => handleTogglePublished(post)}
 										className={styles.iconButton}
+										title={post.is_published ? 'Unpublish' : 'Publish'}
 									>
 										<i
 											className={`fas ${post.is_published ? 'fa-eye-slash' : 'fa-eye'}`}
@@ -278,6 +279,7 @@ export default function NewsManagement() {
 										variant={post.is_featured ? 'info' : 'warning'}
 										onClick={() => handleToggleFeatured(post)}
 										className={styles.iconButton}
+										title={post.is_featured ? 'Unfeature' : 'Feature'}
 									>
 										<i
 											className={
@@ -295,7 +297,11 @@ export default function NewsManagement() {
 										href={`/admin/news/${post.id}`}
 										className={styles.linkButton}
 									>
-										<Button variant="secondary" className={styles.iconButton}>
+										<Button
+											variant="secondary"
+											className={styles.iconButton}
+											title="Edit"
+										>
 											<i className="fas fa-edit"></i>
 										</Button>
 									</Link>
@@ -303,6 +309,7 @@ export default function NewsManagement() {
 										variant="danger"
 										onClick={() => handleDelete(post.id)}
 										className={styles.iconButton}
+										title="Delete"
 									>
 										<i className="fas fa-trash"></i>
 									</Button>

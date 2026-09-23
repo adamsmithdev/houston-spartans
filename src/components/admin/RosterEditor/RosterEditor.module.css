@@ -1,0 +1,366 @@
+/* News Editor Styles */
+.newsEditor {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.accessDenied {
+	text-align: center;
+	padding: 60px 20px;
+	color: #ffffff;
+}
+
+.accessDenied h2 {
+	color: #bc1616;
+	margin-bottom: 20px;
+}
+
+.loading {
+	text-align: center;
+	padding: 40px 20px;
+	color: #b5a5a5;
+	font-size: 1.1rem;
+}
+
+.error {
+	background: rgba(255, 107, 107, 0.1);
+	border: 1px solid rgba(255, 107, 107, 0.3);
+	border-radius: 8px;
+	padding: 15px;
+	margin-bottom: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	animation: slideInFromTop 0.3s ease-out;
+}
+
+@keyframes slideInFromTop {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.error p {
+	color: #ff6b6b;
+	margin: 0;
+}
+
+.error button {
+	background: none;
+	border: none;
+	color: #ff6b6b;
+	font-size: 1.2rem;
+	cursor: pointer;
+	padding: 0;
+	width: 24px;
+	height: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Form Sections */
+.section {
+	margin-bottom: 40px;
+	padding: 25px;
+	background: rgba(255, 255, 255, 0.02);
+	border-radius: 12px;
+	border: 1px solid rgba(188, 22, 22, 0.1);
+}
+
+.label {
+	display: block;
+	color: #ffffff;
+	font-weight: 600;
+	margin-bottom: 8px;
+	font-size: 0.95rem;
+}
+
+.row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+	margin-bottom: 20px;
+}
+
+.field {
+	display: flex;
+	flex-direction: column;
+}
+
+.socialLinksList {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	margin-top: 14px;
+}
+
+.socialLinkRow {
+	display: flex;
+	align-items: stretch;
+	gap: 12px;
+}
+
+/* Native <select> chrome renders taller/shorter than <input> even with
+   identical padding -- normalize box model so both match the icon
+   button's height exactly. */
+.socialLinkRow .select,
+.socialLinkRow .input {
+	box-sizing: border-box;
+	height: 44px;
+}
+
+/* Wraps the <select> so the dropdown arrow can be its own positioned
+   element instead of a background-image on the select itself -- the
+   native select's own arrow chrome is unreliable to fully suppress
+   cross-browser, which made the background-image arrow render detached
+   from the box. This way the arrow is always exactly where we put it. */
+.selectWrapper {
+	position: relative;
+	flex: 0 0 140px;
+}
+
+.selectWrapper .select {
+	width: 100%;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	padding-right: 36px;
+}
+
+.selectArrow {
+	position: absolute;
+	top: 50%;
+	right: 14px;
+	transform: translateY(-50%);
+	color: #b5a5a5;
+	font-size: 11px;
+	pointer-events: none;
+}
+
+.socialLinkRow .input {
+	flex: 1;
+	min-width: 0;
+}
+
+.iconButton {
+	flex-shrink: 0;
+	min-width: 44px;
+	height: 44px;
+	padding: 0 !important;
+	border-radius: 8px !important;
+	font-size: 14px !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+}
+
+.addLinkButton {
+	margin-top: 14px;
+}
+
+.input,
+.select,
+.textarea {
+	padding: 12px 16px;
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(188, 22, 22, 0.3);
+	border-radius: 8px;
+	color: #ffffff;
+	font-size: 0.95rem;
+	font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+	transition: all 0.3s ease;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+	outline: none;
+	border-color: #bc1616;
+	box-shadow: 0 0 0 2px rgba(188, 22, 22, 0.2);
+	background: rgba(255, 255, 255, 0.08);
+}
+
+.input.invalid,
+.select.invalid,
+.textarea.invalid {
+	border-color: #ff6b6b;
+	background: rgba(255, 107, 107, 0.05);
+}
+
+.input.invalid:focus,
+.select.invalid:focus,
+.textarea.invalid:focus {
+	border-color: #ff6b6b;
+	box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
+}
+
+.errorText {
+	color: #ff6b6b;
+	font-size: 0.85rem;
+	margin-top: 4px;
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.warningText {
+	color: #fbbf24;
+	font-size: 0.85rem;
+	margin-top: 4px;
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+	color: #8b8b8b;
+}
+
+.select option {
+	background: #111010;
+	color: #ffffff;
+}
+
+.textarea {
+	resize: vertical;
+	min-height: 80px;
+}
+
+.hint {
+	color: #8b8b8b;
+	font-size: 0.8rem;
+	margin-top: 4px;
+}
+
+/* Checkboxes */
+.checkboxGroup {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	margin-bottom: 24px;
+}
+
+.checkboxGroup:last-child {
+	margin-bottom: 0;
+}
+
+.checkboxLabel {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	color: #ffffff;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.checkbox {
+	appearance: none;
+	width: 18px;
+	height: 18px;
+	border: 2px solid rgba(188, 22, 22, 0.5);
+	border-radius: 4px;
+	background: rgba(255, 255, 255, 0.05);
+	cursor: pointer;
+	position: relative;
+	transition: all 0.3s ease;
+}
+
+.checkbox:checked {
+	background: #bc1616;
+	border-color: #bc1616;
+}
+
+.checkbox:checked::after {
+	content: '✓';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #ffffff;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.checkbox:focus {
+	outline: none;
+	box-shadow: 0 0 0 2px rgba(188, 22, 22, 0.3);
+}
+
+.helpText {
+	font-size: 0.9rem;
+	color: #b5a5a5;
+	margin-top: 8px;
+	line-height: 1.4;
+	font-weight: 400;
+}
+
+.inlineLinkButton {
+	background: none;
+	border: none;
+	padding: 0;
+	color: #bc1616;
+	font-weight: 600;
+	font-size: inherit;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.inlineLinkButton:hover {
+	color: #ff6666;
+}
+
+/* Actions */
+.actions {
+	display: flex;
+	gap: 15px;
+	justify-content: flex-end;
+	padding: 30px 0;
+	border-top: 1px solid rgba(188, 22, 22, 0.2);
+	margin-top: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.row {
+		grid-template-columns: 1fr;
+		gap: 15px;
+	}
+
+	.actions {
+		flex-direction: column-reverse;
+	}
+
+	.actions button {
+		width: 100%;
+	}
+}
+
+@media (max-width: 480px) {
+	.section {
+		padding: 20px 15px;
+		margin-bottom: 25px;
+	}
+
+	.newsEditor {
+		padding: 0 10px;
+	}
+}
+
+/* Remove default fieldset styling */
+.section fieldset {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.section legend {
+	padding: 0;
+	margin-bottom: 8px;
+}
