@@ -56,19 +56,6 @@ export const TEAM_MEMBERS = [
 		],
 	},
 	{
-		id: 'robert-duran',
-		fullName: 'Robert Duran',
-		gamertag: 'DarkSZN',
-		orgRole: 'CC Manager',
-		picture: '/images/people/headshots/profile-darkszn.png',
-		socialLinks: [
-			{
-				platform: 'x',
-				url: 'https://x.com/DarkFPS31',
-			},
-		],
-	},
-	{
 		id: 'freakyszn',
 		fullName: '',
 		gamertag: 'FreakySZN',
@@ -77,17 +64,6 @@ export const TEAM_MEMBERS = [
 		socialLinks: [
 			{ platform: 'x', url: 'https://x.com/xFreakySZNx' },
 			{ platform: 'twitch', url: 'https://www.twitch.tv/xfreakyszn' },
-		],
-	},
-	{
-		id: 'dblduty',
-		fullName: '',
-		gamertag: 'DBLduty',
-		orgRole: 'CC Manager',
-		picture: '/images/people/headshots/profile-dblduty.png',
-		socialLinks: [
-			{ platform: 'kick', url: 'https://kick.com/dblduty' },
-			{ platform: 'x', url: 'https://x.com/dbldtydadx13' },
 		],
 	},
 	{
@@ -102,6 +78,33 @@ export const TEAM_MEMBERS = [
 				url: 'https://x.com/xKevology',
 			},
 		],
+	},
+	{
+		id: 'drizzle',
+		fullName: '',
+		gamertag: 'Drizzle',
+		orgRole: 'Roundtable Host',
+		picture: '/images/people/headshots/profile-drizzle.png',
+		socialLinks: [
+			{ platform: 'x', url: 'https://x.com/DIZZLETHEEFIRST' },
+			{ platform: 'twitch', url: 'https://www.twitch.tv/dizzlet1' },
+		],
+	},
+	{
+		id: 'sakerofdeath',
+		fullName: '',
+		gamertag: 'Saker',
+		orgRole: 'Call of Duty Coach',
+		picture: '/images/people/headshots/profile-sakerofdeath.png',
+		socialLinks: [{ platform: 'x', url: 'https://x.com/SakerOfDeath_' }],
+	},
+	{
+		id: 'lrio',
+		fullName: '',
+		gamertag: 'LRIO',
+		orgRole: 'Rocket League Caster',
+		picture: '/images/people/headshots/profile-lrio.png',
+		socialLinks: [{ platform: 'x', url: 'https://x.com/locorio22' }],
 	},
 	{
 		id: 'molitor',
@@ -358,6 +361,28 @@ export const CONTENT_CREATORS = [
 		picture: '/images/people/headshots/profile-yogabagaba91.png',
 		socialLinks: [
 			{ platform: 'twitch', url: 'https://www.twitch.tv/gabrielarivas91' },
+		],
+	},
+	{
+		id: 'drizzle',
+		fullName: '',
+		gamertag: 'Drizzle',
+		creatorTier: 'Content Creator',
+		picture: '/images/people/headshots/profile-drizzle.png',
+		socialLinks: [
+			{ platform: 'x', url: 'https://x.com/DIZZLETHEEFIRST' },
+			{ platform: 'twitch', url: 'https://www.twitch.tv/dizzlet1' },
+		],
+	},
+	{
+		id: 'physiicss',
+		fullName: '',
+		gamertag: 'Physiicss',
+		creatorTier: 'Content Creator',
+		picture: '/images/people/headshots/profile-physiicss.png',
+		socialLinks: [
+			{ platform: 'x', url: 'https://x.com/Physiicss_' },
+			{ platform: 'twitch', url: 'https://www.twitch.tv/physiicss' },
 		],
 	},
 ] as const;
